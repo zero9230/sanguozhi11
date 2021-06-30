@@ -9,10 +9,19 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>sanguozhi11-corecore</module>
-        <module>sanguozhi11-starter</module>
         <module>sanguozhi11-core</module>
+        <module>sanguozhi11-starter</module>
     </modules>
 
+    <dependencyManagement>
 
+
+        <dependencies>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>23.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

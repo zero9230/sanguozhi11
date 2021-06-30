@@ -1,13 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a10e5b4-8647-4bf7-ac26-17e73f40c3c8" name="Default Changelist" comment="" />
+    <list default="true" id="5a10e5b4-8647-4bf7-ac26-17e73f40c3c8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sanguozhi11-core/src/main/java/nianyang/mny/leetcode/P102.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sanguozhi11-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sanguozhi11-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sanguozhi11-core/src/main/java/nianyang/mny/demo/aqs/AQSDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/sanguozhi11-core/src/main/java/nianyang/mny/demo/aqs/AQSDemo.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="/usr/local/Cellar/maven/3.8.1/libexec" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1uJUbEPwlMa3GBaHGAzvblTo6D2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -15,8 +47,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_PROPERTIES" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -31,14 +71,53 @@
       <workItem from="1624383257867" duration="477000" />
       <workItem from="1624460103926" duration="174000" />
       <workItem from="1624544659517" duration="124000" />
-      <workItem from="1624801158932" duration="748000" />
+      <workItem from="1624801158932" duration="2097000" />
+      <workItem from="1624980129979" duration="623000" />
+      <workItem from="1624989669406" duration="166000" />
+      <workItem from="1625067343615" duration="2476000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1624807601194</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1624807601195</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="507" y="178" key="#com.intellij.ide.util.MemberChooser" timestamp="1624807869553">
+      <screen x="0" y="23" width="1389" height="877" />
+    </state>
+    <state x="507" y="178" key="#com.intellij.ide.util.MemberChooser/0.23.1389.877@0.23.1389.877" timestamp="1624807869553" />
+    <state x="271" y="143" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1624807812189">
+      <screen x="0" y="23" width="1389" height="877" />
+    </state>
+    <state x="271" y="143" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.23.1389.877@0.23.1389.877" timestamp="1624807812189" />
+    <state x="264" y="64" key="CommitChangelistDialog2" timestamp="1625071810962">
+      <screen x="0" y="23" width="1389" height="877" />
+    </state>
+    <state x="264" y="64" key="CommitChangelistDialog2/0.23.1389.877@0.23.1389.877" timestamp="1625071810962" />
+    <state x="143" y="100" key="DiffContextDialog" timestamp="1625071764621">
+      <screen x="0" y="23" width="1389" height="877" />
+    </state>
+    <state x="143" y="100" key="DiffContextDialog/0.23.1389.877@0.23.1389.877" timestamp="1625071764621" />
+    <state x="107" y="100" width="1163" height="722" key="SettingsEditor" timestamp="1625069717813">
+      <screen x="0" y="23" width="1389" height="877" />
+    </state>
+    <state x="107" y="100" width="1163" height="722" key="SettingsEditor/0.23.1389.877@0.23.1389.877" timestamp="1625069717813" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1625068258777">
+      <screen x="0" y="23" width="1389" height="877" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.23.1389.877@0.23.1389.877" timestamp="1625068258777" />
     <state x="373" y="294" key="com.intellij.ide.util.TipDialog" timestamp="1624383260573">
       <screen x="0" y="23" width="1389" height="877" />
     </state>
