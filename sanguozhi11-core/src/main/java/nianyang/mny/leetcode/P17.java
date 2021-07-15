@@ -13,39 +13,82 @@ import java.util.*;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ *
  * @author sikou
  * @date 2021/07/07
  */
 public class P17 {
     public static void main(String[] args) {
 
-        P17 p=new P17();
+        P17 p = new P17();
 
-        String s="";
+        String s = "89";
         List<String> strings = p.letterCombinations(s);
         System.out.println(strings);
     }
 
     public List<String> letterCombinations(String digits) {
-        List<String> res=new ArrayList<>();
+
+        List<String> res = new ArrayList<>();
+        if (digits == null || digits.length() <= 0) {
+            return res;
+        }
+
         Map<Character, Character[]> map = getMap();
+        char[] chars = digits.toCharArray();
+        List<List<Character>> charList = new ArrayList<>();
+        dfs(chars,0,0,new ArrayList<Character>(),charList,map);
 
 
-        return  res;
+        for (List<Character> characters : charList) {
+            StringBuilder sb=new StringBuilder();
+            for (Character character : characters) {
+                sb.append(character);
+            }
+            res.add(sb.toString());
+        }
+
+
+        return res;
     }
 
-    public Map<Character,Character[]> getMap(){
-        Map<Character,Character[]> map=new HashMap<>();
+    /**
+     * @param chars
+     * @param numIndex
+     * @param letterIndex
+     * @param seq         一种组合
+     * @param charList    所有组合的结果
+     * @param digitMap
+     */
+    public void dfs(char[] chars, int numIndex, int letterIndex, List<Character> seq, List<List<Character>> charList,
+        Map<Character, Character[]> digitMap) {
+        if (numIndex == chars.length - 1) {
+            charList.add(new ArrayList<>());
+        }
+        //要下一个
+        char diaNum = chars[numIndex];
+        Character[] characters = digitMap.get(diaNum);
+        char letter = characters[letterIndex];
+        seq.add(letter);
+        dfs(chars, numIndex + 1, letterIndex , seq, charList, digitMap);
+        //不要下一个
+        seq.remove(letter);
+        dfs(chars, numIndex , letterIndex + 1, seq, charList, digitMap);
 
-        map.put('1',new Character[]{});
-        map.put('2',new Character[]{'a','b','c'});
-        map.put('3',new Character[]{'d','e','f'});
-        map.put('4',new Character[]{'g','h','i'});
-        map.put('5',new Character[]{'j','k','l'});
-        map.put('6',new Character[]{'m','n','o'});
-        map.put('7',new Character[]{'p','q','r','s'});
-        map.put('8',new Character[]{'t','u','v'});
-        map.put('9',new Character[]{'w','x','y','z'});
+    }
+
+    public Map<Character, Character[]> getMap() {
+        Map<Character, Character[]> map = new HashMap<>();
+
+        map.put('1', new Character[] {});
+        map.put('2', new Character[] {'a', 'b', 'c'});
+        map.put('3', new Character[] {'d', 'e', 'f'});
+        map.put('4', new Character[] {'g', 'h', 'i'});
+        map.put('5', new Character[] {'j', 'k', 'l'});
+        map.put('6', new Character[] {'m', 'n', 'o'});
+        map.put('7', new Character[] {'p', 'q', 'r', 's'});
+        map.put('8', new Character[] {'t', 'u', 'v'});
+        map.put('9', new Character[] {'w', 'x', 'y', 'z'});
 
         return map;
     }
