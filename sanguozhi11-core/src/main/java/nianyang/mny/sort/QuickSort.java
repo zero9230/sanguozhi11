@@ -43,18 +43,22 @@ public class QuickSort extends AbstractSort{
         if(left>right){
             return;
         }
+        //标兵取在左侧，则右哨兵先行；标兵取在右侧，则左哨兵先行
         int pivot = nums[left];
 
         int i = left, j = right;
         while (i < j) {
+            //哨兵行动
             while (nums[j] >= pivot && i<j) {
                 j--;
             }
             while (nums[i] <= pivot && i<j) {
                 i++;
             }
+            //以标兵为基准划分两段
             swap(nums, i, j);
         }
+        //标兵归位，用于分割上面已经分好的区间，后面的递归不要带上归位的标兵
         swap(nums,left,i);
 
         sort(nums, left, i - 1);
