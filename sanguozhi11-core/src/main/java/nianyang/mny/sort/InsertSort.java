@@ -4,7 +4,7 @@ public class InsertSort extends AbstractSort {
 
     public static void main(String[] args) {
         InsertSort demo = new InsertSort();
-        int[] nums = initChaosArray();
+        int[] nums = initArrayUnsorted();
         for (int num : nums) {
             System.out.print(num + " ");
         }
@@ -16,7 +16,7 @@ public class InsertSort extends AbstractSort {
         }
     }
 
-
+    @Override
     public int[] sort(int[] nums) {
 
         if (nums == null || nums.length <= 1) {

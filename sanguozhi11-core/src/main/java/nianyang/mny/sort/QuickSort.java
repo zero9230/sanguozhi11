@@ -27,6 +27,7 @@ public class QuickSort extends AbstractSort{
 
     }
 
+    @Override
     public int[] sort(int[] nums) {
 
         if (nums == null || nums.length <= 1) {
