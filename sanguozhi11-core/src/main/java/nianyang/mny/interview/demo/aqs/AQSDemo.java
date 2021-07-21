@@ -1,4 +1,4 @@
-package nianyang.mny.demo.aqs;
+package nianyang.mny.interview.demo.aqs;
 
 import com.google.common.collect.Lists;
 

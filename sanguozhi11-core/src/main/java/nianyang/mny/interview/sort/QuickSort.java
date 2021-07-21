@@ -1,8 +1,4 @@
-package nianyang.mny.sort;
-
-import java.util.List;
-
-import com.google.common.collect.Lists;
+package nianyang.mny.interview.sort;
 
 /**
  * @author sikou

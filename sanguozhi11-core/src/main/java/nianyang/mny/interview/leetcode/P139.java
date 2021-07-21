@@ -1,4 +1,4 @@
-package nianyang.mny.leetcode;
+package nianyang.mny.interview.leetcode;
 
 import java.util.*;
 public class P139 {

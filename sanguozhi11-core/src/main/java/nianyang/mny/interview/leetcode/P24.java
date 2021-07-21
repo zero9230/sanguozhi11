@@ -1,7 +1,7 @@
-package nianyang.mny.leetcode;
+package nianyang.mny.interview.leetcode;
 
-import nianyang.mny.leetcode.dto.ListNode;
-import nianyang.mny.leetcode.util.ListNodeBuilder;
+import nianyang.mny.interview.leetcode.dto.ListNode;
+import nianyang.mny.interview.leetcode.util.ListNodeBuilder;
 
 public class P24 {
 

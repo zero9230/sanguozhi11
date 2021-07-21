@@ -1,4 +1,4 @@
-package nianyang.mny.leetcode;
+package nianyang.mny.interview.leetcode;
 
 public class P191 {
 
