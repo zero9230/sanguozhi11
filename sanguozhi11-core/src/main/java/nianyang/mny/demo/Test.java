@@ -1,6 +1,6 @@
 package nianyang.mny.demo;
 
-import nianyang.mny.leetcode.dto.ListNode;
+import nianyang.mny.interview.leetcode.dto.ListNode;
 
 /**
  * @author sikou
@@ -19,10 +19,10 @@ public class Test {
             return head;
         }
         //ListNode node1,node2,node3,node4,node5,node6,node7;
-        //node3.next=node4; //×Ô´ø
+        //node3.next=node4; //è‡ªå¸¦
         //node4.next=node1;
-        //node5.next=node6; //×Ô´ø
-        //node6.next=node3;  //Ñ­»·ÖØ¸´µã
+        //node5.next=node6; //è‡ªå¸¦
+        //node6.next=node3;  //å¾ªç¯é‡å¤ç‚¹
         //return node5;
         ListNode newHead=head;
         ListNode p=head;

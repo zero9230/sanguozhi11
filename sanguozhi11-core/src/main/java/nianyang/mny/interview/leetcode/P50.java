@@ -1,4 +1,4 @@
-package nianyang.mny.leetcode;
+package nianyang.mny.interview.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ public class P50 {
 
     public static void main(String[] args) {
         P50 p=new P50();
-        double x=5.2;
-        int n=14;
+        double x=2;
+        int n=12;
         double res = p.myPow(x, n);
         System.out.println(res);
 
@@ -37,10 +37,10 @@ public class P50 {
 
         double base=x;
         for(int i=nBin.length()-1;i>=0;i--){
-            double element = base * base;
+            base = base * base;
             int bitFlag=nBin.charAt(i)-'0';
             if(bitFlag==1){
-                list.add(element);
+                list.add(base);
             }
         }
         for(Double ele:list){
