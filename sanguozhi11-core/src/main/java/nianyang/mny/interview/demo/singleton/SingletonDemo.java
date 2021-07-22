@@ -1,4 +1,4 @@
-package nianyang.mny.demo.singleton;
+package nianyang.mny.interview.demo.singleton;
 
 public class SingletonDemo {
 

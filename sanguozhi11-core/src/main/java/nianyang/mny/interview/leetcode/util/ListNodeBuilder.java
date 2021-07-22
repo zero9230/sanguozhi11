@@ -1,6 +1,6 @@
-package nianyang.mny.leetcode.util;
+package nianyang.mny.interview.leetcode.util;
 
-import nianyang.mny.leetcode.dto.ListNode;
+import nianyang.mny.interview.leetcode.dto.ListNode;
 
 import java.util.List;
 

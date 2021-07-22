@@ -1,4 +1,4 @@
-package nianyang.mny.sort;
+package nianyang.mny.interview.sort;
 
 public class MergeSort extends AbstractSort{
 

@@ -1,6 +1,6 @@
-package nianyang.mny.demo.reflect;
+package nianyang.mny.interview.demo.reflect;
 
-import nianyang.mny.leetcode.P15;
+import nianyang.mny.interview.leetcode.P15;
 
 import java.lang.reflect.Field;
 

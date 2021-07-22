@@ -1,4 +1,4 @@
-package nianyang.mny.leetcode.dto;
+package nianyang.mny.interview.leetcode.dto;
 
 public class ListNode {
 

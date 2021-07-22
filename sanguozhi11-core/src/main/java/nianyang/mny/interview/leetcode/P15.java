@@ -1,8 +1,7 @@
-package nianyang.mny.leetcode;
+package nianyang.mny.interview.leetcode;
 
 import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 

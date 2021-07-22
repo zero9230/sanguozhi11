@@ -1,4 +1,4 @@
-package nianyang.mny.demo.lock;
+package nianyang.mny.interview.demo.lock;
 
 public class DeadLockDemo {
 
