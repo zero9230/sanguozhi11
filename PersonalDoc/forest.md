@@ -36,3 +36,37 @@ position= metaHeadSize + recordId * recordSize
 
 - 字段表文件
 
+
+
+# 加载
+
+如何手动清理内存区？
+
+
+
+# 微包化
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
