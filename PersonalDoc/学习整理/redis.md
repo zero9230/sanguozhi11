@@ -684,7 +684,7 @@ slaveof no one		# 当前进程自己成为主机
 
 哨兵通过心跳命令监控各主从服务器的运行状态
 
-![image-20210901162908869](/Users/zero/Library/Application Support/typora-user-images/image-20210901162908869.png)
+<img src="redis.assets/image-20210901162908869.png" width="400"/>
 
 
 
