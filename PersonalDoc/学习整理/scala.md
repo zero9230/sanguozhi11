@@ -18,9 +18,27 @@ val	//声明一个常量，一旦被赋值不可再修改
 
 
 ```scala
-//字符串操作。scala中的String类就是java中的String类
+//字符串操作。
+//scala中的String类就是java中的String类
+
+```
 
 
+
+```scala
+//数据类型
+
+//Byte Short Int Long Char String Float Double Boolean
+//除了String外，其他都在scala包下
+//以上九个类在scala中有富包装类提供额外方法
+//scala.runtime.RichByte等等
+```
+
+
+
+```scala
+//操作符
+//操作符 即 方法
 ```
 
 
