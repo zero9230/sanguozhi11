@@ -58,12 +58,51 @@
 
 # docker常用命令
 
+> [docker命令官网文档](https://docs.docker.com/engine/reference/run/)
+
 ```bash
 docker version	# 显示docker版本
 docker info	# 显示docker系统信息，
 docker 命令 --help
 
 ```
+
+
+
+## 镜像命令
+
+```bash
+docker images	# 查看所有本地主机上的镜像
+# 可选项
+-a --all	# 显示所有镜像
+-q --quite	# 只显示镜像id
+
+
+docker search	# 搜索
+docker search mysql	# 搜索mysql相关的docker镜像
+# 可选项
+--filter=STARS>3000	# 搜索STARS大于3000的镜像
+
+docker pull		# 下载镜像
+docker pull mysql
+docker pull docker.io/library/mysql:latest	# 等价于上面的命令
+docker pull mysql:5.7
+
+docker rmi	# 删除镜像
+docker rmi -f 1234567899					# 删除指定id的镜像
+docker rmi -f $(docker images -aq)	# 查出本地所有镜像id，然后执行删除
+
+```
+
+
+
+## 容器命令
+
+
+
+
+
+
 
 
 
