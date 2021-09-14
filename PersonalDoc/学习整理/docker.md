@@ -364,15 +364,162 @@ docker run -d -P --name nginx02 -v juming-nginx:/etc/nginx nginx
 
 
 
-# DockerFile
+## 数据卷之DockerFile
 
 dockerfile就是用来构建docker镜像的构建脚本文件。命令脚本
 
 > 方式二：
 
+```bash
+# 创建一个dockerfile文件，名字建议Dockerfile
+
+# 文件内容 指令（大写）参数
+FROM CENTOS
+VOLUME ["volume01","volume02"]
+CMD echo "----end---"
+CMD /bin/bash
+
+# 构建自定义镜像
+docker build -f dockerfile1 -t kuangshen/centos:1.0
+```
+
+假设构建的时候没有挂载卷，要手动镜像挂载， -v 卷名：容器内路径
 
 
 
+## 数据卷容器
+
+多个mysql数据同步！
+
+```shell
+# 启动3个容器
+
+# 启动同步容器 
+# --volumes-from 容器名 
+# 测试
+docker run -it --name docker02 --volumes-from docker01 kuangshen/centos:1.0
+
+# 删除了docker01，docker02和docker03还是可以访问该文件
+```
+
+
+
+拷贝的概念
+
+![截屏2021-09-14 22.14.13](docker.assets/%E6%88%AA%E5%B1%8F2021-09-14%2022.14.13.png)
+
+
+
+多个mysql实现数据共享
+
+
+
+结论：
+
+容器之间配置信息的传递，数据卷容器的生命周期一直持续到没有容器使用为止
+
+但是一旦持久化到了本地，本地的数据是不会删除的
+
+
+
+# Dockerfile
+
+构建步骤
+
+1. 编写一个dockerfile文件
+2. docker build构建为一个镜像
+3. docker run运行镜像
+4. docker push 发布镜像（DockerHub等）
+
+
+
+## Dockerfile构建过程
+
+**基础知识：**
+
+1. 每个保留关键字必须是大写字母
+2. 执行从上到下顺序执行
+3. “#” 表示注释
+4. 每个指令都会创建提交一个新的镜像层，并提交
+
+![截屏2021-09-14 22.27.54](docker.assets/%E6%88%AA%E5%B1%8F2021-09-14%2022.27.54-1629708.png)
+
+
+
+dockerfile：构建文件，定义了一切步骤，源代码
+
+docker镜像：通过dockerfile构建生成的镜像，最终发布和运行的产品
+
+docker容器：容器是镜像运行起来的实例，可提供服务
+
+
+
+## Dockerfile指令
+
+```bash
+FROM				# 基础镜像，从这里开始构建
+MAINTAINER	# 镜像是谁写的，姓名+邮箱
+RUN					# 镜像构建的时候需要运行的命令
+ADD					# 步骤：tomcat镜像，这个tomcat压缩包！添加内容
+WORKDIR			# 镜像的工作目录
+VOLUME			# 挂载的目录
+EXPOSE			# 暴露端口号配置
+
+CMD					# 指定这个容器启动的时候要运行的命令，只有最后一个会生效，可被替代
+ENTRYPOINT	# 指定这个容器启动的时候要运行的命令，可以追加命令
+ONBUILD			# 当构建一个被继承Dockerfile，这个时候就会运行ONBUILD命令，触发指令
+COPY				# 类似ADD命令，将文件拷贝到镜像中
+ENV					# 构建的时候设置环境变量，可用于设置用户名密码等
+```
+
+
+
+## 实战测试
+
+DockerHub中99%的镜像都是从 `FROM scratch` 开始构建
+
+
+
+1. 编写dockerfile文件
+
+```shell
+FROM centos
+MAINTAINER zero9230<mengnianyang9230@163.com>
+
+ENV MYPATH /usr/local
+WORKDIR ${MYPATH}
+
+RUN yum -y install vim
+RUN yum -y install net-tools
+
+EXPOSE 80
+
+CMD echo ${MYPATH}
+CMD echo "---end---"
+CMD /bin/bash
+
+```
+
+
+
+2. 构建
+
+   ```shell
+   # 命令 docker build -f dockerfile文件路径 -t 镜像名:[tag] .
+   docker build -f mydockerfile-centos -t mycentos .
+   
+   # docker history 容器id	# 查看容器变更历史
+   docker history 容器id
+   ```
+
+> CMD和ENTRYPOINT的区别
+
+
+
+```bash
+CMD					# 指定这个容器启动的时候要运行的命令，只有最后一个会生效，可被替代
+ENTRYPOINT	# 指定这个容器启动的时候要运行的命令，可以追加命令
+```
 
 
 
