@@ -47,7 +47,6 @@ cat id_rsa_hub.pub # github公钥
 
    PS：如果要配置3个，4个…同样的方法往下加即可
    
-
 7. 测试是否配置成功
    进入.ssh文件夹，执行 ssh -T git@gitlab.com，然后选择yes，如果没有报错则配置成功，下面就可以自由的pull不同的远程仓库了，注意，第一次git clone远程仓库时，需要先执行git init，之后就不用了。
 
