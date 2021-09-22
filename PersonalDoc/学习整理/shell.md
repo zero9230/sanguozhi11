@@ -26,6 +26,22 @@
 
 
 
+# OS命令
+
+1. df -h 	# 查看磁盘占用率
+2. top   # 实时查看进程，类似任务管理器 
+3. ps -ef # 查看当前运行的进程
+
+
+
+# 网络命令
+
+1. nsloopup 【目标网址】		# 查看目标网址的dns
+
+   
+
+
+
 参考
 
 - [shell学习笔记](https://www.cnblogs.com/maybe2030/p/5022595.html#_label0)

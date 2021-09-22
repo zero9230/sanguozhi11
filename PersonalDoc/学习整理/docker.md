@@ -204,7 +204,7 @@ docker cp 1234567890:/home/test.java /home
 
 ### 命令小结
 
-![Screen Shot 2021-09-14 at 12.11.16](docker.assets/Screen%20Shot%202021-09-14%20at%2012.11.16.png)
+![Screen Shot 2021-09-15 at 10.29.52](docker.assets/Screen%20Shot%202021-09-15%20at%2010.29.52.png)
 
 
 
@@ -523,7 +523,141 @@ ENTRYPOINT	# 指定这个容器启动的时候要运行的命令，可以追加�
 
 
 
-# Docker网络原理
+## 实战tomcat镜像
+
+1. 准备tomcat、jdk安装包
+
+2. 官方命名 `Dockerfile` ，否则需要使用 `-f` 指定文件
+
+3. 构建镜像
+
+   ```bash
+   docker build -f Dockerfile .
+   ```
+
+4. 启动镜像
+
+5. 访问测试
+
+6. 发布项目
+
+
+
+## 小结
+
+![Screen Shot 2021-09-15 at 10.24.20](docker.assets/Screen%20Shot%202021-09-15%20at%2010.24.20.png)
+
+
+
+
+
+# Docker网络
+
+## 理解Docker0
+
+三个网络
+
+```bash
+# 问题：docker如何处理容器网络访问？
+# linux可以ping通docker容器内部
+```
+
+
+
+> 原理
+
+1. 每启动一个docker容器，docker就会给docker容器分配一个ip，只要安装了docker，就会有一个网卡docker0桥接模式，使用evth-pair技术
+2. 再启动一个tomcat，发现多了一对网卡
+
+
+
+```
+容器带来的网卡都是成堆的
+evth-pair就是一对虚拟设备接口，成对出现，一端连着协议，一端彼此连接
+充当一个桥梁，连接各种虚拟设备
+OpenStac，Docker容器之间的连接，OVS的连接，都是使用evth-pair技术
+```
+
+3. 结论：容器和容器之间是可以互相ping通的
+
+
+
+![Screen Shot 2021-09-15 at 11.05.31](docker.assets/Screen%20Shot%202021-09-15%20at%2011.05.31.png)
+
+
+
+docker使用桥接，宿主机中是一个docker容器的网桥——docker0
+
+![Screen Shot 2021-09-15 at 11.10.20](docker.assets/Screen%20Shot%202021-09-15%20at%2011.10.20.png)
+
+
+
+Docker中所有网络接口都是虚拟的，，虚拟的转发效率高！（内网传递文件）
+
+只要容器删除，对应网桥一对就没了
+
+
+
+探究：inspect
+
+```bash
+--link 就是我们在hosts配置中增加了一个172.18.0.3 tomcat02 123456789
+现在使用Docker已经不建议使用--link了
+```
+
+自定义网络不适用docker0
+
+问题：不支持容器名连接访问
+
+## 自定义网络
+
+容器互联
+
+
+
+#### 网络模式
+
+bridge：桥接模式（默认）
+
+none：不配置网络
+
+host：和宿主机共享网络
+
+container： 容器网络连通（用得少，局限很大）
+
+
+
+直接启动的命令，会默认带上 `--net bridge` 
+
+
+
+```bash
+docker network ls	# 查看所有网络
+
+# 自定义网络
+--driver bridge
+--subnet 192.168.0.0/16
+--gateway 192.168.0.1
+
+```
+
+
+
+## 网络连通
+
+```bash
+docker network connect mynet tomcat01
+# 连通之后就是将 tomcat01 放到 mynet网络下
+# 一个容器两个ip地址
+```
+
+
+
+
+
+# 实战部署redis集群
+
+
 
 
 
