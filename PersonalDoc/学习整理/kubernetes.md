@@ -1,3 +1,11 @@
+# 基础知识
+
+
+
+
+
+
+
 # 概述
 
 ## 背景
@@ -46,6 +54,17 @@ kubernetes基础架构示意图：
 
 
 
+![image-20211003122128083](kubernetes.assets/image-20211003122128083.png)
+
+
+
+## 简单例子：将容器部署到kubernetes集群
+
+向kubernetes集群部署应用需要先在一个.yaml文件中对应用进行配置，设置名称、存储、网络服务等，然后执行命令 `kubectl create -f 文件名.yaml` 
+
+
+
+![image-20211003122101617](kubernetes.assets/image-20211003122101617.png)
 
 
 
@@ -61,65 +80,9 @@ kubernetes基础架构示意图：
 
 
 
+# 参考资料
 
----
-
-
-
-
-
-
-
-软件服务概念
-
-IAAS——Infrastructure
-
-PAAS——Platform
-
-SAAS——Software
-
-
-
-MESOS：Apache 分布式管理框架
-
-Docker Swarm： Docker开发公司
-
-**Kubernetes**： Google	10年容器化基础架构。 borg系统。GO语言
-
-​	特点：
-
-- 轻量级：消耗资源少
-- 开源：
-- 弹性伸缩
-- 负载均衡：IPVS
-
-
-
-# 结构说明
-
-Borg系统
-
-
-
-
-
-
-
-
-
-# 基础概念
-
-## pod
-
-
-
-构建k8s集群
-
-资源清单：资源清单的语法，
-
-
-
-
+-  [kubernetes中文官网](https://kubernetes.io/zh/docs/tutorials/kubernetes-basics/) 
 
 
 

@@ -2,10 +2,6 @@
 
 多分支体系
 
-
-
-
-
 # git常见场景及操作
 
 ## 本地配置多git账号
@@ -95,4 +91,8 @@ git config --global user.email  "e-mail"	# 切换git邮箱
 
 $ git commit --amend --allow-empty --reset-author
 ```
+
+
+
+
 
