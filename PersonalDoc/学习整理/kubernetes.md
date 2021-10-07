@@ -2,6 +2,12 @@
 
 
 
+minikube
+
+minikube start会遇到gcr镜像拉不下来的问题，因此需要将该镜像自己下载，然后修改其信息摘要码（SHA256）以通过校验
+
+
+
 
 
 
@@ -83,6 +89,7 @@ kubernetes基础架构示意图：
 # 参考资料
 
 -  [kubernetes中文官网](https://kubernetes.io/zh/docs/tutorials/kubernetes-basics/) 
+-  [minikube 启动失败](https://listenerri.com/2020/04/07/minikube-%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/) 
 
 
 
