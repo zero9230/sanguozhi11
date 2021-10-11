@@ -1,3 +1,4 @@
-select * from auction_base.s_spu;
-
-123
+select
+    *
+from
+    auction_base.s_spu;
