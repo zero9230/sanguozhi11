@@ -26,3 +26,4 @@ WHERE
         'mm/dd/yyyy hh24:mi:ss'
     ) - 1 / 96
     AND GG_CM_CASE_ENTITY_INFO.GG_COMMIT_TIMESTAMP <= TO_DATE('$$PARAM_UPPER_TIME', 'yyyymmddhh24miss')
+order by GG_RBA

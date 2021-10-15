@@ -27,6 +27,33 @@ oracle生成快照需要导出为文件，有一定的系统开销
 
 
 
+# 基础语法
+
+## 查询语句顺序
+
+```sql
+SELECT
+    col_a /(*) /(聚合函数)
+FROM
+    tb
+WHERE
+    条件
+GROUP BY
+    col_a
+HAVING
+    COUNT(*) > 5
+ORDER BY
+    sum DESC
+LIMIT
+    10;
+```
+
+
+
+
+
+
+
 # 常用函数
 
 ## 数学计算类

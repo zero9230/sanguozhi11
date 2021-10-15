@@ -1,6 +1,4 @@
-# redis
-
-## 概述
+# 概述
 
 >  redis官网
 >
@@ -49,9 +47,7 @@ redis-benchmark -h 127.0.0.1 -p 6379 -c 50 -n 10000
 
 ![img](https://images2017.cnblogs.com/blog/707331/201802/707331-20180201145503750-901697180.png)
 
-
-
-## redis基础知识
+# redis基础知识
 
 默认16个数据库，默认使用第0个
 
@@ -305,9 +301,7 @@ bitcount sign		# 查看sign的1的个数（本周打卡情况）
 
 ```
 
-
-
-## 事务
+# 事务
 
 redis事务本质：一组命令一起执行，没有隔离级别的概念
 
@@ -349,9 +343,7 @@ get k4
 
 运行时异常，如果队列中存在语法性错误，则其他命令可以正常执行
 
-
-
-## 监控
+# 监控
 
 watch
 
@@ -389,9 +381,7 @@ exec							# 3. 比对监视的值是否发生了变化，如果没有变化，�
 
 ```
 
-
-
-## jedis
+# jedis
 
 使用java来操作redis的连接开发工具
 
@@ -399,9 +389,7 @@ exec							# 3. 比对监视的值是否发生了变化，如果没有变化，�
 
 > 事务
 
-
-
-## springboot整合
+# springboot整合
 
 
 
@@ -436,7 +424,7 @@ redisTemplate默认jdk序列化，会使字符串转义
 
 关于对象的保存，需要进行序列化
 
-## Redis.conf详解
+# Redis.conf详解
 
 1. 配置文件unit单位 ，对大小写不敏感
 
@@ -525,9 +513,9 @@ redisTemplate默认jdk序列化，会使字符串转义
       appendfsync no							# 不执行sync，操作系统自己同步数据
       ```
 
-## redis持久化
+# redis持久化
 
-### rdb
+## rdb
 
 > 触发机制
 
@@ -557,7 +545,7 @@ redisTemplate默认jdk序列化，会使字符串转义
 1. 需要一定时间间隔进行操作，间隔内的数据有丢失风险
 2. fork进程需要一定内存空间
 
-### aof（append only file）
+## aof（append only file）
 
 将所有命令记录下来，恢复的时候将所有写命令重新执行一遍
 
@@ -590,9 +578,7 @@ redis-check-aof --fix appendonly.aof
 >
 > 如果aof文件大于64m，则redis会fork一个新进程将文件重写
 
-
-
-## redis发布订阅
+# redis发布订阅
 
 观察者模式，生产者消费者模式
 
@@ -612,9 +598,7 @@ publish kuangshenshuo "hello"	# 发布消息，频道：kuangshenshuo。内容�
 
 稍微复杂的系统建议使用消息中间件
 
-
-
-## 主从复制
+# 主从复制
 
 主从复制 Master-Slave，一般是1主2从
 
@@ -627,7 +611,7 @@ publish kuangshenshuo "hello"	# 发布消息，频道：kuangshenshuo。内容�
 3. 负载均衡
 4. 高可用（集群）基石
 
-### 环境配置
+## 环境配置
 
 本地起多机需要多个配置文件redis.conf
 
@@ -676,9 +660,7 @@ slaveof no one		# 当前进程自己成为主机
 
 只要重连master，一次全量复制将会被自动执行
 
-
-
-## 哨兵模式
+# 哨兵模式
 
 自动选主的模式。
 
@@ -722,9 +704,7 @@ redis-sentinel config/sentinel.conf
 1. redis不好在线扩容，集群容量一旦达到上限，在线扩容很麻烦
 2. 哨兵模式配置很麻烦
 
-
-
-## 缓存穿透和雪崩
+# 缓存穿透和雪崩
 
 
 
