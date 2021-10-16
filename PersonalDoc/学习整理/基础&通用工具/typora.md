@@ -187,6 +187,20 @@ code：指定代码块
 </details>
 
 
+# 有序列表多种编号
 
-# 自动编号
+```css
+/**  自定义有序列表  **/
+ol ol {
+    list-style-type: lower-roman;
+}
+
+ol ol ol {
+    list-style-type: lower-latin;
+}
+```
+
+
+
+
 
