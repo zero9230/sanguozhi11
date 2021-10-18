@@ -13,7 +13,6 @@ redis（remote dictionary server），远程字典服务
 速度：读11W 次/s，写8W 次/s
 
 
-
 > 作用
 
 - 内存存储，持久化
