@@ -11,4 +11,6 @@ WHERE
             DISCIPLINE
         WHERE
             DISCIPLINE_NAME in ('GI-EI', 'GI-IF')
-    )
+    ) -- lookup condition
+    -- TID = in_CASE_TID
+;

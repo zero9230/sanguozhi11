@@ -69,6 +69,10 @@ cat id_rsa_hub.pub # github公钥
 
 ## 本地和远程仓库分支关联
 
+
+
+
+
 ## 切换账号提交代码
 
 有的时候我们有两个甚至多个git账号（公司的git账号和自己的github），为了不混淆提交，我们需要在提交之前查看自己的git账号必要时进行切换。
@@ -93,6 +97,29 @@ $ git commit --amend --allow-empty --reset-author
 ```
 
 
+
+## 推送本地分支到远程分支
+
+ **场景** 
+
+有时候我们开发需要开一个分支,这样可以有效的并行开发.
+
+开分支有两种方式:
+
+- 一种是在远程开好分支,本地直接拉下来;
+
+  ```bash
+  git checkout -b feature-branch origin/feature-branch    //检出远程的feature-branch分支到本地
+  ```
+
+- 一种是本地开好分支,推送到远程.
+
+  ```bash
+  $  git checkout -b feature-branch    //创建并切换到分支feature-branch  
+  $  git push origin feature-branch:feature-branch    //推送本地的feature-branch(冒号前面的)分支到远程origin的feature-branch(冒号后面的)分支(没有会自动创建)
+  ```
+
+  
 
 
 
