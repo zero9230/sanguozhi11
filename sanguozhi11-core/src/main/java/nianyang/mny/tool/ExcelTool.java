@@ -16,8 +16,9 @@ public class ExcelTool {
         String filePath="/Users/nmeng/Documents/";
         String filename="gg-cm-case-entity-info.xlsx";
         List<List<Object>> lists = parseExcel(filePath + filename);
-        System.out.println(lists.size());
-        System.out.println(lists.get(0));
+
+
+
     }
 
     /**
@@ -39,10 +40,10 @@ public class ExcelTool {
         Row row = null;
         Cell cell = null;
 
-        for (int i = 0; i < work.getNumberOfSheets(); i++) {
-            sheet = work.getSheetAt(i);
+//        for (int i = 0; i < work.getNumberOfSheets(); i++) {
+            sheet = work.getSheetAt(3);
             if (sheet == null) {
-                continue;
+                return null;
             }
 
             for (int j = sheet.getFirstRowNum(); j <= sheet.getLastRowNum(); j++) {
@@ -58,7 +59,7 @@ public class ExcelTool {
                 }
                 list.add(li);
             }
-        }
+//        }
         return list;
 
     }
