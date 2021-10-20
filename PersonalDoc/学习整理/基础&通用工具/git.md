@@ -69,7 +69,17 @@ cat id_rsa_hub.pub # github公钥
 
 ## 本地和远程仓库分支关联
 
+```bash
+git push --set-upstream origin branch_name
+```
 
+
+
+查看本地和远程分支映射关系
+
+```bash
+git branch -vv
+```
 
 
 
