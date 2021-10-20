@@ -3,6 +3,8 @@ package nianyang.mny.test;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
+import java.math.BigDecimal;
+
 public class Test {
 
     @BeforeClass
@@ -18,10 +20,9 @@ public class Test {
 
     @org.junit.Test
     public void test1() throws InterruptedException {
-        long time1 = System.currentTimeMillis();
-        Thread.sleep(50);
-        long time2 = System.currentTimeMillis();
-        System.out.println("测试时间："+(time2-time1)+"ms");
+            BigDecimal num=new BigDecimal(13);
+            System.out.println(num);
+
     }
 
 
