@@ -70,7 +70,7 @@ def add_one(n):
 
 代码如下：
 
-```
+```python
 class Processor(object):
     def run(self, sc, num):
         result = num.map(lambda x:x+1)
@@ -82,7 +82,7 @@ class Processor(object):
 
 或者
 
-```
+```python
 class Processor(object):
     def run(self, sc, num):
         result = num.map(lambda x:add_one(x,2))
