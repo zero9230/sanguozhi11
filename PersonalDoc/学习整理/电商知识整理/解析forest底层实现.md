@@ -88,9 +88,7 @@ Buffer subBuffer(Buffer buffer, int position,int recordSize) {
 
 
 
-随后即可从subBueer中获取各个字段的信息
-
-
+随后即可从subBuffer中获取各个字段的信息
 
 ```java
 CatRecord getcBtRecord(Buffer in) {
