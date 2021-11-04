@@ -80,3 +80,10 @@ Buffer类定义了以下四个属性
 
 ![image-20211027011044242](netty.assets/image-20211027011044242.png)
 
+
+
+# 参考文献
+
+1.  [netty 学习](https://dongzl.github.io/netty-handbook/#/_content/chapter02?id=_211-%e6%a8%a1%e5%9e%8b%e5%9f%ba%e6%9c%ac%e8%af%b4%e6%98%8e) 
+
+ 
