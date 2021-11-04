@@ -7,7 +7,7 @@ minikube
 minikube start会遇到gcr镜像拉不下来的问题，因此需要将该镜像自己下载，然后修改其信息摘要码（SHA256）以通过校验
 
 
-
+![img](kubernetes.assets/image-20211003122128083.png)
 
 
 

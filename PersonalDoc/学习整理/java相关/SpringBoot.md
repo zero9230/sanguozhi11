@@ -62,3 +62,13 @@ spring.redis.cluster.nodes=10.199.153.166:7001,10.199.153.166:7002
 
 注意点：
 测试的时候发现，如果key值不加引号，如果配置的key为01，而map中得到的key为1，少了个0，所以将key值加上了引号
+
+
+
+
+
+# 参考资料
+
+1.  [狂神说SpringBoot学习笔记](https://mp.weixin.qq.com/mp/homepage?__biz=Mzg2NTAzMTExNg==&hid=1&sn=3247dca1433a891523d9e4176c90c499) 
+2.  [B站视频教程：狂神说SpringBoot](https://www.bilibili.com/video/BV1PE411i7CV?from=search&seid=1290948065310597538&spm_id_from=333.337.0.0)
+
