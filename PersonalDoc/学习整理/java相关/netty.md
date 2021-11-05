@@ -57,11 +57,19 @@ HTTP2.0使用了多路复用技术，实现同一个连接并发处理多个请�
 
  ![chapter03_01.png](netty.assets/chapter03_01.png) 
 
-## 缓冲区buffer
+数据读写通过Buffer，双向（不同于BIO）
 
-本质上是一个可读写数据的内存块，可理解为一个容器对象。channel从网络、文件读取数据需要经过buffer
+## 缓冲区Buffer
 
- ![img](netty.assets/chapter03_02.png) 
+本质上是一个可读写数据的内存块，可理解为一个容器对象。channel从网络、文件读取数据需要经过buffer。
+
+ ![img](netty.assets/chapter03_02.png)
+
+Buffer可以双向操作，即可读可写（不同于BIO的输入/输出流），需要`flip`方法切换。
+
+Channel是双向的，可以返回底层操作系统情况
+
+ 
 
 Buffer是一个顶层父类，抽象类，层级关系图：
 
@@ -79,6 +87,47 @@ Buffer类定义了以下四个属性
 | Mark     | 标记                                                         |
 
 ![image-20211027011044242](netty.assets/image-20211027011044242.png)
+
+
+
+## 通道Channel
+
+### 基本介绍
+
+1. 类似于流，但区别（相比于BIO的流）如下
+   1. 通道可以同时进行读写
+   2. 通道可以异步读写数据
+   3. 通道可以从缓冲中读写数据
+2. `Channel` 在NIO中是一个接口 `public interface Channel extends Closable{}` 
+3. 常用Channel类：
+   1. FileChannel：用于文件读写，类似FileInputStream
+   2. DatagramChannel：用于UDP数据读写
+   3. ServerSocketChannel和SocketChannel：用于TCP数据读写
+
+
+
+#### FileChannel类
+
+主要对本地文件进行IO操作，常见方法如下
+
+```java
+public int read(ByteBuffer dst);	//从通道读取数据并放到缓冲区
+public int write(Bytebuffer dst);	//把缓冲区数据写到通道中
+public long transferFrom(ReadableByteChannel src ,long position, long count);	//从目标通道中复制数据到当前通道
+public long transferTo(long position, long count ,WritableByteChannel target);	//把数据从当前通道复制给目标通道
+```
+
+
+
+`ByteBuffer` 支持类型化的put和get，两者操作的类型需要对应，否则可能有`BufferUnderflowException` 异常
+
+
+
+
+
+
+
+
 
 
 
