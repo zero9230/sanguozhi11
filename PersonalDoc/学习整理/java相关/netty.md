@@ -123,11 +123,95 @@ public long transferTo(long position, long count ,WritableByteChannel target);	/
 
 
 
+## 选择器Selector
+
+![img](netty.assets/chapter03_10.png)
+
+Selector
+
+ 
+
+相关方法说明
+
+```java
+selector.select(); //阻塞
+selector.select(1000); //阻塞 1000 毫秒，在 1000 毫秒后返回
+selector.wakeup(); //唤醒 selector
+selector.selectNow(); //不阻塞，立马返还
+```
 
 
 
+### NIO 非阻塞网络编程原理分析图
+
+ `NIO` 非阻塞网络编程相关的（`Selector`、`SelectionKey`、`ServerScoketChannel` 和 `SocketChannel`）关系梳理图
+
+![img](netty.assets/chapter03_22.png)
 
 
+
+### SelectionKey
+
+1. `SelectionKey`，表示`Selector` ，和网络通道的注册关系，共四种：
+
+   -  `int OP_ACCEPT`：有新的网络连接可以 `accept`，值为 `16``
+   -  `int OP_CONNECT`：代表连接已经建立，值为 `8`
+
+   -  `int OP_READ`：代表读操作，值为 `1`
+
+   -  `int OP_WRITE`：代表写操作，值为 `4`
+
+2. SelectionKey相关方法
+
+    ![img](netty.assets/chapter03_12.png)
+
+### ServerSocketChannel
+
+ServerSockerChannel在服务器端舰艇新的客户端Socket链接
+
+
+
+### SocketChannel
+
+SocketChannel，网络IO通道，负责具体的读写操作。NIO把缓冲区的数据写入通道，或者把通道里的数据读入缓冲区
+
+### 应用实例——群聊系统
+
+具体见代码 `GroupChatServer`  ， `GroupChatClient` 
+
+
+
+### NIO与零拷贝
+
+常用的零拷贝有mmap（内存映射）和sendFile，
+
+用户态和内核态的内存拷贝
+
+直接内存拷贝（DMA，direct memory access），不占用CPU
+
+#### mmap优化
+
+【补一个时序图】
+
+- 通过内存映射，将文件映射到内核缓冲区，同时用户控件可以共享内核空间数据
+
+- 适合小数据量读写
+- 需要4次上下文切换，3次数据拷贝
+- 不能使用DMA方式，必须从内核拷贝到Socket缓冲区
+
+#### sendFile优化
+
+【补一个时序图】
+
+- 数据不经过用户态，直接从内核缓冲区进入SocketBuffer，由于和用户态完全无关，就减少一次上下文切换
+
+- 适合大文件传输
+- 需要3次上下文切换，最少两次数据拷贝
+- 可利用DMA方式减少CPU拷贝
+
+#### 零拷贝案例
+
+见代码
 
 
 
