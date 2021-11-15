@@ -23,13 +23,13 @@ java支持3种网络IO模型
 
   适用于连接数较小且固定的架构。对服务器资源要求较高，并发局限于应用中
 
-  ![img](netty.assets/chapter02_01.png)
+  ![img](netty前置.assets/chapter02_01.png)
 
 - NIO：同步非阻塞。一个线程处理多个请求
 
   适用于连接数多且**轻操作**的架构，如聊天服务器，弹幕系统，服务器间通信等
 
-  ![img](netty.assets/chapter02_02.png)
+  ![img](netty前置.assets/chapter02_02.png)
 
 - AIO：异步非阻塞。引入异步通道的概念，采用proactor模式。先由操作系统完成后才通知服务端程序启动县城去处理，一般适用于连接数较多且链接时间较长的应用。
 
@@ -55,7 +55,7 @@ HTTP2.0使用了多路复用技术，实现同一个连接并发处理多个请�
 
 ## 核心原理示意图
 
- ![chapter03_01.png](netty.assets/chapter03_01.png) 
+ ![chapter03_01.png](netty前置.assets/chapter03_01.png) 
 
 数据读写通过Buffer，双向（不同于BIO）
 
@@ -63,7 +63,7 @@ HTTP2.0使用了多路复用技术，实现同一个连接并发处理多个请�
 
 本质上是一个可读写数据的内存块，可理解为一个容器对象。channel从网络、文件读取数据需要经过buffer。
 
- ![img](netty.assets/chapter03_02.png)
+ ![img](netty前置.assets/chapter03_02.png)
 
 Buffer可以双向操作，即可读可写（不同于BIO的输入/输出流），需要`flip`方法切换。
 
@@ -73,7 +73,7 @@ Channel是双向的，可以返回底层操作系统情况
 
 Buffer是一个顶层父类，抽象类，层级关系图：
 
-![img](netty.assets/chapter03_03.png)
+![img](netty前置.assets/chapter03_03.png)
 
 
 
@@ -86,7 +86,7 @@ Buffer类定义了以下四个属性
 | Position | 位置。下一个要被读/写元素的索引，每次读写缓冲区数据时都会变，准备下次读写 |
 | Mark     | 标记                                                         |
 
-![image-20211027011044242](netty.assets/image-20211027011044242.png)
+![image-20211027011044242](netty前置.assets/image-20211027011044242.png)
 
 
 
@@ -125,7 +125,7 @@ public long transferTo(long position, long count ,WritableByteChannel target);	/
 
 ## 选择器Selector
 
-![img](netty.assets/chapter03_10.png)
+![img](netty前置.assets/chapter03_10.png)
 
 Selector
 
@@ -146,7 +146,7 @@ selector.selectNow(); //不阻塞，立马返还
 
  `NIO` 非阻塞网络编程相关的（`Selector`、`SelectionKey`、`ServerScoketChannel` 和 `SocketChannel`）关系梳理图
 
-![img](netty.assets/chapter03_22.png)
+![img](netty前置.assets/chapter03_22.png)
 
 
 
@@ -163,7 +163,7 @@ selector.selectNow(); //不阻塞，立马返还
 
 2. SelectionKey相关方法
 
-    ![img](netty.assets/chapter03_12.png)
+    ![img](netty前置.assets/chapter03_12.png)
 
 ### ServerSocketChannel
 
