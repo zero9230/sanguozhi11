@@ -1,11 +1,9 @@
-package nianyang.mny.study.netty;
+package nianyang.mny.study.nio;
 
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.OpenOption;
-import java.nio.file.StandardOpenOption;
 
 public class NIOFileChannel01 {
     public static void main(String[] args) throws Exception{

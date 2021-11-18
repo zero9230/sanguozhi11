@@ -1,4 +1,4 @@
-package nianyang.mny.study.netty;
+package nianyang.mny.study.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

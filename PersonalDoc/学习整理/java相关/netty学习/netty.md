@@ -157,9 +157,23 @@ netty基于主从Reactor多线程模式，其中有多个Reactor
 1. netty抽象出两组线程池：BossGroup用于负责客户端链接，workerGroup负责网络读写
 2. 两者都是NioEventLoopGroup
 3. 其中NioEventGroup相当于一个事件循环组，包含多个事件循环，每个事件循环是NioEventLoop
-4. NioEventLoop表示一个不断循环的执行处理任务的线程
+4. NioEventLoop表示一个不断循环的执行处理任务的线程，有一个Selector监听其绑定的Socket通信
+5. NioEventLoopGroup可以有多个线程，即可含有多个NioEventLoop
+6. 每个BossNioEventLoop循环执行步骤
+   1. 轮询accept事件
+   2. 处理accept事件，与client建立连接，生成NioSocketChannel，并将其注册到某个worker NioEventLoop上的Selector
+   3. 处理任务队列的任务，即runAllTasks
+
+7. 每个Worker NioEventLoop循环执行步骤
+   1. 轮询read，write事件
+   2. 处理I/O事件，即read/write事件，在对应的NioSocketChannel处理
+   3. 处理任务队列的任务，即runAlTasks
+
+8. 每个worker NioEventLoop处理业务时，会使用pipeline，pipeline中包含channel，pipeline中维护很多处理器
 
 
+
+代码演示，见 `NettyServer` 
 
 
 
@@ -167,3 +181,4 @@ netty基于主从Reactor多线程模式，其中有多个Reactor
 
 1.  [netty学习手册](https://dongzl.github.io/netty-handbook/#/_content/chapter04) 
 2.  [netty官网](https://netty.io/) 
+
