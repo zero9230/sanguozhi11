@@ -177,6 +177,51 @@ netty基于主从Reactor多线程模式，其中有多个Reactor
 
 
 
+任务队列中的Task有3种典型使用场景
+
+1. 用户程序自定义普通任务
+2. 用户自定义定时任务
+3. 非当前 `Reactor` 线程调用 `Channel` 的各种方法
+
+## 异步模型
+
+概述
+
+>  Netty中IO操作是异步的，包括Bind，Write，Connect等操作会返回一个ChannelFuture。
+>
+> 通过Future-Listener机制，用户可以主动获取或通过通知机制获得IO操作结果
+>
+> Netty异步模型建立在future和callback上。
+
+Future说明
+
+- 表示异步执行结果
+- ChannelFuture是一个接口`public interface ChannelFuture extends Future<Void>` 。
+
+
+
+工作原理示意图
+
+![img](netty.assets/chapter05_11.png)
+
+![img](netty.assets/chapter05_12.png)
+
+
+
+Future-Listener机制
+
+1. 刚创建的Future对象通常是非完成状态，调用者可以通过返回的ChannelFuture来获取操作执行的状态，注册监听函数来执行完成后的操作
+2. 常见操作如下
+   - isDone：判断当前操作是否已完成
+   - isSuccess：判断已完成的操作是否成功
+   - getCause：获取已完成的当前操作的失败原因
+   - isCancelled：判断当前操作是否被取消
+   - addListener：注册监听器
+
+
+
+
+
 # 参考文献
 
 1.  [netty学习手册](https://dongzl.github.io/netty-handbook/#/_content/chapter04) 

@@ -140,5 +140,79 @@ git checkout -m OLD_BRANCH NEW_BRANCH
 
 
 
+## 【git 端口拒绝解决方案】
 
+ssh: connect to host github.com port 22: Connection refused
+
+前一阵儿，在公司同步github代码到本地的时候，爆出了这样的一个错误ssh: connect to host github.com port 22: Connection refused。根据英文可以看出，ssh端口号被拒绝了，应该是被公司的网给禁掉了。
+
+1. 查看当前git的远程仓库版本：
+
+   ```bash
+   git remote -v
+   ```
+
+   此时若什么都没有显示说明，git无远程仓库。
+
+2. 添加ssh协议的远程仓库：
+
+   ```bash
+   git remote add origin https://github.com/zero9230/sanguozhi11.git
+   ```
+
+   再次查看
+
+   ```bash
+   $ git remote -v
+   origin  git@github.com:unlimitbladeworks/Data-Struts-Learning.git (fetch)
+   origin  git@github.com:unlimitbladeworks/Data-Struts-Learning.git (push)
+   ```
+
+   当前，我本机就是用的这种方式连接的github，好处是每次提交代码时，不需要重复来回输入用户名和密码。使用公司网合并前一天晚上更新到github上的代码时，报出如下错误：
+
+   ```bash
+   $ git pull origin master
+   ssh: connect to host github.com port 22: Connection refused
+   fatal: Could not read from remote repository.
+   ```
+
+   得知第一种协议被禁掉后，只能换一种连接进行合并本地仓库了。继续往下看另一种协议。
+
+
+
+**解决方案：切换成 https协议连接github**
+
+1. 依然是先查看当前远程仓库使用的那种协议连接：
+
+   ```bash
+   $ git remote -v
+   origin  git@github.com:unlimitbladeworks/Data-Struts-Learning.git (fetch)
+   origin  git@github.com:unlimitbladeworks/Data-Struts-Learning.git (push)
+   ```
+
+2. 移除掉远程仓库的配置
+
+   ```bash
+   $ git remote rm origin
+   ```
+
+3. 重新添加新的远程仓库，以https的形式：
+
+   ```bash
+   git remote add origin https://github.com/unlimitbladeworks/Data-Struts-Learning.git
+   ```
+
+4. 再次查看
+
+   ```bash
+   $ git remote -v
+   origin  https://github.com/unlimitbladeworks/Data-Struts-Learning.git (fetch)
+   origin  https://github.com/unlimitbladeworks/Data-Struts-Learning.git (push)
+   
+   ```
+
+   
+
+
+完事以上切换操作，其实问题就已经解决了。
 
