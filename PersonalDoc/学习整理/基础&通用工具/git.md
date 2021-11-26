@@ -129,6 +129,10 @@ $ git commit --amend --allow-empty --reset-author
   $  git push origin feature-branch:feature-branch    //推送本地的feature-branch(冒号前面的)分支到远程origin的feature-branch(冒号后面的)分支(没有会自动创建)
   ```
 
+## 取消commit
+
+
+
 
 
 
