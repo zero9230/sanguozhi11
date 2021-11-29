@@ -27,14 +27,14 @@ public class FileComparator {
 
         String baseDir="/Users/nmeng/Documents/cmp_text/1121cmp/";
 
-        File infoFile = new File(baseDir+"scm_case_non_customer_20211124.txt");
-        File raptFile = new File(baseDir+"CS_NON_CUSTOMER_SCM_0_20211124.txt");
+        File infoFile = new File(baseDir+"scm_case_20211127.txt");
+        File raptFile = new File(baseDir+"CS_COMMENT_LINKED_CASE_SCM_0_20211127");
         String baseOutputDir="/Users/nmeng/Documents/cmp_text/1121cmp/output/";
 
-//        fileDiff(infoFile,raptFile,baseOutputDir);
+        fileDiff(infoFile,raptFile,baseOutputDir);
 //
-        File infoFile2 = new File(baseDir + "scm_case_non_customer_20211125.txt");
-        File raptDiffFile = new File(baseDir + "output/rapt_file_CS_NON_CUSTOMER_SCM_0_20211124.txt_2021-11-26.txt");
+        File infoFile2 = new File(baseDir + "gi_case_non_customer_20211125.txt");
+        File raptDiffFile = new File(baseDir + "output/" + "rapt_file_CS_NON_CUSTOMER_GI_0_20211124.txt_2021-11-29.txt");
         checkin(infoFile2, raptDiffFile);
 
     }
@@ -112,6 +112,7 @@ public class FileComparator {
                 .collect(Collectors.toSet());
 
         Set<String> raptSetDiff = raptSet.stream()
+                .map(s->s.substring(12))
                 .filter(s -> !infoSet.contains(s))
                 .collect(Collectors.toSet());
 
