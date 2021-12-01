@@ -202,3 +202,15 @@ ol ol ol {
 
 
 
+# typora下载地址
+
+typora开始发行正式版并收费了，因此保存beta版下载地址以防意外
+
+ [mac beta版最后的安装包](typora.assets/Typora-0.11.18.dmg) 
+
+ [win beta版最后的安装包](typora.assets/typora-update-x64-1117.exe) 
+
+ [mac release下载地址](https://typora.io/dev_release.html) 
+
+ [win release下载地址](https://typora.io/windows/dev_release.html) 
+
