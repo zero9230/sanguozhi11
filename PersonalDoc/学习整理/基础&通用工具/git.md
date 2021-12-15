@@ -131,7 +131,9 @@ $ git commit --amend --allow-empty --reset-author
 
 ## 取消commit
 
-
+```bash
+git reset --soft HEAD^
+```
 
 
 
@@ -219,4 +221,16 @@ ssh: connect to host github.com port 22: Connection refused
 
 
 完事以上切换操作，其实问题就已经解决了。
+
+## git无法push到远程仓库
+
+经过排查，确认是端口22被封禁，应该是公司层面的做法
+
+目前采用gitee进行平替
+
+## git合并别的分支内容到自己的分支
+
+```bash
+$ git pull origin OTHER-BRANCH
+```
 
