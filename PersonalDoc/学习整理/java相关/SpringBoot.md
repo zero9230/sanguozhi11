@@ -340,6 +340,137 @@ pets:[cat,dog,pig]
 
 @ConfigurationProperties： 默认从全局配置文件中获取值
 
+# JSR303数据校验
+
+@Validated可用于校验数据，示例如下
+
+```java
+@Component //注册bean
+@ConfigurationProperties(prefix = "person")
+@Validated  //数据校验
+public class Person {
+    @Email(message="邮箱格式错误") //name必须是邮箱格式
+    private String name;
+}
+```
+
+
+
+常见参数
+
+```java
+@NotNull(message="名字不能为空")
+private String userName;
+@Max(value=120,message="年龄最大不能查过120")
+private int age;
+@Email(message="邮箱格式错误")
+private String email;
+
+空检查
+@Null       验证对象是否为null
+@NotNull    验证对象是否不为null, 无法查检长度为0的字符串
+@NotBlank   检查约束字符串是不是Null还有被Trim的长度是否大于0,只对字符串,且会去掉前后空格.
+@NotEmpty   检查约束元素是否为NULL或者是EMPTY.
+    
+Booelan检查
+@AssertTrue     验证 Boolean 对象是否为 true  
+@AssertFalse    验证 Boolean 对象是否为 false  
+    
+长度检查
+@Size(min=, max=) 验证对象（Array,Collection,Map,String）长度是否在给定的范围之内  
+@Length(min=, max=) string is between min and max included.
+
+日期检查
+@Past       验证 Date 和 Calendar 对象是否在当前时间之前  
+@Future     验证 Date 和 Calendar 对象是否在当前时间之后  
+@Pattern    验证 String 对象是否符合正则表达式的规则
+
+.......等等
+除此以外，我们还可以自定义一些数据校验规则
+```
+
+
+
+# 多环境切换
+
+## 多配置文件
+
+profile是Spring对不同环境提供不同配置功能的支持，可以激活不同版本的环境以实现快速切换环境
+
+在主配置文件编写的时候，文件名可以是application-{profile}.properties/yml，用于指定多个环境版本，如
+
+- applicaiton-test.properties
+- application-dev.properties
+
+但是SpringBoot不会直接启动这些配置文件，默认使用application.properties主配置文件，需要通过一个配置来选择激活的环境
+
+```properties
+spring.profiles.active=dev
+```
+
+## yaml的多文档块
+
+参数不多的情况下，可用以下方式实现多环境
+
+```yaml
+
+server:
+  port: 8081
+#选择要激活那个环境块
+spring:
+  profiles:
+    active: prod
+
+---
+server:
+  port: 8083
+spring:
+  profiles: dev #配置环境的名称
+
+
+---
+
+server:
+  port: 8084
+spring:
+  profiles: prod  #配置环境的名称
+```
+
+**注意：如果yml和properties同时都配置了端口，并且没有激活其他环境 ， 默认会使用properties配置文件的！**
+
+## 配置文件加载位置
+
+springboot 启动会扫描以下位置的application.properties或者application.yml文件作为Spring boot的默认配置文件：1～4从高到低
+
+- 优先级1：项目路径下的config文件夹配置文件
+- 优先级2：项目路径下配置文件
+- 优先级3：资源路径下的config文件夹配置文件
+- 优先级4：资源路径下配置文件
+
+## 指定位置加载配置文件
+
+可通过spring.config.location来改变默认的配置文件位置
+
+项目打包好后，可用以下命令指定配置文件并启动，外部指定的配置文件优先级最高
+
+```bash
+java -jar spring-boot-config.jar --spring.config.location=F:/application.properties
+```
+
+
+
+# 自动配置原理
+
+
+
+
+
+
+
+# 作业
+
+1. 实现yaml注入实体类信息
+
 
 
 # 知识体系
