@@ -482,7 +482,9 @@ erDiagram
 
 ## 更新typora集成的mermaid版本
 
-
+```mermaid
+info
+```
 
 
 
