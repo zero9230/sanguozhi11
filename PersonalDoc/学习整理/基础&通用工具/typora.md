@@ -482,7 +482,9 @@ erDiagram
 
 ## 更新typora集成的mermaid版本
 
-
+```mermaid
+info
+```
 
 参看链接： [Typora不支持最新Mermaid语法的解决办法](https://qzy.im/blog/2020/05/typora-integrate-the-latest-version-of-mermaid/#%E6%9B%BF%E6%8D%A2mermaid%E5%8E%9F%E5%85%88%E5%BC%95%E7%94%A8%E7%9A%84js%E6%96%87%E4%BB%B6) 
 
