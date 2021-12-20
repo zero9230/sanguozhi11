@@ -461,6 +461,59 @@ java -jar spring-boot-config.jar --spring.config.location=F:/application.propert
 
 # 自动配置原理
 
+## 分析
+
+自动配置原理：根据条件使配置生效
+
+```java
+//配置类
+@Configuration
+
+//启动指定类ConfigurationProperties功能
+	//将配置文件中对应的值和HttpProperties绑定起来，并加载到IOC容器中
+@EnableConfigurationProperties({HttpProperties.class})
+
+//Spring底层@Conditional注解
+//如果是web应用，则配置类生效
+@ConditionalOnWebApplication(type=Type.SERVLET)
+
+//当前项目有CharacterEncodingFilter时生效
+@ConditionalOnClass({CharacterEncodingFilter.class})
+
+@ConditionalOnProperty(
+	prefix="spring.http.encoding", //配置中有该配置：spring.http.encoding.enabled
+  value={"enabled"},
+  matchIfMissing=true	//如果没有，也是默认生效的
+)
+
+public class HttpEncodingAutoConfiguration{
+	//SpringBoot配置文件对应的类
+  private final Encoding properties;
+  //只有一个有参构造器的情况下，参数的值就会从容器中拿
+  public HttpEncodingAutoConfiguration(HttpProperties properties){
+    this.properties=properties.getEncoding();
+  }
+  //给容器添加一个组件，该组件的某些值需要从properties中获取
+  @Bean
+  @ConditionalOnMissingBean
+  public CharacterEncodingFilter characterEncodingFilter(){
+		CharacterEncodingFilter filter = new OrderedCharacterEncodingFilter();
+		filter.setEncoding(this.properties.getCharset().name());
+		filter.setForceRequestEncoding(this.properties.shouldForce(org.springframework.boot.autoconfigure.http.HttpProperties.Encoding.Type.REQUEST));
+        filter.setForceResponseEncoding(this.properties.shouldForce(org.springframework.boot.autoconfigure.http.HttpProperties.Encoding.Type.RESPONSE));
+        return filter;
+  }
+}
+```
+
+
+
+## 精髓
+
+1. SpringBoot启动会加载大量自动配置类
+2. xxxAutoConfiguration：自动配置类，给容器中添加组件
+3. xxxProperties： 封装配置文件中相关属性
+
 
 
 
