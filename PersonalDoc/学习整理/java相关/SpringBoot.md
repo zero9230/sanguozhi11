@@ -514,9 +514,19 @@ public class HttpEncodingAutoConfiguration{
 2. xxxAutoConfiguration：自动配置类，给容器中添加组件
 3. xxxProperties： 封装配置文件中相关属性
 
+## 了解：@Conditional
+
+自动配置类必须在一定条件下生效
+
+@Conditional派生注解（Spring注解版原生的@Conditional作用）
 
 
 
+![img](SpringBoot.assets/640-20211221010547901.png)
+
+
+
+可以通过debug=true属性，让控制台打印自动配置报告
 
 
 
