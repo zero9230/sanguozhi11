@@ -4,6 +4,83 @@ oracle生成快照需要导出为文件，有一定的系统开销
 
 
 
+# oracle底层隐藏参数
+
+## SCN
+
+### 简介
+
+SCN即系统改变号（System Change Number）
+
+1. 是DB已提交版本的时间戳，其值是DB更改的逻辑时间点
+2. 每个已提交事务有唯一SCN
+3. 多处存储，如数据文件头、控制文件、数据块头、日志文件等都标记SCN
+4. 功能重要，可用于维护DB一致性、数据备份、数据恢复等等。
+
+6字节（48bit）数字
+
+### 四种重要SCN
+
+oracle事务中数据变化写入数据文件流程
+
+> 1. 事务开始
+> 2. 在buffer cache / 数据文件 中找到数据块
+> 3. 事务修改buffer cache的数据块，被标识为"脏数据"，写入log buffer中
+> 4. 事务提交，LGWR进程奖log buffer中“脏数据”的日志条目写入redo log file中
+> 5. 当发生checkpoint时，CKPT进程更新所有数据文件的文件头信息，DBWn进程奖buffer cache中脏数据写入数据文件
+
+SCN总共分为四种
+
+> 1. 系统检查点（System Checkpoint）SCN
+>
+> 2. 数据文件检查点（Datafile Checkpoint）SCN
+>
+> 3. 开始SCN（Start SCN）
+>
+>    用于检查数据库启动过程中是否要做media recovery
+>
+> 4. 结束SCN（Stop SCN）
+>
+>    用于检查数据库启动过程是否要做instance recovery
+
+### SCN与数据库启动
+
+在数据库启动过程中，当System Checkpoint SCN、Datafile Checkpoint SCN和Start SCN都相同时，数据库可以正常启动，不需要做media recovery。三者当中有一个不同时，则需要做media recovery.如果在启动的过程中，End SCN为NULL，则需要做instance recovery。Oracle在启动过程中首先检查是否需要media recovery，然后再检查是否需要instance recovery。
+
+```mermaid
+flowchart LR
+subgraph 三者一致
+  System-Checkpoint-SCN
+  Datafile-Checkpoint-SCN
+  Start-SCN
+end
+
+start-->condition
+condition--Y-->正常启动
+condition--N-->media_recovery-->condition2--Y-->instance_recovery
+
+start([oracle start])
+condition{三者一致?}
+condition2{EndSCN==null?}
+```
+
+
+
+### SCN与数据库关闭
+
+如果数据库的正常关闭的话，将会触发一个checkpoint，同时将数据文件的END SCN设置为相应数据文件的Start SCN。当数据库启动时，发现它们是一致的，则不需要做instance recovery。在数据库正常启动后，ORACLE会将END SCN设置为NULL.如果数据库异常关闭的话，则END SCN将为NULL。
+
+```mermaid
+flowchart
+stop([oracle stop])
+condition{DB关闭异常?}
+subgraph checkpoint
+	end_scn--set to-->start_scn
+end
+stop-.->checkpoint
+stop-->condition--Y-->op[set END_SCN=null]
+```
+
 
 
 # oracle事务
@@ -47,6 +124,21 @@ ORDER BY
 LIMIT
     10;
 ```
+
+
+
+## 常见命令
+
+查看索引
+
+```sql
+-- 查看单个表中索引
+SHOW keys FROM table_name;
+
+
+```
+
+
 
 
 

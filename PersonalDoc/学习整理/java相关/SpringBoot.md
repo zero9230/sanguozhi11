@@ -530,9 +530,71 @@ public class HttpEncodingAutoConfiguration{
 
 
 
+# 自定义starter
+
+## 说明
+
+启动器模块是一个空jar文件，仅提供辅助性的依赖管理，这些依赖可能用于自动装配或其他类库
+
+**命名规约**
+
+官方命名：
+
+- 前缀：spring-boot-starter-xxx
+- 比如：spring-boot-starter-web
+
+自定义命名
+
+- xxx-spring-boot-starter
+- 比如：mybatis-spring-boot-stater
+
+## 编写启动器
+
+1. 构建项目，其中一个模块用于制作starter
+
+2. 在starter中导入autoconfigure依赖
+
+   ```xml
+   <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter</artifactId>
+   </dependency>
+   ```
+
+3. 删除其他依赖，只留下这个starter
+
+4. 编写自己的服务
+
+5. 编写配置类
+
+6. 编写自动配置类并注入bean
+
+   ```java
+   @Configuration
+   @ConditionalOnWebApplication
+   @EnableConfigurationProperties(HelloProperties.class)
+   public class HelloServiceAutoConfiguration{
+     
+   }
+   ```
+
+7. 在resources编写自己的META-INF/spring.factories
+
+   ```properties
+   # Auto Configure
+   org.springframework.boot.autoconfigure.EnableAutoConguration=【xxx.HelloServiceAutoConfiguration】
+   ```
+
+8. 编写完成后发布到maven仓库中
+
+
+
+
+
 # 作业
 
 1. 实现yaml注入实体类信息
+1. 自定义spring-boot-starter
 
 
 
