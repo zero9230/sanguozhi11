@@ -219,7 +219,7 @@ public JobExecution run(Job job, JobParameters jobParameters)
 
 ### Item Reader
 
-读数据抽象，功能：为每个Step提供数据输入。当ItemReader读完数据时，会反悔null。实现类有很多，如 `JdbcPagingItemReader , JdbcCursorItemReader` 等等。
+读数据抽象，功能：为每个Step提供数据输入。当ItemReader读完数据时，会返回null。实现类有很多，如 `JdbcPagingItemReader , JdbcCursorItemReader` 等等。
 
 支持多种数据源读入：数据库、文件、数据流等等，示例如下：
 
