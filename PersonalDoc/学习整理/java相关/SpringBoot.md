@@ -530,6 +530,12 @@ public class HttpEncodingAutoConfiguration{
 
 
 
+# 
+
+
+
+
+
 # 作业
 
 1. 实现yaml注入实体类信息
