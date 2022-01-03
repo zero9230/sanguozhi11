@@ -18,6 +18,14 @@ ES是基于Lucene做了一个封装和增强
 
 ## ElasticSearch概述
 
+ElasticSearch是一个开源的高扩展分布式全文检索引擎，可以近乎实时的存储、检索数据。使用Java开发，以Lucene为核心，目的是通过RESTFul API隐藏Lucene的复杂性
+
+> 安装要求
+>
+> JDK8，最低要求
+
+
+
 
 
 
@@ -59,3 +67,4 @@ curl 'http://localhost:9200/?pretty'
 1.  [ElasticSearch7.6入门学习笔记](https://www.kuangstudy.com/bbs/1354069127022583809) 
 2.  [【狂神说Java】ElasticSearch7.6.x最新完整教程通俗易懂](https://www.bilibili.com/video/BV17a4y1x7zq?from=search&seid=4820966176885181951&spm_id_from=333.337.0.0) 
 3.  [elasticsearch官方文档地址](https://www.elastic.co/guide/cn/elasticsearch/guide/current/running-elasticsearch.html) 
+3.  [ES下载地址](https://www.elastic.co/cn/downloads/)
