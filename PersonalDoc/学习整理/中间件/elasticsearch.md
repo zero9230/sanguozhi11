@@ -42,7 +42,6 @@ flowchart LR
 nginx[(Nginx log file)]
 tomcat[(Tomcat log file)]
 ES[(ES)]
-
 nginx--收集-->logstash--过滤传输-->ES--展示,分析-->kibana
 tomcat--收集-->logstash
 ```
@@ -127,7 +126,7 @@ IK提供两个分词算法：`ik_smart`、 `ik_max_work`，分别为最少切分
 
 # Rest风格说明
 
-基本说明
+## 基本说明
 
 |      method      |                     url地址                     |          描述          |
 | :--------------: | :---------------------------------------------: | :--------------------: |
@@ -140,38 +139,232 @@ IK提供两个分词算法：`ik_smart`、 `ik_max_work`，分别为最少切分
 
 
 
+## ES操作步骤
+
+1. 进入[kibana](http://Localhost:5601)
+
+2. 进入dev tools，进行操作
+
+   ![image-20220104153103455](elasticsearch.assets/image-20220104153103455.png)
+
+## 字段数据类型
+
+1. 字符串类型
+   1. text: **支持分词**，支持模糊、精确匹配，不支持聚合、排序操作，字符串最大长度无限定，适合大字段存储
+   2. **keyword**:  **不分词**，**直接索引**，支持模糊、精确匹配，支持聚合、排序操作，最大长度为32766个UTF-8类型字符，可以通过设置ignore_above指定支持字符长度，超过长度的数据不被索引；无法通过term精确匹配检索返回结果
+2. 数值型
+   1. long, integer, short, byte, double, float, **haft float, scaled float**
+3. 日期类型
+   1. date
+4. 布尔类型
+   1. boolean
+5. 二进制类型
+   1. binary
+6. 其他等等
 
 
-----
 
+> 如果自己的文档字段没有指定类型，则ES会设置默认类型
 
+通过`Get _cat/`获取很多ES当前信息
 
-建立在全文搜索引擎库 Apache Lucene上。elasticsearch使用java编写，隐藏Lucene的复杂性，提供一套简单一致的RESTful API
-
-特征：
-
-1. 分布式实时文档存储，每个字段可被索引和搜索
-2. 实时分布式
-3. 上百个服务节点扩展，支持PB级别结构化和非结构化数据
-
-
-
-启动elasticsearch
-
-1. 切换到ES的目录下
-2. 执行bin/elasticsearch
-
-```shell
-cd elasticsearch-<version>
-./bin/elasticsearch  
+```bash
+GET _cat/indices
+GET _cat/aliases
+GET _cat/allocation
+GET _cat/count
+GET _cat/fielddata
+GET _cat/health
+GET _cat/indices
+GET _cat/master
+GET _cat/nodeattrs
+GET _cat/nodes
+GET _cat/pending_tasks
+GET _cat/plugins
+GET _cat/recovery
+GET _cat/repositories
+GET _cat/segments
+GET _cat/shards
+GET _cat/snapshots
+GET _cat/tasks
+GET _cat/templates
+GET _cat/thread_pool
 ```
 
 
 
-测试ES是否启动成功
+## 修改
 
-```shell
-curl 'http://localhost:9200/?pretty'
+两种方案
+
+1. 使用put覆盖原值（旧）
+   1. 版本+1（\_version）
+   2. 未覆盖的字段会丢失
+2. 使用post的update（新）
+   1. \_version不变
+   2. 不丢失字段
+   3. 需要注意doc
+
+
+
+## 删除
+
+```text
+DELETE /test1
+```
+
+
+
+## 查询
+
+### 简单条件
+
+```text
+# 实操发现，_doc不可写在查询语句中
+GET /test3/_doc/search?q=name:aa	
+```
+
+
+
+### 复杂查询
+
+#### 查询条件
+
+- match：匹配（会使用分词器解析，分析文档后进行查询）
+- \_source：过滤字段
+- sort：排序
+- from，to：分页
+
+```text
+  // 查询匹配
+  GET /blog/user/_search
+  {
+    "query":{
+      "match":{
+        "name":"流"
+      }
+    }
+    ,
+    "_source": ["name","desc"]
+    ,
+    "sort": [
+      {
+        "age": {
+          "order": "asc"
+        }
+      }
+    ]
+    ,
+    "from": 0
+    ,
+    "size": 1
+  }
+```
+
+#### 多条件查询
+
+- must——and
+- should——or
+- must_not——not(…and…)
+- filter过滤
+
+#### 匹配数组
+
+- 貌似不能和其他字段一起使用
+- 可以多关键字查询（空格隔开）
+- match会使用分词器
+- 搜词
+
+#### 精确查询
+
+- `term`直接通过倒排索引指定**词条**查询
+- 适合查询number、date、keyword，不适合text
+
+```text
+// 精确查询（必须全部都有，而且不可分，即按一个完整的词查询）
+// term 直接通过 倒排索引 指定的词条 进行精确查找的
+GET /blog/user/_search
+{
+  "query":{
+    "term":{
+      "desc":"年 "
+    }
+  }
+}
+```
+
+
+
+#### text和keyword
+
+- text：
+  - **支持分词**，**全文检索**、支持模糊、精确查询,不支持聚合,排序操作;
+  - text类型的最大支持的字符长度无限制,适合大字段存储；
+- keyword：
+  - **不进行分词**，**直接索引**、支持模糊、支持精确匹配，支持聚合、排序操作。
+  - keyword类型的最大支持的长度为——32766个UTF-8类型的字符,可以通过设置ignore_above指定自持字符长度，**超过**给定长度后的数据将不被索引，**无法通过term精确匹配检索返回结果**。
+
+
+
+#### 高亮查询
+
+```text
+/// 高亮查询
+GET blog/user/_search
+{
+  "query": {
+    "match": {
+      "name":"流"
+    }
+  }
+  ,
+  "highlight": {
+    "fields": {
+      "name": {}
+    }
+  }
+}
+// 自定义前缀和后缀
+GET blog/user/_search
+{
+  "query": {
+    "match": {
+      "name":"流"
+    }
+  }
+  ,
+  "highlight": {
+    "pre_tags": "<p class='key' style='color:red'>",
+    "post_tags": "</p>", 
+    "fields": {
+      "name": {}
+    }
+  }
+}
+```
+
+
+
+
+
+# SpringBoot整合
+
+## 导入依赖
+
+> 依赖版本要和安装的ES版本一致
+
+```xml
+<properties>
+    <java.version>1.8</java.version>
+    <!-- 统一版本 -->
+    <elasticsearch.version>7.6.1</elasticsearch.version>
+</properties>
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+</dependency>
+<!--导入必要的序列化依赖 -->
 ```
 
 
@@ -183,4 +376,10 @@ curl 'http://localhost:9200/?pretty'
 1.  [ElasticSearch7.6入门学习笔记](https://www.kuangstudy.com/bbs/1354069127022583809) 
 2.  [【狂神说Java】ElasticSearch7.6.x最新完整教程通俗易懂](https://www.bilibili.com/video/BV17a4y1x7zq?from=search&seid=4820966176885181951&spm_id_from=333.337.0.0) 
 3.  [elasticsearch官方文档地址](https://www.elastic.co/guide/cn/elasticsearch/guide/current/running-elasticsearch.html) 
-3.  [ES下载地址](https://www.elastic.co/cn/downloads/)
+4.  [ES下载地址](https://www.elastic.co/cn/downloads/) 
+5.  华为云下载镜像
+    1.  ElasticSearch: https://mirrors.huaweicloud.com/elasticsearch/?C=N&O=D
+    2.  logstash: https://mirrors.huaweicloud.com/logstash/?C=N&O=D
+    3.  kibana: https://mirrors.huaweicloud.com/kibana/?C=N&O=D
+    4.  ik: https://github.com/medcl/elasticsearch-analysis-ik/releases
+
