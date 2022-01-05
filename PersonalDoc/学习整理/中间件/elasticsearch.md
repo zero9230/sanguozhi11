@@ -351,7 +351,7 @@ GET blog/user/_search
 
 ## 导入依赖
 
-> 依赖版本要和安装的ES版本一致
+依赖版本要和安装的ES版本一致
 
 ```xml
 <properties>
@@ -364,8 +364,45 @@ GET blog/user/_search
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
 </dependency>
-<!--导入必要的序列化依赖 -->
+<!--还要导入必要的序列化依赖 -->
 ```
+
+## 创建并编写配置类
+
+```java
+@Configuration
+public class ElasticSearchConfig {
+    // 注册 rest高级客户端 
+    @Bean
+    public RestHighLevelClient restHighLevelClient(){
+        RestHighLevelClient client = new RestHighLevelClient(
+                RestClient.builder(
+                        new HttpHost("127.0.0.1",9200,"http")
+                )
+        );
+        return client;
+    }
+}
+```
+
+
+
+## 创建并编写实体类
+
+```java
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class User implements Serializable {
+    private static final long serialVersionUID = -3843548915035470817L;
+    private String name;
+    private Integer age;
+}
+```
+
+
+
+## 测试
 
 
 
