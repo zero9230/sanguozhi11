@@ -19,6 +19,7 @@
         <module>sanguozhi11-core</module>
         <module>sanguozhi11-starter</module>
         <module>sanguozhi11-spark</module>
+        <module>sanguozhi11-elasticsearch</module>
     </modules>
 
     <properties>
