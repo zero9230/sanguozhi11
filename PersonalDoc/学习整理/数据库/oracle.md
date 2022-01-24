@@ -134,13 +134,21 @@ LIMIT
 ```sql
 -- 查看单个表中索引
 SHOW keys FROM table_name;
-
-
 ```
 
 
 
+## tuple
 
+可以使用多个条件进行如下的查询
+
+```sql
+SELECT *
+FROM mytable
+WHERE (group_id, group_type) IN (("1234-567", 2), ("4321-765", 3), ("1111-222", 5))
+```
+
+参考：[Using tuples in SQL "IN" clause](https://stackoverflow.com/questions/8006901/using-tuples-in-sql-in-clause) 
 
 # oracle分库分表
 
