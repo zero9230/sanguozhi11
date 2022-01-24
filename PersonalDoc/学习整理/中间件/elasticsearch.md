@@ -359,7 +359,12 @@ GET blog/user/_search
     <!-- 统一版本 -->
     <elasticsearch.version>7.6.1</elasticsearch.version>
 </properties>
-
+<dependency>
+    <groupId>org.elasticsearch.client</groupId>
+    <artifactId>elasticsearch-rest-high-level-client</artifactId>
+    <version>7.6.1</version>
+    <scope>compile</scope>
+</dependency>
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
