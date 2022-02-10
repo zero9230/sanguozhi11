@@ -260,7 +260,7 @@ public SpringApplication(ResourceLoader resourceLoader, Class... primarySources)
 
 ### run方法流程分析
 
-![图片](SpringBoot.assets/640)
+![图片](SpringBoot.assets/640.jpg)
 
 
 
