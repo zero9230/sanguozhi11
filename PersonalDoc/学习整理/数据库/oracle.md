@@ -1,6 +1,76 @@
+# 基本概念
+
+## 实例和数据库之间的关系
+
+每个DB可包含多个Instance ， 每个Instance可包含多个Tablespace和User等（授予USER读写TABLESPACE的权限），每个TABLESPACE可包含多个DBF文件，常用的TABLE或VIEW等都存储在TABLESPACE里
+
+
+
+基础概念：Oracle数据库、实例、用户、表空间、表之间的关系
+
+### 数据库
+
+oracle数据库是数据的物理存储，包括ORA或DBF，控制文件，联机日志，参数文件。
+
+oracle数据库概念不同于其他数据库，这里数据库是一个操作系统只有一个库。
+
+可看作Oracle只有一个大数据库
+
+### 实例
+
+一个Oracle实例有一系列后台进程和内存结构组成。
+
+一个数据库可有多个实例
+
+
+
+### 用户
+
+用户在实例下构建，不同实例间可以用户可同名
+
+### 表空间
+
+一个用来管理数据库存储逻辑的概念，表空间只和数据文件（ORA或DBF文件）发生关系，数据文件是物理的。
+
+一个表空间可以包含多个数据文件，一个数据文件只属于一个表空间
+
+### 数据文件（dbf，ora）
+
+数据文件是数据库的物理存储单位，数据库的数据存储于表空间中。
+
+一个表空间可包括一个到多个数据文件。
+
+一旦数据文件被加入某表空间后，该文件就不可删除。若要删除该文件，至善删除其所属表空间
+
+
+
+```mermaid
+erDiagram
+Oracle_database||--|{instance:""
+instance||--|{tablespace:""
+tablespace||--|{user:""
+tablespace||--|{storage_file:""
+user||--|{table:""
+table}|--|{storage_file:""
+```
+
+
+
+
+
+
+
+
+
+参考文献： 
+
+1.  [oracle里实例和数据库之间的关系](https://blog.csdn.net/G15738290530/article/details/51859048) 
+
 # oracle快照机制
 
 oracle生成快照需要导出为文件，有一定的系统开销
+
+
 
 
 
