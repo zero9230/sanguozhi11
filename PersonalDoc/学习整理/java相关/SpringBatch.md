@@ -363,6 +363,69 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 
 
 
+### 重启能力
+
+配置方式
+
+```xml
+<job id="footballJob" restartable="false">
+    ...
+</job>
+```
+
+设置为false表示该job不支持重启，重启该类型job会抛出JobRestartException
+
+
+
+### 拦截job执行
+
+类似spring bean生命周期的拦截借口，springBatch也有类似接口
+
+```java
+public interface JobExecutionListener {
+    void beforeJob(JobExecution jobExecution);
+    void afterJob(JobExecution jobExecution);
+}
+```
+
+JobListener能够添加到SimpleJob中去，作为job的listener元素：
+
+```xml
+<job id="footballJob">
+    <step id="playerload"          parent="s1" next="gameLoad"/>
+    <step id="gameLoad"            parent="s2" next="playerSummarization"/>
+    <step id="playerSummarization" parent="s3"/>
+    <listeners>
+        <listener ref="sampleListener"/>
+    </listeners>
+</job>
+```
+
+无论job执行成功或是失败都会调用afterJob，都可以从 **JobExecution** 中获取运行结果后，根据结果来进行不同的处理：
+
+```java
+public void afterJob(JobExecution jobExecution){
+    if( jobExecution.getStatus() == BatchStatus.COMPLETED ){
+        //job执行成功    }
+    else if(jobExecution.getStatus() == BatchStatus.FAILED){
+        //job执行失败    }
+}
+```
+
+
+
+### 继承父任务
+
+
+
+### JobParametersValidator
+
+
+
+
+
+
+
 # 参考文献
 
 1.  [Spring Batch 中文参考文档](https://www.wenjiangs.com/docs/spring-batch) 
