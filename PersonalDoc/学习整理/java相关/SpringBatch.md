@@ -4,6 +4,8 @@
 
 由spring提供的轻量级、全面的数据批处理框架，
 
+常见输入有数据库、文件、消息
+
 ## 架构
 
 典型批处理程序包括
@@ -357,14 +359,21 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 
 1. 定义一个Job
 
-
+## 配置并运行job
 
 
 
 # 参考文献
 
-1. [批处理框架spring batch基础知识介绍](https://blog.csdn.net/topdeveloperr/article/details/84337956)
-2. [Spring Batch批处理](https://www.jdon.com/springbatch.html)——具体操作待实现
+1.  [Spring Batch 中文参考文档](https://www.wenjiangs.com/docs/spring-batch) 
+
+2.  [**Spring Batch 中文文档**](https://www.docs4dev.com/docs/zh/spring-batch/4.1.x/reference/spring-batch-intro.html#spring-batch-intro) 
+
+3.  [批处理框架spring batch基础知识介绍](https://blog.csdn.net/topdeveloperr/article/details/84337956) 
+
+4.  [Spring Batch批处理](https://www.jdon.com/springbatch.html)——具体操作待实现
+
+   
 
 
 
