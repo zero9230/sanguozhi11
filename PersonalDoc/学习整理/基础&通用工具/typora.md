@@ -496,6 +496,18 @@ info
 
 
 
+
+
+
+
+# SliDev
+
+
+
+[SliDev使用指南](https://cn.sli.dev/guide/)
+
+
+
 # 公式
 
 ## 常用公式代码
