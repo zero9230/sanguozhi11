@@ -2,6 +2,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -19,5 +20,15 @@ public class MyTest {
 
         Mockito.when(mockList.size()).thenReturn(100);
         assertEquals(100, mockList.size());
+    }
+
+    @Test
+    public void test2(){
+        HashSet<String> set=new HashSet<>();
+        set.add("ss");
+        System.out.println(set);
+        set.remove("ss");
+        System.out.println(set);
+
     }
 }
