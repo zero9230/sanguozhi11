@@ -452,14 +452,40 @@ classDiagram
 
 ```mermaid
 stateDiagram
-	[*]-->Still
+	direction LR
+	[*]-->Still:init
 	Still-->[*]
-	
-	Still-->Moving
-	Moving-->Still
-	Moving-->Crash
+	%% this is a comment
+
+	Still-->Moving:move
+	Moving-->Still:stop 
+
+	Moving-->Crash %% this is a comment
 	Crash-->[*]
 ```
+
+
+
+```mermaid
+stateDiagram-v2
+    [*] --> Active
+
+    state Active {
+        [*] --> NumLockOff
+        NumLockOff --> NumLockOn : EvNumLockPressed
+        NumLockOn --> NumLockOff : EvNumLockPressed
+        --
+        [*] --> CapsLockOff
+        CapsLockOff --> CapsLockOn : EvCapsLockPressed
+        CapsLockOn --> CapsLockOff : EvCapsLockPressed
+        --
+        [*] --> ScrollLockOff
+        ScrollLockOff --> ScrollLockOn : EvScrollLockPressed
+        ScrollLockOn --> ScrollLockOff : EvScrollLockPressed
+    }
+```
+
+
 
 
 
@@ -488,21 +514,43 @@ erDiagram
 
 ## 更新typora集成的mermaid版本
 
+### 当前版本
+
 ```mermaid
 info
 ```
 
+### 升级typora自带的mermaid版本方法
+
 参看链接： [Typora不支持最新Mermaid语法的解决办法](https://qzy.im/blog/2020/05/typora-integrate-the-latest-version-of-mermaid/#%E6%9B%BF%E6%8D%A2mermaid%E5%8E%9F%E5%85%88%E5%BC%95%E7%94%A8%E7%9A%84js%E6%96%87%E4%BB%B6) 
 
+ [mermaid git repo]( https://github.com/mermaid-js/mermaid.git) 
+
+操作方法：
+
+1. 打开package.json，发现其中的scripts中有build命令
+2. 使用yarn build命令，用于生成编译后的js文件，一般生成在根目录下
+3. 将这个新生成的js文件替换到typora的mermaid目录下
 
 
 
+### mermaid仓库的编译方法
+
+1. 安装`npm`或`yarn`，此处以npm`为`例
+
+2. 运行命令`npm run install`，安装必要的依赖
+
+3. 打开工程目录下package.json文件，关键参数都写在里面，如当前版本version，输出目录exports，运行命令等。查看script等命令
+
+   ![image-20220218222621438](typora.assets/image-20220218222621438.png)
+
+4. 运行`npm run build`命令，生成工程文件。
+
+5. 生成完成后在工程根目录下得到一个dist文件夹，其中`mermaid.min.js`文件就是目标文件，执行文件替换即可
 
 
 
 # SliDev
-
-
 
 [SliDev使用指南](https://cn.sli.dev/guide/)
 
