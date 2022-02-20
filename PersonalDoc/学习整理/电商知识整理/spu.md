@@ -48,13 +48,13 @@ stateDiagram-v2
 	
 	state apply{
 		新发待审-->正常:pass
-		新发待审-->:
+		新发待审-->t:z
 	}
 	state correct{
-		a
+		a-->c
 	}
 	state report{
-		b
+		b-->d
 	}
 	
 
