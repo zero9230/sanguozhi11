@@ -24,11 +24,7 @@ public class MyTest {
 
     @Test
     public void test2(){
-        HashSet<String> set=new HashSet<>();
-        set.add("ss");
-        System.out.println(set);
-        set.remove("ss");
-        System.out.println(set);
+        System.out.println("EXTERNAL_AGENCY".length());
 
     }
 }

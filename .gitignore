@@ -8,3 +8,4 @@ PersonalDoc/vscode/job/
 PersonalDoc/.DS_Store
 .DS_Store
 /sanguozhi11-elasticsearch/target/
+/sanguozhi11-core/src/main/resources/format/
