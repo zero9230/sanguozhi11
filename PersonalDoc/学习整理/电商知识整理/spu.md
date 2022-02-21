@@ -43,14 +43,20 @@ cspu||--|{ticket:""
 # 状态机
 
 ```mermaid
-stateDiagram
-	[*]-->新发待审:apply
-	新发待审-->正常:pass
-	正常-->新发待审:back
-	正常-->部分属性待审:correct
-	部分属性待审-->更新属性的正常:pass
-	部分属性待审-->正常:reject
-	正常-->屏蔽:report
+stateDiagram-v2
+	[*]-->apply
+	
+	state apply{
+		新发待审-->正常:pass
+		新发待审-->t:z
+	}
+	state correct{
+		a-->c
+	}
+	state report{
+		b-->d
+	}
+	
 
 ```
 
