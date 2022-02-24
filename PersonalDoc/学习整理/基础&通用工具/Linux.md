@@ -145,6 +145,78 @@ done
 
 
 
+## 无限循环
+
+```bash
+while :
+do 
+	command
+done
+```
+
+
+
+## until循环
+
+一般while循环优于until
+
+```bash
+a=0
+
+until [ ! $a -lt 10 ]
+do
+   echo $a
+   a=`expr $a + 1`
+done
+```
+
+## case…esac
+
+多选择语句，类似switch
+
+```bash
+echo '输入 1 到 4 之间的数字:'
+echo '你输入的数字为:'
+read aNum
+case $aNum in
+    1)  echo '你选择了 1'
+    ;;
+    2)  echo '你选择了 2'
+    ;;
+    3)  echo '你选择了 3'
+    ;;
+    4)  echo '你选择了 4'
+    ;;
+    *)  echo '你没有输入 1 到 4 之间的数字'
+    ;;
+esac
+```
+
+## break
+
+跳出循环
+
+```bash
+while :
+do
+    echo -n "输入 1 到 5 之间的数字:"
+    read aNum
+    case $aNum in
+        1|2|3|4|5) echo "你输入的数字为 $aNum!"
+        ;;
+        *) echo "你输入的数字不是 1 到 5 之间的! 游戏结束"
+            break
+        ;;
+    esac
+done
+```
+
+## continue
+
+类同continue
+
+
+
 # 文本操作命令
 
 ## 文本文件比对——diff
