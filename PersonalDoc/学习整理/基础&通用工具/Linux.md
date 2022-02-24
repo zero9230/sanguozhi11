@@ -53,7 +53,99 @@ linux系统下，进程对信号的默认响应方式有5种：
 
 
 
-# 文本命令
+# 流程控制
+
+## if else
+
+实例
+
+```bash
+a=10
+b=20
+if [ $a == $b ]
+then
+	echo "a==b"
+elif [ $a -lt $b ]
+then
+	echo "a<b"
+else
+	echo "no matching condition"
+fi
+```
+
+注意， `==` ，`[`  和 ` ]`前后都不与其他符号相连接，中间用空格隔开
+
+或者写成一行
+
+```bash
+if [ $(ps -ef | grep -c "ssh") -gt 1 ]; then echo "true"; fi
+```
+
+
+
+与test命令结合
+
+```bash
+num1=$[2*3]
+num2=$[1+5]
+if test $[num1] -eq $[num2]
+then
+    echo '两个数字相等!'
+else
+    echo '两个数字不相等!'
+fi
+```
+
+
+
+
+
+## for循环
+
+实例
+
+```bash
+for loop in 1 2 3 4 5
+do
+    echo "The value is: $loop"
+done
+```
+
+
+
+## while循环
+
+```bash
+int=1
+while(( $int<=5 ))
+do
+    echo $int
+    let "int++"
+done
+```
+
+
+
+可用于读取键盘信息
+
+```bash
+echo '按下 <CTRL-D> 退出'
+echo -n '输入你最喜欢的网站名: '
+while read FILM
+do
+    echo "是的！$FILM 是一个好网站"
+done
+```
+
+
+
+参考
+
+1.  [Shell 流程控制](https://www.runoob.com/linux/linux-shell-process-control.html) 
+
+
+
+# 文本操作命令
 
 ## 文本文件比对——diff
 
@@ -158,9 +250,17 @@ sort test1.txt
    
    ```
 
-   
 
 
+## awk
+
+
+
+
+
+参考
+
+1.  [awk命令使用详解](https://juejin.cn/post/6844903782359253005)
 
 # 查看文件命令
 
@@ -171,6 +271,59 @@ sort test1.txt
 3. `ll -lrt` ——按时间顺序排序展示文件列表详情
 
    
+
+
+
+常用命令整理
+
+
+
+1. scp 
+
+   用于 Linux 之间复制文件和目录。
+
+   scp 是 secure copy 的缩写, scp 是 linux 系统下基于 ssh 登陆进行安全的远程文件拷贝命令。
+
+   scp 是加密的，[rcp](https://www.runoob.com/linux/linux-comm-rcp.html) 是不加密的，scp 是 rcp 的加强版。
+
+2. f_print_dash
+
+   打印短横？
+
+3. eval
+
+   重新计算
+
+
+
+> 练习：
+>
+> 定时提交指定目录下的文件到git
+
+
+
+# OS命令
+
+1. df -h 	# 查看磁盘占用率
+2. top   # 实时查看进程，类似任务管理器 
+3. ps -ef # 查看当前运行的进程
+
+
+
+# 网络命令
+
+1. nsloopup 【目标网址】		# 查看目标网址的dns
+
+   
+
+
+
+
+
+参考
+
+- [shell学习笔记](https://www.cnblogs.com/maybe2030/p/5022595.html#_label0)
+- [菜鸟教程-Linux](https://www.runoob.com/linux/linux-comm-scp.html)
 
 
 
