@@ -4,14 +4,16 @@
 erDiagram
 spu{
 	Long spu_id
-	String title
 	Long category_id
 	String key_properties
-	String bind_properties
+	String title
+  String bind_properties
+	String image_url
 	int status
 }
 cspu{
 	Long cspu_id
+	Long parent_id
 	String cspu_title
 	Long category_id
 	String sale_properties
@@ -19,7 +21,13 @@ cspu{
 }
 ticket{
 	Long ticket_id
+	Long spu_id
+	Long cspu_id
+	Long category_id
+	Long main_category_id
 	int type
+	int data_type
+	String ticket_data
 	int status
 }
 cspu_image{
@@ -30,12 +38,19 @@ quality_image{
 	Long quality_image_id
 	Long cspu_id
 }
-spu||--|{cspu:""
-cspu||--|{cspu_image:""
-cspu||--|{quality_image:""
-spu||--|{ticket:""
-cspu||--|{ticket:""
-
+spu_ext{
+	Long spu_ext_id
+	Long spu_id
+	int ext_type
+	int model_id
+	String ext_content
+}
+spu||--|{cspu:"spu.spu_id=cspu.parent_id"
+cspu||--|{cspu_image:"cspu.cspu_id=cspu_image_id"
+cspu||--|{quality_image:"cspu.cspu_id=quality_image.quality_image_id"
+spu||--|{ticket:"spu.spu_id=ticket.ticket_id"
+cspu||--|{ticket:"cspu.cspu_id=ticket.ticket_cspu_id"
+spu||--|{spu_ext:"spu.spu_id=spu_ext_id"
 ```
 
 

@@ -432,11 +432,16 @@ Add another diagram to demo page    : 48h
 classDiagram
 	Animal<|--Duck
 	Animal<|--Fish
-	Animal<|--Zebra
+  Animal<|--Zebra
+  living<|..Animal
 	Animal:	+int age
 	Animal: +String gender
 	Animal: +isMammal()
 	Animal: +mate()
+	class living{
+  	<<interface>>
+		+consumeEnergy()
+	}
 	class Duck{
 		+String beakColor
 		+swim()
@@ -451,6 +456,25 @@ classDiagram
 		+run()
 	}
 ```
+
+
+
+relationship
+
+| Type  | Description   |
+| ----- | ------------- |
+| <\|-- | Inheritance   |
+| *--   | Composition   |
+| o--   | Aggregation   |
+| -->   | Association   |
+| --    | Link (Solid)  |
+| ..>   | Dependency    |
+| ..\|> | Realization   |
+| ..    | Link (Dashed) |
+
+
+
+
 
 ### 状态图——stateDiagram
 

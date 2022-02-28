@@ -329,7 +329,7 @@ sort test1.txt
 ### 形式
 
 ```bash
-$ awk 'BEGIN{}pattern{commands}END{}' file
+awk 'BEGIN{}pattern{commands}END{}' file
 ```
 
 
@@ -358,6 +358,27 @@ $ awk 'BEGIN{}pattern{commands}END{}' file
 | OFS      | 输出字段分隔符。默认为空格        |
 | ORS      | 输出行分隔符。默认为回车换行      |
 | FILENAME | 当前文件名                        |
+
+
+
+### 常用选项
+
+| 选项 | 含义            |
+| ---- | --------------- |
+| -v   | 参数传递        |
+| -V   | 查看awk的版本号 |
+| -f   | 指定脚本文件    |
+| -F   | 指定分隔符      |
+
+
+
+### 使用条件/循环语句
+
+实例
+
+```bash
+awk -F: '{if($3>100 && $3<1000) print $0}' /etc/passwd
+```
 
 
 

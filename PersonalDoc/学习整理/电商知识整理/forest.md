@@ -48,25 +48,55 @@ position= metaHeadSize + recordId * recordSize
 
 
 
+# E-R
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```mermaid
+erDiagram
+category{
+	Long category_id
+	Long parent_category_id
+	boolean is_leaf_category
+	String category_name
+	int channel_id
+	int status
+	String feature
+}
+base_property{
+	Long property_id
+	String property_name
+}
+base_value{
+	Long value_id
+	String value_name
+}
+category_property{
+	Long cp_id
+	int cp_type
+	Long category_id
+	Long property_id
+	int status
+	String feature
+}
+property_value{
+	Long property_valule_id
+	Long property_id
+	Long value_id
+}
+category_property_value{
+	Long cpv_id
+	Long cp_id
+	Long value_id
+  String value_name
+  String child_property_model
+  String child_property_id
+  int status
+  String feature
+}
+category||--|{category_property:""
+base_property||--|{category_property:""
+category_property||--|{category_property_value:""
+base_value||--|{category_property_value:""
+```
 
 
 
