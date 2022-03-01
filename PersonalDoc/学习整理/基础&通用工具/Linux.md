@@ -457,4 +457,4 @@ awk -F: '{if($3>100 && $3<1000) print $0}' /etc/passwd
 
 参考：
 
-1. [教你一招实现Linux中的文本比对](https://www.jb51.net/article/150038.htm)
+1.  [教你一招实现Linux中的文本比对](https://www.jb51.net/article/150038.htm) 
