@@ -220,6 +220,56 @@ WHERE (group_id, group_type) IN (("1234-567", 2), ("4321-765", 3), ("1111-222", 
 
 参考：[Using tuples in SQL "IN" clause](https://stackoverflow.com/questions/8006901/using-tuples-in-sql-in-clause) 
 
+
+
+
+
+## 行转列
+
+多行合并为一行
+
+LISTAGG WITHIN GROUP
+
+
+
+# join
+
+## join中on和where的区别
+
+- 考虑如下场景：
+
+ ![img](oracle.assets/98cf32b46e50a38e37d3ca95.jpg) 
+
+ ![img](oracle.assets/ed32ceee13a12b56fcfa3c95.jpg) 
+
+其实以上结果的关键原因就是**left join,right join,full join**的特殊性，不管on上的条件是否为真都会返回left或right表中的记录，full则具有left和right的特性的并集。 _而inner join没这个特殊性，则条件放在on中和where中，返回的结果集是相同的_。on为了反映外连接中一方的全连接，而where没有这个功能，内连接配对是可以的。
+
+---
+
+**说明**
+
+- on、where、having的区别
+
+on、where、having这三个都可以加条件的子句中，on是最先执行，where次之，having最后。有时候如果这先后顺序不影响中间结果的话，那最终结果是相同的。但因为on是先把不符合条件的记录过滤后才进行统计，它就可以减少中间运算要处理的数据，按理说应该速度是最快的。
+
+  根据上面的分析，可以知道where也应该比having快点的，因为它过滤数据后才进行sum，所以having是最慢的。但也不是说having没用，因为有时在步骤3还没出来都不知道那个记录才符合要求时，就要用having了。
+
+  在两个表联接时才用on的，所以在一个表的时候，就剩下where跟having比较了。在这单表查询统计的情况下，如果要过滤的条件没有涉及到要计算字段，那它们的结果是一样的，只是where可以使用rushmore技术，而having就不能，在速度上后者要慢。
+
+  如果要涉及到计算的字段，就表示在没计算之前，这个字段的值是不确定的，根据上篇写的工作流程，where的作用时间是在计算之前就完成的，而having就是在计算后才起作用的，所以在这种情况下，两者的结果会不同。
+
+  在多表联接查询时，on比where更早起作用。系统首先根据各个表之间的联接条件，把多个表合成一个临时表后，再由where进行过滤，然后再计算，计算完后再由having进行过滤。由此可见，要想过滤条件起到正确的作用，首先要明白这个条件应该在什幺时候起作用，然后再决定放在那里
+
+
+
+参考资料
+
+1.  [SQL中ON和WHERE的区别](https://www.cnblogs.com/ajianbeyourself/p/9836954.html) 
+
+
+
+
+
 # oracle分库分表
 
 

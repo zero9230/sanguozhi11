@@ -26,5 +26,6 @@
 
 # 参考资料
 
-1.  [Flutter中文网](https://flutterchina.club/) 
+1.   [Flutter中文网](https://flutterchina.club/) 
+1.   [flutter使用sqflite](https://pub.dev/packages/sqflite) 
 
