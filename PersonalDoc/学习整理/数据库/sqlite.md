@@ -1,3 +1,19 @@
+# 安装
+
+Mac预装SQLite
+
+- 进入sqlite
+
+```bash
+sqlite3
+```
+
+
+
+# 命令
+
+
+
 # 常用函数
 
 

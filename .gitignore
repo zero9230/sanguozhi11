@@ -9,3 +9,6 @@ PersonalDoc/.DS_Store
 .DS_Store
 /sanguozhi11-elasticsearch/target/
 /sanguozhi11-core/src/main/resources/format/
+sanguozhi11-starter/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+sanguozhi11-spark/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+sanguozhi11-starter/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
