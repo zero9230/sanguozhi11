@@ -20,7 +20,23 @@ dart --version
 var str='hello';
 String str='hello';
 int a=123;
+
+//分段长字符串
+String str='''123
+456
+789
+''';
+
+
+//取值
+var name='张三';
+print("$name")
+  
+  int b=10;
+	b??=23;//b为空，则赋值；不为空则不执行
 ```
+
+
 
 
 
