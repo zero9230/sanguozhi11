@@ -1,4 +1,6 @@
-# 安装
+# 前期准备
+
+## 安装
 
 1. 下载flutter源代码
 
@@ -20,7 +22,132 @@
    flutter doctor
    ```
 
-   
+4. 安装Xcode
+
+
+
+## 运行app
+
+1. 给工程文件授权
+
+   ```bash
+   sudo chmod -R 777 [projectName]
+   ```
+
+2. 双击打开 `[projectName]/ios/Runner.xcodeproj`，使用xcode打开工程文件
+
+
+
+## 工程目录介绍
+
+```bash
+#安卓文件
+android/
+
+# 编译目录
+build/
+
+# ios文件
+ios/
+
+# 源码和资源文件
+lib/
+test/
+
+# 项目依赖文件，一般放第三方库依赖
+pubspec.yaml
+```
+
+
+
+## 入口文件、方法
+
+每个flutter项目的lib目录中都有一个main.dart，其中的main方法即是入口
+
+```dart
+void main(){
+  runApp(MyApp());
+}
+// 也可简写为
+void main()=>runApp(MyApp());
+```
+
+
+
+自定义组件
+
+## 引入基本库
+
+fim， 呼出提示
+
+```dart
+import 'package:flutter/material.dart';
+```
+
+
+
+# 基本语法
+
+## 自定义组件
+
+```dart
+class MyApp extends StatelessWidget{
+  @Override
+  Widget build(BuildContext context){
+    return null;
+  }
+}
+  
+```
+
+
+
+## MaterialApp
+
+一般作为顶层widget使用，其中封装了theme, color, home等属性
+
+## Scaffold
+
+是Material Design布局的基本实现，提供了drawer、snackbar和底部的sheet的API。
+
+Scaffold有一下几个主要属性
+
+- appBar——在界面顶部显示一个bar
+- body——主体内容
+- drawer——抽屉菜单控件
+
+##  Container组件
+
+容器组件，常用于布局
+
+
+
+## Text组件
+
+## 列表组件ListView
+
+1. 垂直列表
+2. 水平列表
+3. 
+
+
+
+ListTile——列表单元格
+
+
+
+动态列表——ListView.builder
+
+```dart
+return ListView.builder(
+  itemCount:list.length;
+  itemBuilder:(context,index){
+    return ListTile(
+      title: Text(this.list[index]),
+    );
+  }
+);
+```
 
 
 
