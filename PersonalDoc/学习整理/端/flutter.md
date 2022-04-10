@@ -116,6 +116,10 @@ Scaffold有一下几个主要属性
 - body——主体内容
 - drawer——抽屉菜单控件
 
+
+
+statelessWidget
+
 ##  Container组件
 
 容器组件，常用于布局
@@ -149,10 +153,25 @@ return ListView.builder(
 );
 ```
 
+## 网格布局组件GridView
+
+GridView.count
+
+GridView.builder
+
+
+
+## StatefulWidget
+
+setState()方法用于更新状态，即让后台变量实时更新到页面中
+
 
 
 # 参考资料
 
-1.   [Flutter中文网](https://flutterchina.club/) 
-1.   [flutter使用sqflite](https://pub.dev/packages/sqflite) 
+1.    [Flutter中文网](https://flutterchina.club/) 
+1.    [flutter使用sqflite](https://flutter.cn/docs/cookbook/persistence/sqlite) 
+1.    [B站——Flutter2入门实战视频教程](https://www.bilibili.com/video/BV1S4411E7LY?p=16) 
+1.    [Flutter学习思维导图 ](https://www.cnblogs.com/yangyxd/p/11685964.html) 
+1.    [Dart思维导图](https://blog.csdn.net/sun_cui_hua/article/details/109330394) 
 

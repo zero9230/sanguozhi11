@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MyBatis-Generator 相关配置 -->
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!-- 所有的配置均在 generatorConfiguration 标签下 -->
+<generatorConfiguration>
+
+    <!-- 引入外部配置文件   -->
+    <properties resource="mybatis-generator.properties"/>
+    <!--  加载需要的额外的依赖包 -->
+    <!--  <classPathEntry location="/Users/deecyn/Files/db2java.zip"/>-->
+
+    <!-- 配置 context 上下文  -->
+    <context id="MySqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <!-- 自动识别数据库关键字，默认为 false，一般保留默认值，遇到数据库关键字（Java关键字）时，
+            按照 table 元素中 columnOverride 属性的配置进行覆盖；
+            如果设置为 true， 则需按照 SqlReservedWords 中定义的关键字列表，对关键字进行定界（分隔）；
+            定界符（分隔符）参见 beginningDelimiter 和 endingDelimiter 的设置-->
+        <property name="autoDelimitKeywords" value="false"/>
+
+        <!-- beginningDelimiter 和 endingDelimiter，定界符（分隔符），指明用于标记数据库关键字的符号，默认为为双引号 (")；
+              在 oracle 中是双引号 (")，在 MySQL 中需配置为反引号 (`)  -->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!-- 生成的 Java 文件的编码   -->
+        <property name="JavaFileEncoding" value="UTF-8"/>
+        <!-- 格式化 Java 代码 -->
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <!-- 格式化 XML 代码 -->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+
+
+        <!-- 使生成的 Model 实现 Serializable 接口 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!--  为生成的 Model 覆写 toString() 方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!--  为生成的 Model 覆写 equals() 和 hashCode() 方法 -->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+
+        <!--  配置注释生成器 -->
+        <commentGenerator>
+            <!--  不生成所有注释，默认为 false  -->
+            <property name="suppressAllComments" value="true"/>
+
+            <!--  生成的注释中不包含时间信息，默认为 false -->
+            <property name="suppressDate" value="true"/>
+            <!--  生成的注释中，时间的显示格式 -->
+            <property name="dateFormat" value="yyyy/MM/dd"/>
+            <!-- 是否添加数据库表中字段的注释，默认为 false  -->
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+        <!--    引用自定义的注释生成器 -->
+        <!--  <commentGenerator  type="deecyn.shop_02.mbg.MyCommentGenerator" >
+                    <property name="author" value="Deecyn"/>
+             </commentGenerator>-->
+
+        <!--  配置数据库连接  -->
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="${jdbc.connectionURL}"
+                        userId="${jdbc.userId}"
+                        password="${jdbc.password}">
+
+            <!--  若为 8.0 版本以上的 mysql-connector-java 驱动，需要设置 nullCatalogMeansCurrent = true -->
+            <!--  <property name="nullCatalogMeansCurrent" value="true"/> -->
+        </jdbcConnection>
+
+        <!--  配置类型转换规则  -->
+        <javaTypeResolver>
+            <!-- 是否强制使用 BigDecimal；
+                默认为 false，把 JDBC 的 DECIMAL 和 NUMERIC 类型解析为 Integer；
+                设置为 true 时，把 JDBC 的 DECIMAL 和 NUMERIC 类型解析为 java.math.BigDecimal -->
+            <property name="forceBigDecimals" value="true"/>
+
+            <!-- 设置时间类型的转换，
+               默认 false，将所有 JDBC 的时间类型解析为 java.util.Date；
+               设置为 true 时，将 JDBC 的时间类型按如下规则解析：
+                    DATE        -> java.time.LocalDate
+                    TIME        -> java.time.LocalTime
+                    TIMESTAMP      -> java.time.LocalDateTime
+                    TIME_WITH_TIMEZONE      -> java.time.OffsetTime
+                    TIMESTAMP_WITH_TIMEZONE     -> java.time.OffsetDateTime
+                -->
+            <property name="useJSR310Types" value="true"/>
+        </javaTypeResolver>
+
+        <!--  配置 Java 模型生成器 -->
+        <javaModelGenerator targetPackage="deecyn.shop_02.mbg.model" targetProject="src/main/java">
+            <!-- 自动为每一个生成的类创建一个构造方法，构造方法包含了所有的 field，而不是使用 setter；
+              默认值为 false -->
+            <property name="constructorBased" value="false"/>
+
+            <!-- 在 targetPackage 的基础上，根据数据库的 schema 再生成一层 package，
+            最终生成的类放在这个package下；默认为false -->
+            <property name="enableSubPackages" value="false"/>
+
+            <!-- 是否创建一个不可变的类：如果为true，那么 MBG 生成的类会没有 setter 方法，
+            采用构造函数的方式来接收和设置每个字段的值，此时会忽略 constructorBased 属性的设置；
+            默认值为 false  -->
+            <property name="immutable" value="false"/>
+
+            <!-- 设置在 getter 方法中，是否对 String 类型的字段调用 trim() 方法；默认为 false -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- SQL Map 的 xml 文件生成器 -->
+        <sqlMapGenerator targetPackage="mbg-mapper" targetProject="src/main/resources">
+            <!-- 同 javaModelGenerator 元素中的配置  -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!--  关于 Mapper 接口的生成 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="deecyn.shop_02.mbg.mapper"
+                             targetProject="src/main/java">
+            <!-- 同 javaModelGenerator 元素中的配置  -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 配置需要生成代码的数据库表 -->
+        <table tableName="pms_brand" domainObjectName="PmsBrand"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+
+            <!-- 指定是否只生成 domain 类，默认为 false；
+            如果设置为 true，则只生成 domain 类，如果还配置了sqlMapGenerator，那么
+            在 mapper.xml 文件中，只生成 resultMap 元素 -->
+            <property name="modelOnly" value="false"/>
+
+            <!-- 默认为 false；如果设置为 true，生成的 model 类会直接使用 column 本身的名字，而不会再使用驼峰命名方法，
+            比如 CREATE_DATE，生成的属性名字就是 CREATE_DATE,而不会是 createDate -->
+            <property name="useActualColumnNames" value="false"/>
+
+            <!--  生成主键的方法，如果设置了该元素，MBG 会在生成的 <insert> 元素中生成一条正确的 <selectKey> 元素 -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+
+            <!-- 用来修改表中某个列的属性，MBG 会根据修改后的配置来生成 domain 的属性；
+                column：要重新设置的列名；一个 table 元素中可以定义多个 columnOverride 元素哈 -->
+            <columnOverride column="show_status">
+                <!-- 使用 property 属性来指定列要生成的属性名称 -->
+                <property name="property" value="showStatus"/>
+
+                <!-- javaType 用于指定生成的 domain 的属性类型，使用类型的全限定名-->
+                <property name="javaType" value="java.lang.Integer"/>
+
+                <!-- jdbcType用于指定该列的JDBC类型
+                <property name="jdbcType" value=""/>
+                 -->
+            </columnOverride>
+
+        </table>
+    </context>
+</generatorConfiguration>

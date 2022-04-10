@@ -12,3 +12,5 @@ PersonalDoc/.DS_Store
 sanguozhi11-starter/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 sanguozhi11-spark/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 sanguozhi11-starter/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+/sanguozhi11-starter/target/*
+/PersonalDoc/个人设计/三国志11资料收集.assets/~$person.xlsx

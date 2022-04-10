@@ -1,0 +1,21 @@
+server:
+  port: 8989 # 端口号
+spring:
+  datasource:
+    url: /Users/nmeng/projects/IdeaProjects/sanguozhi11/sanguozhi11-person/src/main/resources/blood_crown.db # 创建的sqlite数据库所在路径
+    username: # 因为没有用户名和密码，所以这两个参数就没有值
+    password:
+    driver-class-name: org.sqlite.JDBC # sqlite驱动
+jdbc:
+  driverClass:
+  connectionURL:
+  userId:
+  password:
+# mybatis配置
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*Mapper.xml # 配置mapper.xml文件路径
+  type-aliases-package: com.desire.entity # 实体类包名
+# mybatis 打印SQL, 配置后就会在控制台打印执行的SQL语句
+logging:
+  level:
+    com.desire.dao: debug
