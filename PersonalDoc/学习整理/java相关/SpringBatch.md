@@ -420,12 +420,6 @@ public void afterJob(JobExecution jobExecution){
 
 ### JobParametersValidator
 
-
-
-
-
-
-
 # 参考文献
 
 1.  [Spring Batch 中文参考文档](https://www.wenjiangs.com/docs/spring-batch) 
