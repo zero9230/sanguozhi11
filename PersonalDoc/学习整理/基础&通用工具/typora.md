@@ -566,6 +566,8 @@ info
 
 1. 安装`npm`或`yarn`，此处以npm`为`例
 
+1. execute  `npm install -g npm` to upgrade npm to the latest version
+
 2. 运行命令`npm run install`，安装必要的依赖
 
 3. 打开工程目录下package.json文件，关键参数都写在里面，如当前版本version，输出目录exports，运行命令等。查看script等命令

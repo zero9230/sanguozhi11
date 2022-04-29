@@ -19,9 +19,15 @@ public class Test {
     }
 
     @org.junit.Test
-    public void test1() throws InterruptedException {
+    public void test1()  {
 
-        StringBuilder sb=new StringBuilder();
+        System.out.println("hello");
+
+        if(true) {
+            throw new RuntimeException("111");
+        }
+
+        System.out.println("hello1");
 
 
 
