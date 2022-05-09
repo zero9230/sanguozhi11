@@ -232,6 +232,32 @@ LISTAGG WITHIN GROUP
 
 
 
+## 时间戳和日期
+
+```sql
+select sysdate,to_date('20190103','yyyy-mm-dd hh24:mi:ss') from dual;
+```
+
+
+
+### 时间戳转date
+
+```sql
+SELECT TO_CHAR(时间戳的那一列 / (1000 * 60 * 60 * 24) +
+TO_DATE('1970-01-01 08:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'YYYY-MM-DD HH24:MI:SS')
+AS createTime FROM tbl_name ;
+```
+
+### date转时间戳
+
+```sql
+select sysdate,to_char(sysdate, 'yyyy-mm-dd') from dual;
+```
+
+
+
+
+
 # join
 
 ## join中on和where的区别
