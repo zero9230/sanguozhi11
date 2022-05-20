@@ -584,7 +584,70 @@ info
 
 [SliDev使用指南](https://cn.sli.dev/guide/)
 
+# pandoc
 
+## 资料链接💾
+
+>  [github-pandoc](https://github.com/jgm/pandoc) 
+
+这是[Pandoc官方网站上的说明](http://pandoc.org/installing.html)：
+
+> 如果以后要卸载软件包，可以通过下载 [此脚本](https://raw.githubusercontent.com/jgm/pandoc/master/osx/uninstall-pandoc.pl) 并使用来运行它 `perl uninstall-pandoc.pl`。
+>
+> 安装使用brew install pandoc即可
+
+## 基础使用
+
+```bash
+# 读取文件
+pandoc -f 输入格式 -t 输出格式 -o 输出文件名 输入文件
+
+# 读取网页
+pandoc -f html -t 输出格式 -o 输出文件名 --request-header User-Agent:"Mozilla/5.0" \
+  https://www.fsf.org
+```
+
+
+
+## 常见的输入 / 输出格式
+
+|          格式          |   参数   |
+| :--------------------: | :------: |
+|        CSV 表格        |   csv    |
+|       Word 文档        |   docx   |
+|      EPUB 电子书       |   epub   |
+|       HTML 网页        |   html   |
+|     Markdown 文档      | markdown |
+| PDF 文档（仅支持输出） |   pdf    |
+| PPt 文档（仅支持输出） |   pptx   |
+|       JSON 数据        |   json   |
+
+## word导出
+
+![image-20220509162917198](typora.assets/image-20220509162917198.png)
+
+```bash
+--toc # 生成目录
+--toc-depth=NUMBER # 生成的目录深度
+--wrap=auto|none|preserve # 文字换行方式
+--reference-doc=FILE # 指定模板（word模板）
+```
+
+
+
+默认word模板可用以下命令查看
+
+```bash
+pandoc --print-default-data-file reference.docx > custom-reference.docx
+```
+
+修改完成后，可以通过 `--reference-doc=custom-reference.docx` 来指定模板。 也可以将模板文件放置到 Pandoc 的数据文件夹下，并命名为 `reference.docx`，后续 Pandoc 将把这个文件作为默认模板进行使用。 这里的数据文件夹，可以在 `pandoc -v` 指令的打印信息中，通过 `data-dir` 字段来获取。
+
+
+
+## 参考链接
+
+1.  [Pandoc 实用教程](http://www.atdevin.com/3582.html)  
 
 # 公式
 

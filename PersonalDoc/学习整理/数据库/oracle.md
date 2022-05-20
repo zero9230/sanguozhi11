@@ -222,8 +222,6 @@ WHERE (group_id, group_type) IN (("1234-567", 2), ("4321-765", 3), ("1111-222", 
 
 
 
-
-
 ## 行转列
 
 多行合并为一行
@@ -254,7 +252,24 @@ AS createTime FROM tbl_name ;
 select sysdate,to_char(sysdate, 'yyyy-mm-dd') from dual;
 ```
 
+### 按照gg_commit_timestamp分组
 
+```sql
+```
+
+
+
+## 判断字符串是否是数值
+
+```sql
+select * from table where trim(translate(column,'0123456789',' ')) is NULL
+```
+
+或
+
+```sql
+select * from table where regexp_like(column,'^[0-9]+[0-9]$');
+```
 
 
 

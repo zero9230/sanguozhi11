@@ -416,7 +416,7 @@ CMD /bin/bash
    ```shell
    # 命令 docker build -f dockerfile文件路径 -t 镜像名:[tag] .
    docker build -f mydockerfile-centos -t mycentos .
-
+   
    # docker history 容器id	# 查看容器变更历史
    docker history 容器id
    ```
