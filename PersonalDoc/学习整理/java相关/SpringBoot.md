@@ -1,10 +1,10 @@
-# 基本使用
+# 1 基本使用
 
 思想：约定大于配置
 
 
 
-## 项目结构分析
+## 1.1 项目结构分析
 
 ```mermaid
 graph TB
@@ -16,7 +16,7 @@ graph TB
   end
 ```
 
-## pom分析
+## 1.2 pom分析
 
 ```xml
 <!-- 父依赖 -->
@@ -60,7 +60,6 @@ graph TB
 ```
 
 
-
 - 修改banner（spring启动时的文本图案）
 
   在项目resources目录下新建一个banner.txt即可。
@@ -69,11 +68,11 @@ graph TB
 
 
 
-# 运行原理初探
+# 2 运行原理初探
 
-## pom.xml分析
+## 2.1 pom.xml分析
 
-### 父依赖
+### 2.1.1 父依赖
 
 管理项目的资源及插件
 
@@ -99,7 +98,7 @@ graph TB
 
 这里才是真正管理SpringBoot应用里所有依赖版本的地方。导入依赖默认不需要写版本，依赖管理以外的需要手动配置版本
 
-### 启动器spring-boot-starter
+### 2.1.2 启动器spring-boot-starter
 
 ```xml
 <dependency>
@@ -114,7 +113,7 @@ graph TB
 
 需要什么功能就导入对应场景启动类即可
 
-## 主启动类
+## 2.2 主启动类
 
 默认的主启动类
 
@@ -129,7 +128,7 @@ public class SpringBootApplication{
 
 这些注解作用如下
 
-### @SpringBootApplication
+### 2.2.1 @SpringBootApplication
 
 作用：标注在某个类上，说明是SpringBoot的主配置类。
 
@@ -152,11 +151,11 @@ public @interface SpringBootApplication {
 }
 ```
 
-### @ComponentScan
+### 2.2.2 @ComponentScan
 
 作用：自动扫描并加载Bean到IOC容器中
 
-### SpringBootConfiguration
+### 2.2.3 SpringBootConfiguration
 
 作用：标记SpringBoot的配置类
 
@@ -175,11 +174,11 @@ public @interface Configuration {}
 
 `@Component`说明启动类本身也是Spring的一个组件
 
-### @EnableAutoConfiguration
+### 2.2.4 @EnableAutoConfiguration
 
 `@EnableAutoConfiguration` : 开启自动配置
 
-#### `@AutoConfigurationPackage`自动配置包
+#### 2.2.4.1 `@AutoConfigurationPackage`自动配置包
 
 ```java
 @Import({Registrar.class})
@@ -234,9 +233,9 @@ end
 2. 这些值作为自动配置类导入容器，自动配置生效
 3. J2EE的自动配置都在springboot-autoconfigure的jar包中
 
-## SpringApplication
+## 2.3 SpringApplication
 
-### 类作用
+### 2.3.1 类作用
 
 1. 推断应用是普通项目 or Web项目
 2. 查找并加载所有可用的初始化器，设置到initializers属性中
@@ -258,15 +257,15 @@ public SpringApplication(ResourceLoader resourceLoader, Class... primarySources)
 
 
 
-### run方法流程分析
+### 2.3.2 run方法流程分析
 
 ![图片](SpringBoot.assets/640.jpg)
 
 
 
-# yaml配置注入
+# 3 yaml配置注入
 
-## 配置文件
+## 3.1 配置文件
 
 SpringBoot使用一个全局配置文件，名称固定
 
@@ -275,7 +274,7 @@ SpringBoot使用一个全局配置文件，名称固定
 - application.yml
   - 语法： key: 空格 value
 
-## yaml概述
+## 3.2 yaml概述
 
 YAML（Yet Another Markup Language，仍是一种标记语言）
 
@@ -315,7 +314,7 @@ pets:[cat,dog,pig]
 
 
 
-## 注入配置文件
+## 3.3 注入配置文件
 
 
 
@@ -334,13 +333,13 @@ pets:[cat,dog,pig]
 
 
 
-### 加载指定配置文件
+### 3.3.1 加载指定配置文件
 
 @PropertySource ： 加载指定配置文件
 
 @ConfigurationProperties： 默认从全局配置文件中获取值
 
-# JSR303数据校验
+# 4 JSR303数据校验
 
 @Validated可用于校验数据，示例如下
 
@@ -391,9 +390,9 @@ Booelan检查
 
 
 
-# 多环境切换
+# 5 多环境切换
 
-## 多配置文件
+## 5.1 多配置文件
 
 profile是Spring对不同环境提供不同配置功能的支持，可以激活不同版本的环境以实现快速切换环境
 
@@ -408,7 +407,7 @@ profile是Spring对不同环境提供不同配置功能的支持，可以激活�
 spring.profiles.active=dev
 ```
 
-## yaml的多文档块
+## 5.2 yaml的多文档块
 
 参数不多的情况下，可用以下方式实现多环境
 
@@ -438,7 +437,7 @@ spring:
 
 **注意：如果yml和properties同时都配置了端口，并且没有激活其他环境 ， 默认会使用properties配置文件的！**
 
-## 配置文件加载位置
+## 5.3 配置文件加载位置
 
 springboot 启动会扫描以下位置的application.properties或者application.yml文件作为Spring boot的默认配置文件：1～4从高到低
 
@@ -447,7 +446,7 @@ springboot 启动会扫描以下位置的application.properties或者application
 - 优先级3：资源路径下的config文件夹配置文件
 - 优先级4：资源路径下配置文件
 
-## 指定位置加载配置文件
+## 5.4 指定位置加载配置文件
 
 可通过spring.config.location来改变默认的配置文件位置
 
@@ -459,9 +458,9 @@ java -jar spring-boot-config.jar --spring.config.location=F:/application.propert
 
 
 
-# 自动配置原理
+# 6 自动配置原理
 
-## 分析
+## 6.1 分析
 
 自动配置原理：根据条件使配置生效
 
@@ -508,13 +507,13 @@ public class HttpEncodingAutoConfiguration{
 
 
 
-## 精髓
+## 6.2 精髓
 
 1. SpringBoot启动会加载大量自动配置类
 2. xxxAutoConfiguration：自动配置类，给容器中添加组件
 3. xxxProperties： 封装配置文件中相关属性
 
-## 了解：@Conditional
+## 6.3 了解：@Conditional
 
 自动配置类必须在一定条件下生效
 
@@ -530,10 +529,10 @@ public class HttpEncodingAutoConfiguration{
 
 
 
-# 
-# 自定义starter
+# 7 
+# 8 自定义starter
 
-## 说明
+## 8.1 说明
 
 启动器模块是一个空jar文件，仅提供辅助性的依赖管理，这些依赖可能用于自动装配或其他类库
 
@@ -549,7 +548,7 @@ public class HttpEncodingAutoConfiguration{
 - xxx-spring-boot-starter
 - 比如：mybatis-spring-boot-stater
 
-## 编写启动器
+## 8.2 编写启动器
 
 1. 构建项目，其中一个模块用于制作starter
 
@@ -592,14 +591,14 @@ public class HttpEncodingAutoConfiguration{
 
 
 
-# 作业
+# 9 作业
 
 1. 实现yaml注入实体类信息
 1. 自定义spring-boot-starter
 
 
 
-# 知识体系
+# 10 知识体系
 
 
 
@@ -615,11 +614,11 @@ public class HttpEncodingAutoConfiguration{
 
 
 
-# 常用注解
+# 11 常用注解
 
-## Value注解
+## 11.1 Value注解
 
-### 使用Value注解注入集合类
+### 11.1.1 使用Value注解注入集合类
 
 我今天要讲的配置注入时基于*.properties文件的，yaml格式可能有点区别。借助@Value注解、SPEL表达式实现，请看以下示例：
 
@@ -668,7 +667,7 @@ spring.redis.cluster.nodes=10.199.153.166:7001,10.199.153.166:7002
 
 
 
-# 参考资料
+# 12 参考资料
 
 1.  [狂神说SpringBoot学习笔记](https://mp.weixin.qq.com/mp/homepage?__biz=Mzg2NTAzMTExNg==&hid=1&sn=3247dca1433a891523d9e4176c90c499) 
 2.  [B站视频教程：狂神说SpringBoot](https://www.bilibili.com/video/BV1PE411i7CV?from=search&seid=1290948065310597538&spm_id_from=333.337.0.0)

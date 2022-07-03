@@ -1,0 +1,7 @@
+{
+  "translucency": false,
+  "theme": "moonstone",
+  "enabledCssSnippets": [
+    "base.user"
+  ]
+}

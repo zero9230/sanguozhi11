@@ -1,4 +1,4 @@
-# typora标题自动编号
+# 1 typora标题自动编号
 
 方案：修改css
 
@@ -149,7 +149,7 @@ h6.md-focus:before {
 
 
 
-# 可折叠的代码栏
+# 2 可折叠的代码栏
 
 方案：使用detail标签
 
@@ -185,7 +185,7 @@ code：指定代码块
 </details>
 
 
-# 有序列表多重编号
+# 3 有序列表多重编号
 
 ```css
 /**  自定义有序列表  **/
@@ -198,9 +198,9 @@ ol ol ol {
 }
 ```
 
-# mermaid
+# 4 mermaid
 
-## 资料链接💾
+## 4.1 资料链接💾
 
 >  [官网](https://mermaidjs.github.io/) 
 >
@@ -208,7 +208,7 @@ ol ol ol {
 >
 >  [文档](https://mermaid-js.github.io/mermaid/#/)
 
-## 图标方向
+## 4.2 图标方向
 
 语法如下
 
@@ -228,7 +228,7 @@ graph 方向描述
 
 
 
-## 节点定义
+## 4.3 节点定义
 
 |      语法      |      说明      |
 | :------------: | :------------: |
@@ -272,7 +272,7 @@ flowchart
 需要注意的是，如果节点的文字中包含标点符号，需要时用双引号包裹起来。
 另外如果希望在文字中使用换行，请使用  `<br/>`  替换换行
 
-## 节点间的连线
+## 4.4 节点间的连线
 
 |    长度    |  1   |   2   |   3    |
 | :--------: | :--: | :---: | :----: |
@@ -308,7 +308,7 @@ D<-->E
 
 
 
-## 子图表
+## 4.5 子图表
 
 使用以下语法添加子图表
 
@@ -337,11 +337,11 @@ graph LR
 
 
 
-## 图表类型及示例
+## 4.6 图表类型及示例
 
 目前typora支持以下类型
 
-### 时序图——sequenceDiagram
+### 4.6.1 时序图——sequenceDiagram
 
 ```mermaid
 sequenceDiagram
@@ -376,7 +376,7 @@ A->>B:hello
 
 
 
-### 流程图——flowchart
+### 4.6.2 流程图——flowchart
 
 ```mermaid
 graph LR
@@ -388,7 +388,7 @@ A[hard edge]-->B(round edge)
 
 
 
-### Gantt
+### 4.6.3 Gantt
 
 ```mermaid
 gantt
@@ -426,7 +426,7 @@ Add another diagram to demo page    : 48h
 
 
 
-### 类图——classDiagram
+### 4.6.4 类图——classDiagram
 
 ```mermaid
 classDiagram
@@ -476,7 +476,7 @@ relationship
 
 
 
-### 状态图——stateDiagram
+### 4.6.5 状态图——stateDiagram
 
 ```mermaid
 stateDiagram
@@ -517,7 +517,7 @@ stateDiagram-v2
 
 
 
-### 饼图——pie
+### 4.6.6 饼图——pie
 
 ```mermaid
 pie
@@ -529,7 +529,7 @@ pie
 
 
 
-### 实体关系图——erDiagram
+### 4.6.7 实体关系图——erDiagram
 
 ```mermaid
 erDiagram
@@ -540,15 +540,15 @@ erDiagram
 
 
 
-## 更新typora集成的mermaid版本
+## 4.7 更新typora集成的mermaid版本
 
-### 当前版本
+### 4.7.1 当前版本
 
 ```mermaid
 info
 ```
 
-### 升级typora自带的mermaid版本方法
+### 4.7.2 升级typora自带的mermaid版本方法
 
 参看链接： [Typora不支持最新Mermaid语法的解决办法](https://qzy.im/blog/2020/05/typora-integrate-the-latest-version-of-mermaid/#%E6%9B%BF%E6%8D%A2mermaid%E5%8E%9F%E5%85%88%E5%BC%95%E7%94%A8%E7%9A%84js%E6%96%87%E4%BB%B6) 
 
@@ -562,7 +562,7 @@ info
 
 
 
-### mermaid仓库的编译方法
+### 4.7.3 mermaid仓库的编译方法
 
 1. 安装`npm`或`yarn`，此处以npm`为`例
 
@@ -580,13 +580,13 @@ info
 
 
 
-# SliDev
+# 5 SliDev
 
 [SliDev使用指南](https://cn.sli.dev/guide/)
 
-# pandoc
+# 6 pandoc
 
-## 资料链接💾
+## 6.1 资料链接💾
 
 >  [github-pandoc](https://github.com/jgm/pandoc) 
 
@@ -596,7 +596,7 @@ info
 >
 > 安装使用brew install pandoc即可
 
-## 基础使用
+## 6.2 基础使用
 
 ```bash
 # 读取文件
@@ -609,7 +609,7 @@ pandoc -f html -t 输出格式 -o 输出文件名 --request-header User-Agent:"M
 
 
 
-## 常见的输入 / 输出格式
+## 6.3 常见的输入 / 输出格式
 
 |          格式          |   参数   |
 | :--------------------: | :------: |
@@ -622,7 +622,7 @@ pandoc -f html -t 输出格式 -o 输出文件名 --request-header User-Agent:"M
 | PPt 文档（仅支持输出） |   pptx   |
 |       JSON 数据        |   json   |
 
-## word导出
+## 6.4 word导出
 
 ![image-20220509162917198](typora.assets/image-20220509162917198.png)
 
@@ -645,22 +645,22 @@ pandoc --print-default-data-file reference.docx > custom-reference.docx
 
 
 
-## 参考链接
+## 6.5 参考链接
 
 1.  [Pandoc 实用教程](http://www.atdevin.com/3582.html)  
 
-# 公式
+# 7 公式
 
-## 常用公式代码
+## 7.1 常用公式代码
 
-### 上下标
+### 7.1.1 上下标
 
 | 算式   | Markdown |
 | ------ | -------- |
 | $x^2 $ | x^2      |
 | $y_1 $ | y_1      |
 
-### 分式
+### 7.1.2 分式
 
 | 算式          | markdown      |
 | ------------- | ------------- |
@@ -669,13 +669,13 @@ pandoc --print-default-data-file reference.docx > custom-reference.docx
 
 
 
-### 省略号
+### 7.1.3 省略号
 
 | 省略号   | Markdown |
 | -------- | -------- |
 | $\cdots$ | `\cdots` |
 
-### 开根号
+### 7.1.4 开根号
 
 | 算式          | markdown   |
 | ------------- | ---------- |
@@ -684,14 +684,14 @@ pandoc --print-default-data-file reference.docx > custom-reference.docx
 
 
 
-### 矢量
+### 7.1.5 矢量
 
 | 算式              | markdown  |
 | ----------------- | --------- |
 | $\vec{a}$         | `\vec{a}` |
 | $\lVert a \rVert$ |           |
 
-### 积分
+### 7.1.6 积分
 
 | 算式                  | md                  |
 | --------------------- | ------------------- |
@@ -704,7 +704,7 @@ pandoc --print-default-data-file reference.docx > custom-reference.docx
 
 
 
-### 导数与微分
+### 7.1.7 导数与微分
 
 | eq                                 | md   |
 | ---------------------------------- | ---- |
@@ -715,28 +715,28 @@ pandoc --print-default-data-file reference.docx > custom-reference.docx
 
 
 
-### 极限
+### 7.1.8 极限
 
 | 算式                         | md                           |
 | ---------------------------- | ---------------------------- |
 | $\lim{a+b}$                  | `\lim{a+b}`                  |
 | $\lim_{n\rightarrow+\infty}$ | `\lim_{n\rightarrow+\infty}` |
 
-### 累加
+### 7.1.9 累加
 
 | 算式                    | md                      |
 | ----------------------- | ----------------------- |
 | $\sum{a}$               | `\sum{a}`               |
 | $\sum_{n=1}^{100}{a_n}$ | `\sum_{n=1}^{100}{a_n}` |
 
-### 累乘
+### 7.1.10 累乘
 
 | 算式                    | md                      |
 | ----------------------- | ----------------------- |
 | $\prod{x}$              | `\prod{x}`              |
 | $\prod_{n=1}^{99}{x_n}$ | `\prod_{n=1}^{99}{x_n}` |
 
-### 希腊字母
+### 7.1.11 希腊字母
 
 | 大写       | md       | 小写          | md          |
 | ---------- | -------- | ------------- | ----------- |
@@ -769,7 +769,7 @@ pandoc --print-default-data-file reference.docx > custom-reference.docx
 
 
 
-### 三角函数
+### 7.1.12 三角函数
 
 | eq     | md   |
 | ------ | ---- |
@@ -780,7 +780,7 @@ pandoc --print-default-data-file reference.docx > custom-reference.docx
 | $\sec$ |      |
 | $\csc$ |      |
 
-### 对数函数
+### 7.1.13 对数函数
 
 | eq          | md        |
 | ----------- | --------- |
@@ -788,7 +788,7 @@ pandoc --print-default-data-file reference.docx > custom-reference.docx
 | $\log_2{8}$ | \log_2{8} |
 | $\lg10$     | \lg10     |
 
-### 运算符
+### 7.1.14 运算符
 
 | eq       | md     |
 | -------- | ------ |
@@ -801,7 +801,7 @@ pandoc --print-default-data-file reference.docx > custom-reference.docx
 | $\leq$   | \leq   |
 | $\geq$   | \geq   |
 
-### 其他特殊字符
+### 7.1.15 其他特殊字符
 
 | eq           | md   |
 | ------------ | ---- |
@@ -815,7 +815,7 @@ pandoc --print-default-data-file reference.docx > custom-reference.docx
 | $\because$   |      |
 | $\therefore$ |      |
 
-### 分段函数
+### 7.1.16 分段函数
 
 $$
 c(u)=
@@ -825,7 +825,7 @@ c(u)=
   \end{cases}
 $$
 
-### 方程组
+### 7.1.17 方程组
 
 $$
 \left\{
@@ -839,13 +839,13 @@ $$
 
 
 
-### 空格
+### 7.1.18 空格
 
 $$
 a \quad b
 $$
 
-### 矩阵
+### 7.1.19 矩阵
 
 $$
 a=\left[
@@ -857,7 +857,7 @@ a=\left[
 \right]
 $$
 
-### 行列式
+### 7.1.20 行列式
 
 $$
 X_{n \times n} =
@@ -871,7 +871,7 @@ X_{n \times n} =
 \right|
 $$
 
-### 推导过程
+### 7.1.21 推导过程
 
 $$
 \begin{align}
@@ -885,13 +885,13 @@ $$
 
 
 
-### 参考资料
+### 7.1.22 参考资料
 
 1.  [typora常用的数学公式编辑语法](https://www.cnblogs.com/wreng/articles/13514391.html) 
 
 
 
-# typora下载地址
+# 8 typora下载地址
 
 typora开始发行正式版并收费了，因此保存beta版下载地址以防意外
 

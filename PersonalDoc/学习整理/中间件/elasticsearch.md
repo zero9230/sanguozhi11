@@ -1,6 +1,7 @@
-# 简介
+# 1 简介
 
-## 前言——Lucene
+
+## 1.1 前言——Lucene
 
 > Lucene简介
 
@@ -14,13 +15,13 @@
 
 ES是基于Lucene做了一个封装和增强
 
+---
 
-
-## ElasticSearch概述
+## 1.2 ElasticSearch概述
 
 ElasticSearch是一个开源的高扩展分布式全文检索引擎，可以近乎实时的存储、检索数据。使用Java开发，以Lucene为核心，目的是通过RESTFul API隐藏Lucene的复杂性
 
-## 安装
+## 1.3 安装
 
 > 安装要求
 >
@@ -47,10 +48,10 @@ tomcat--收集-->logstash
 ```
 
 
+---
+# 2 ElasticSearch核心概念
 
-# ElasticSearch核心概念
-
-## 概述
+## 2.1 概述
 
 1. 索引
 
@@ -64,7 +65,7 @@ tomcat--收集-->logstash
 
 4. 分片（Lucene索引，倒排索引）
 
-## 与关系型数据库对比
+## 2.2 与关系型数据库对比
 
 | Relational DB      | ElasticSearch     |
 | ------------------ | ----------------- |
@@ -75,11 +76,11 @@ tomcat--收集-->logstash
 
 ES集群中可包含多个索引
 
-## 物理设计
+## 2.3 物理设计
 
 ElasticSearch在后台把每个索引划分成多个分片，每个分片可以在集群中不同服务器间迁移
 
-## 逻辑设计
+## 2.4 逻辑设计
 
 一个索引类型中，包含多个文档，当我们索引一篇文档时，可以用这样的方式查找
 
@@ -88,13 +89,13 @@ flowchart LR
 索引-->类型-->文档ID
 ```
 
-## 文档（行）
+## 2.5 文档（行）
 
 索引和搜索数据的最小单位是文档
 
-## 类型（表）
+## 2.6 类型（表）
 
-## 索引（库）
+## 2.7 索引（库）
 
 
 
@@ -104,7 +105,7 @@ flowchart LR
 
 ![img](elasticsearch.assets/20201125003531.png)
 
-# IK分词器（ES插件）
+# 3 IK分词器（ES插件）
 
 IK提供两个分词算法：`ik_smart`、 `ik_max_work`，分别为最少切分和最细粒度切分
 
@@ -124,9 +125,9 @@ IK提供两个分词算法：`ik_smart`、 `ik_max_work`，分别为最少切分
 
 
 
-# Rest风格说明
+# 4 Rest风格说明
 
-## 基本说明
+## 4.1 基本说明
 
 |      method      |                     url地址                     |          描述          |
 | :--------------: | :---------------------------------------------: | :--------------------: |
@@ -139,7 +140,7 @@ IK提供两个分词算法：`ik_smart`、 `ik_max_work`，分别为最少切分
 
 
 
-## ES操作步骤
+## 4.2 ES操作步骤
 
 1. 进入[kibana](http://Localhost:5601)
 
@@ -147,7 +148,7 @@ IK提供两个分词算法：`ik_smart`、 `ik_max_work`，分别为最少切分
 
    ![image-20220104153103455](elasticsearch.assets/image-20220104153103455.png)
 
-## 字段数据类型
+## 4.3 字段数据类型
 
 1. 字符串类型
    1. text: **支持分词**，支持模糊、精确匹配，不支持聚合、排序操作，字符串最大长度无限定，适合大字段存储
@@ -193,7 +194,7 @@ GET _cat/thread_pool
 
 
 
-## 修改
+## 4.4 修改
 
 两种方案
 
@@ -207,7 +208,7 @@ GET _cat/thread_pool
 
 
 
-## 删除
+## 4.5 删除
 
 ```text
 DELETE /test1
@@ -215,9 +216,9 @@ DELETE /test1
 
 
 
-## 查询
+## 4.6 查询
 
-### 简单条件
+### 4.6.1 简单条件
 
 ```text
 # 实操发现，_doc不可写在查询语句中
@@ -226,9 +227,9 @@ GET /test3/_doc/search?q=name:aa
 
 
 
-### 复杂查询
+### 4.6.2 复杂查询
 
-#### 查询条件
+#### 4.6.2.1 查询条件
 
 - match：匹配（会使用分词器解析，分析文档后进行查询）
 - \_source：过滤字段
@@ -261,21 +262,21 @@ GET /test3/_doc/search?q=name:aa
   }
 ```
 
-#### 多条件查询
+#### 4.6.2.2 多条件查询
 
 - must——and
 - should——or
 - must_not——not(…and…)
 - filter过滤
 
-#### 匹配数组
+#### 4.6.2.3 匹配数组
 
 - 貌似不能和其他字段一起使用
 - 可以多关键字查询（空格隔开）
 - match会使用分词器
 - 搜词
 
-#### 精确查询
+#### 4.6.2.4 精确查询
 
 - `term`直接通过倒排索引指定**词条**查询
 - 适合查询number、date、keyword，不适合text
@@ -295,7 +296,7 @@ GET /blog/user/_search
 
 
 
-#### text和keyword
+#### 4.6.2.5 text和keyword
 
 - text：
   - **支持分词**，**全文检索**、支持模糊、精确查询,不支持聚合,排序操作;
@@ -306,7 +307,7 @@ GET /blog/user/_search
 
 
 
-#### 高亮查询
+#### 4.6.2.6 高亮查询
 
 ```text
 /// 高亮查询
@@ -347,9 +348,9 @@ GET blog/user/_search
 
 
 
-# SpringBoot整合
+# 5 SpringBoot整合
 
-## 导入依赖
+## 5.1 导入依赖
 
 依赖版本要和安装的ES版本一致
 
@@ -372,7 +373,7 @@ GET blog/user/_search
 <!--还要导入必要的序列化依赖 -->
 ```
 
-## 创建并编写配置类
+## 5.2 创建并编写配置类
 
 ```java
 @Configuration
@@ -392,7 +393,7 @@ public class ElasticSearchConfig {
 
 
 
-## 创建并编写实体类
+## 5.3 创建并编写实体类
 
 ```java
 @Data
@@ -407,13 +408,13 @@ public class User implements Serializable {
 
 
 
-## 测试
+## 5.4 测试
 
 
 
 
 
-# 参考文献
+# 6 参考文献
 
 1.  [ElasticSearch7.6入门学习笔记](https://www.kuangstudy.com/bbs/1354069127022583809) 
 2.  [【狂神说Java】ElasticSearch7.6.x最新完整教程通俗易懂](https://www.bilibili.com/video/BV17a4y1x7zq?from=search&seid=4820966176885181951&spm_id_from=333.337.0.0) 

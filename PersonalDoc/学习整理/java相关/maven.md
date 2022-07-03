@@ -1,4 +1,4 @@
-# 概述
+# 1 概述
 
 自动化构建工具，具有以下功能
 
@@ -6,11 +6,11 @@
 - 依赖管理工具
 - 项目信息管理工具，通过自动生成的站点，可获得项目文档、测试报告等项目信息
 
-# maven目录
+# 2 maven目录
 
 conf目录下包含重要文件 `setting.xml` 。推荐将该文件复制到/.m2/setting.xml，只对当前用户产生影响，避免影响其他用户
 
-# mavan项目目录结构
+# 3 mavan项目目录结构
 
 ```text
 pom.xml #配置项目依赖 
@@ -22,9 +22,9 @@ src/test/resource# 存放xml/properties
 # maven项目不需要lib目录，因为依赖配置全在pom文件中，打包会自动生成lib
 ```
 
-# 使用入门配置
+# 4 使用入门配置
 
-## pom.xml示例
+## 4.1 pom.xml示例
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -146,7 +146,7 @@ src/test/resource# 存放xml/properties
 </project>
 ```
 
-## setting.xml配置
+## 4.2 setting.xml配置
 
 ```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -265,7 +265,7 @@ src/test/resource# 存放xml/properties
     </servers>
 ```
 
-# 常用maven命令
+# 5 常用maven命令
 
 格式为  `mvn [life-stage]:[goal-name]` 可接受以下参数
 
@@ -295,7 +295,7 @@ mvn deploy # 在整合或发布环境下执行，将最终版本的包拷贝到�
 -DdownloadJavadocs=true # 下载javadocs
 ```
 
-# maven依赖
+# 6 maven依赖
 
 依赖范围
 
@@ -318,7 +318,7 @@ mvn deploy # 在整合或发布环境下执行，将最终版本的包拷贝到�
 - 第一原则：优先选路径最短的
 - 路径相同下，选在同路径下优先声明者
 
-# 仓库
+# 7 仓库
 
 构件
 
@@ -332,7 +332,7 @@ mvn deploy # 在整合或发布环境下执行，将最终版本的包拷贝到�
 - 提高稳定性，增强控制（内网缓存）
 - 降低中央仓库的负荷（对外网请求次数少）
 
-# 使用入门maven生命周期
+# 8 使用入门maven生命周期
 
 maven生命周期是抽象的，即生命周期本身不提供任何实际工作，实际工作由插件完成。所以命令 `mvn [life-stage] [goal-name] ` 中，`goal-name` 就是指插件目标
 
@@ -340,7 +340,7 @@ maven拥有三套相互独立的生命周期
 
 clean生命周期 || default生命周期 || site生成站点生命周期
 
-# 高级入门 聚合与继承
+# 9 高级入门 聚合与继承
 
 聚合：将项目的各个模块聚合在一起构建
 
@@ -357,7 +357,7 @@ scope–>import：只在dependencyManagement下生效，由于会包含大量依
 
 聚合和继承通常在一个pom下，约定优于配置，遵循maven原是默认的约定
 
-# 高级入门maven profile
+# 10 高级入门maven profile
 
 profile定义一系列配置信息，然后指定激活条件，如此达到不同环境使用不同配置的效果
 
