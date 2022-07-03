@@ -365,6 +365,9 @@ compareAndSwap底层会调用CPU的cpmxch命令
    扩容时才会出现的特殊节点，K，V，hash全都是null。拥有nextTable指针饮用新的table数组
 
 ### 9.2.3 CAS关键操作
+1. tabAt
+2. casTabAt
+3. setTabAt
 
 ## 9.3 参考链接
 1. [并发容器之ConcurrentHashMap(JDK 1.8版本).md](https://github.com/CL0610/Java-concurrency/blob/master/14.%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8%E4%B9%8BConcurrentHashMap(JDK%201.8%E7%89%88%E6%9C%AC)/%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8%E4%B9%8BConcurrentHashMap(JDK%201.8%E7%89%88%E6%9C%AC).md) 
