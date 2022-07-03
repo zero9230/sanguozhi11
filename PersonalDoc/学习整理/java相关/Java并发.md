@@ -370,6 +370,13 @@ compareAndSwap底层会调用CPU的cpmxch命令
 3. setTabAt
 
 ## 9.3 重点方法讲解
+### 9.3.1 构造器
+5个构造方法
+```java
+
+```
+
+
 
 
 ## 9.4 参考链接
