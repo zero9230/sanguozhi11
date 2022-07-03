@@ -101,6 +101,7 @@
   "active": "43a3657d7e80e78d",
   "lastOpenFiles": [
     "学习整理/java相关/Java并发.md",
+    "学习整理/java相关/java语言.md",
     "生活类/菜谱.md",
     "生活类/三国志11资料收集.md",
     "学习整理/中间件/elasticsearch.md",
@@ -108,7 +109,6 @@
     "学习整理/中间件/elasticsearch.assets/image-20220104153103455.png",
     "学习整理/中间件/elasticsearch.assets/20201125020802.png",
     "学习整理/中间件/elasticsearch.assets/20201125020519.png",
-    "学习整理/中间件/elasticsearch.assets/20201125003531.png",
-    "学习整理/中间件/sentinel.md"
+    "学习整理/中间件/elasticsearch.assets/20201125003531.png"
   ]
 }
