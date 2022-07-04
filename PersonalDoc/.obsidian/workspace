@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "43a3657d7e80e78d",
+        "id": "8afde9a5e978d42f",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "学习整理/java相关/Java并发.md",
+            "file": "学习整理/基础&通用工具/obsidian.md",
             "mode": "source",
             "backlinks": true,
             "source": false
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/java相关/Java并发.md",
+                "file": "学习整理/基础&通用工具/obsidian.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/java相关/Java并发.md"
+                "file": "学习整理/基础&通用工具/obsidian.md"
               }
             }
           }
@@ -98,8 +98,10 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "43a3657d7e80e78d",
+  "active": "8afde9a5e978d42f",
   "lastOpenFiles": [
+    "学习整理/基础&通用工具/obsidian.md",
+    "学习整理/基础&通用工具/assets/Pasted image 20220704004211.png",
     "学习整理/java相关/Java并发.md",
     "学习整理/java相关/java语言.md",
     "生活类/菜谱.md",
@@ -107,8 +109,6 @@
     "学习整理/中间件/elasticsearch.md",
     "学习整理/中间件/Recording 20220702142510.webm",
     "学习整理/中间件/elasticsearch.assets/image-20220104153103455.png",
-    "学习整理/中间件/elasticsearch.assets/20201125020802.png",
-    "学习整理/中间件/elasticsearch.assets/20201125020519.png",
-    "学习整理/中间件/elasticsearch.assets/20201125003531.png"
+    "学习整理/中间件/elasticsearch.assets/20201125020802.png"
   ]
 }

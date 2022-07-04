@@ -4,5 +4,7 @@
   "alwaysUpdateLinks": true,
   "showFrontmatter": true,
   "attachmentFolderPath": "./assets",
-  "useMarkdownLinks": true
+  "useMarkdownLinks": true,
+  "communityPluginSortOrder": "download",
+  "promptDelete": false
 }
