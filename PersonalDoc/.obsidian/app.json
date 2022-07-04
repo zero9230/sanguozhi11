@@ -1,9 +1,9 @@
 {
   "legacyEditor": false,
   "livePreview": true,
-  "alwaysUpdateLinks": false,
+  "alwaysUpdateLinks": true,
   "showFrontmatter": true,
-  "attachmentFolderPath": "./assets",
+  "attachmentFolderPath": "./consistant-report.assets",
   "useMarkdownLinks": true,
   "communityPluginSortOrder": "download",
   "promptDelete": false,
