@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "consistant-report.md",
+            "file": "学习整理/基础&通用工具/obsidian.md",
             "mode": "source",
             "backlinks": true,
             "source": false
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "consistant-report.md",
+                "file": "学习整理/基础&通用工具/obsidian.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,12 +87,20 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "consistant-report.md"
+                "file": "学习整理/基础&通用工具/obsidian.md"
               }
+            }
+          },
+          {
+            "id": "d5286f606b960161",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -100,15 +108,15 @@
   },
   "active": "8afde9a5e978d42f",
   "lastOpenFiles": [
+    "学习整理/基础&通用工具/obsidian.md",
+    "学习整理/基础&通用工具/homebrew.md",
+    "学习整理/基础&通用工具/markdown.md",
     "consistant-report.md",
     "生活类/assets/Pasted image 20220702142659.png",
     "start.md",
-    "学习整理/基础&通用工具/obsidian.md",
     "学习整理/基础&通用工具/typora.md",
     "Check vault consistent.md",
     "学习整理/基础&通用工具/shell.md",
-    "学习整理/基础&通用工具/assets/Pasted image 20220704004211.png",
-    "学习整理/java相关/Java并发.md",
-    "学习整理/java相关/java语言.md"
+    "学习整理/基础&通用工具/assets/Pasted image 20220704004211.png"
   ]
 }

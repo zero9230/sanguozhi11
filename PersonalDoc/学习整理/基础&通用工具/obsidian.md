@@ -9,6 +9,7 @@ obsidian 的仓库配置每个是独立的，在设置仓库根目录的时候�
 2. number headings
 3. advanced tables
 4. git
+5. customer attachment location--用于自定义附件位置
 
 # 3 配置调整
 
