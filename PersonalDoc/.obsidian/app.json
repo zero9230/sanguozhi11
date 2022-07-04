@@ -1,10 +1,11 @@
 {
   "legacyEditor": false,
   "livePreview": true,
-  "alwaysUpdateLinks": true,
+  "alwaysUpdateLinks": false,
   "showFrontmatter": true,
   "attachmentFolderPath": "./assets",
   "useMarkdownLinks": true,
   "communityPluginSortOrder": "download",
-  "promptDelete": false
+  "promptDelete": false,
+  "newLinkFormat": "relative"
 }
