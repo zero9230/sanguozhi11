@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "8afde9a5e978d42f",
+        "id": "e2ea2cf945e63be1",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -100,20 +100,20 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
     "width": 254
   },
-  "active": "8afde9a5e978d42f",
+  "active": "e2ea2cf945e63be1",
   "lastOpenFiles": [
     "学习整理/基础&通用工具/obsidian.md",
+    "start.md",
+    "consistant-report.md",
     "学习整理/基础&通用工具/homebrew.md",
     "学习整理/基础&通用工具/markdown.md",
-    "consistant-report.md",
     "生活类/assets/Pasted image 20220702142659.png",
-    "start.md",
     "学习整理/基础&通用工具/typora.md",
     "Check vault consistent.md",
     "学习整理/基础&通用工具/shell.md",

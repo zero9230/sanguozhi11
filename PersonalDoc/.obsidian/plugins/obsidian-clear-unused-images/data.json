@@ -1,0 +1,7 @@
+{
+  "deleteOption": ".trash",
+  "logsModal": true,
+  "excludedFolders": "PersonalDoc/个人设计/三国志11资料收集.assets",
+  "ribbonIcon": true,
+  "excludeSubfolders": true
+}
