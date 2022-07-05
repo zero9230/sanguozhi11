@@ -230,21 +230,21 @@ graph 方向描述
 
 ## 4.3 节点定义
 
-|      语法      |      说明      |
-| :------------: | :------------: |
-|  start[start]  |    直角矩形    |
-|  start(start)  |    圆角矩形    |
-| start([start]) |    体育场形    |
-| start[[start]] |    长灯光形    |
-| start[(start)] |    圆柱体形    |
-| start((start)) |     正圆形     |
-|  start>start]  |     标签形     |
-|  start{start}  |      菱形      |
-| start{{start}} |     六角形     |
-| start[/start/] |   平行四边形   |
-| start[\start]  | 反向平行四边行 |
-| start[/start\] |      梯形      |
-| start[\start/] |     倒梯形     |
+|       语法        |      说明      |
+|:-----------------:|:--------------:|
+|   start[start]    |    直角矩形    |
+|   start(start)    |    圆角矩形    |
+|  start([start])   |    体育场形    |
+| start`[[start]] ` |    长灯光形    |
+|  start[(start)]   |    圆柱体形    |
+|  start((start))   |     正圆形     |
+|   start>start]    |     标签形     |
+|   start{start}    |      菱形      |
+|  start{{start}}   |     六角形     |
+|  start[/start/]   |   平行四边形   |
+|   start[\start]   | 反向平行四边行 |
+| start `[/start\]` |      梯形      |
+| start `[\start/]` |     倒梯形     |
 
 ```mermaid
 graph TB

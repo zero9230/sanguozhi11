@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "学习整理/算法/数学基础.md",
+            "file": "学习整理/java相关/Java并发.md",
             "mode": "source",
             "backlinks": true,
             "source": false
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/算法/数学基础.md",
+                "file": "学习整理/java相关/Java并发.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/算法/数学基础.md"
+                "file": "学习整理/java相关/Java并发.md"
               }
             }
           },
@@ -108,15 +108,15 @@
   },
   "active": "e2ea2cf945e63be1",
   "lastOpenFiles": [
-    "学习整理/算法/数学基础.md",
-    "学习整理/基础&通用工具/typora.md",
-    "学习整理/算法/博弈论.md",
+    "学习整理/java相关/Java并发.md",
     "学习整理/基础&通用工具/obsidian.md",
+    "学习整理/基础&通用工具/typora.md",
+    "学习整理/算法/数学基础.md",
+    "学习整理/算法/博弈论.md",
     "start.md",
     "consistant-report.md",
     "学习整理/基础&通用工具/homebrew.md",
     "学习整理/基础&通用工具/markdown.md",
-    "生活类/assets/Pasted image 20220702142659.png",
-    "Check vault consistent.md"
+    "生活类/assets/Pasted image 20220702142659.png"
   ]
 }

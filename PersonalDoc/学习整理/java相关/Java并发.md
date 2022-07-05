@@ -347,6 +347,10 @@ compareAndSwap底层会调用CPU的cpmxch命令
 3. 以及CAS无锁操作以保证ConcurrentHashMap操作的线程安全性。
 4. 底层数据结构改变为采用数组+链表+红黑树的数据形式
 
+![](Java并发.assets/image-20220705220754672.png)
+
+
+
 ## 9.2 关键属性及类
 ### 9.2.1 关键属性
 1. table  `volatile Node<K,V>[] table;`//装载Node的数组，ConcurrentHashMap的数据容器。懒加载（直到第一次插入数据时才会初始化），数组大小为$2^n$ ，
@@ -384,6 +388,39 @@ ConcurrentHashMap(int initialCapacity, float loadFactor)
 // 5. 给定map大小，加载因子以及并发度（预计同时操作数据的线程）
 ConcurrentHashMap(int initialCapacity,float loadFactor, int concurrencyLevel)
 ```
+
+
+### 9.3.2 initTable方法
+```mermaid
+flowchart LR
+judge{{tab==null? or tab.length==0}}
+judge1{{sizeCtl<0}}
+
+judge-->judge1--Y-->Thread.yield
+
+judge1--N-->CAS[CAS sizeCtl=-1]-->init[new Node<K,V>]-->sc=0.75n
+```
+
+### 9.3.3 put方法
+1.  首先对于每一个放入的值，首先利用spread方法对key的hashcode进行一次hash计算，由此来确定这个值在 table中的位置；
+2.  如果当前table数组还未初始化，先将table数组进行初始化操作；
+3.  如果这个位置是null的，那么使用CAS操作直接放入；
+4.  如果这个位置存在结点，说明发生了hash碰撞，首先判断这个节点的类型。如果该节点`fh==MOVED`(代表forwardingNode,数组正在进行扩容)的话，说明正在进行扩容；
+5.  如果是链表节点（fh>0）,则得到的结点就是hash值相同的节点组成的链表的头节点。需要依次向后遍历确定这个新加入的值所在位置。如果遇到key相同的节点，则只需要覆盖该结点的value值即可。否则依次向后遍历，直到链表尾插入这个结点；
+6.  如果这个节点的类型是TreeBin的话，直接调用红黑树的插入方法进行插入新的节点；
+7.  插入完节点之后再次检查链表长度，如果长度大于8，就把这个链表转换成红黑树；
+8.  对当前容量大小进行检查，如果超过了临界值（实际大小\*加载因子）就需要扩容。
+
+### 9.3.4 get方法
+1. 先看当前的hash桶数组节点即table[i]是否为查找的节点，若是则直接返回；
+2. 若不是，则继续再看当前是不是树节点？通过看节点的hash值是否为小于0，如果小于0则为树节点。如果是树节点在红黑树中查找节点；
+3. 如果不是树节点，那就只剩下为链表的形式的一种可能性了，就向后遍历查找节点，若查找到则返回节点的value即可，
+4. 若没有找到就返回null。
+
+
+### 9.3.5 transfer方法
+
+
 
 
 ## 9.4 参考链接
