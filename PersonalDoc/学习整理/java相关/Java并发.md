@@ -419,7 +419,11 @@ judge1--N-->CAS[CAS sizeCtl=-1]-->init[new Node<K,V>]-->sc=0.75n
 
 
 ### 9.3.5 transfer方法
-支持多线程扩容
+扩容。支持多线程扩容
+
+![](Java并发.assets/image-20220706214745632.png)
+
+
 
 
 
