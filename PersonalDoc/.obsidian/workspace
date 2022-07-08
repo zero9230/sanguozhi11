@@ -4,12 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "6684007c07fd3073",
+        "id": "d39e67f899a21a4a",
         "type": "leaf",
         "state": {
-          "type": "excalidraw",
+          "type": "markdown",
           "state": {
-            "file": "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.md"
+            "file": "生活类/菜谱.md",
+            "mode": "source",
+            "backlinks": false,
+            "source": false
           }
         }
       }
@@ -67,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.md",
+                "file": "生活类/菜谱.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.md"
+                "file": "生活类/菜谱.md"
               }
             }
           },
@@ -96,23 +99,24 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
     "width": 254
   },
-  "active": "6684007c07fd3073",
+  "active": "d39e67f899a21a4a",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.md",
+    "生活类/菜谱.md",
+    "生活类/三国志11资料收集.md",
     "学习整理/算法/深度学习.md",
     "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.svg",
+    "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.md",
     "Excalidraw/Drawing 2022-07-08 13.53.40.excalidraw.md",
+    "Excalidraw/Drawing 2022-07-08 13.53.40.excalidraw.svg",
     "学习整理/算法/环境搭建.md",
     "学习整理/算法/机器学习.md",
-    "学习整理/java相关/Java并发.md",
-    "学习整理/java相关/Java并发.assets/image-20220706214330151.png",
-    "学习整理/基础&通用工具/obsidian.md",
-    "学习整理/基础&通用工具/typora.md"
+    "学习整理/java相关/Java并发.md"
   ]
 }
