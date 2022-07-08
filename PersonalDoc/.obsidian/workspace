@@ -7,12 +7,9 @@
         "id": "6684007c07fd3073",
         "type": "leaf",
         "state": {
-          "type": "markdown",
+          "type": "excalidraw",
           "state": {
-            "file": "学习整理/算法/深度学习.md",
-            "mode": "source",
-            "backlinks": false,
-            "source": false
+            "file": "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.md"
           }
         }
       }
@@ -70,7 +67,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/算法/深度学习.md",
+                "file": "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +84,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/算法/深度学习.md"
+                "file": "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.md"
               }
             }
           },
@@ -107,8 +104,8 @@
   },
   "active": "6684007c07fd3073",
   "lastOpenFiles": [
-    "学习整理/算法/深度学习.md",
     "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.md",
+    "学习整理/算法/深度学习.md",
     "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.svg",
     "Excalidraw/Drawing 2022-07-08 13.53.40.excalidraw.md",
     "学习整理/算法/环境搭建.md",
