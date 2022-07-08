@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "e2ea2cf945e63be1",
+        "id": "6684007c07fd3073",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -54,8 +54,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 228,
-    "collapsed": true
+    "width": 228
   },
   "right": {
     "id": "c860a8b579f550d1",
@@ -78,7 +77,7 @@
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -100,24 +99,23 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
     "width": 254
   },
-  "active": "e2ea2cf945e63be1",
+  "active": "6684007c07fd3073",
   "lastOpenFiles": [
     "学习整理/算法/深度学习.md",
+    "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.md",
+    "Excalidraw/Drawing 2022-07-08 13.53.40.excalidraw.md",
+    "学习整理/算法/环境搭建.md",
     "学习整理/算法/机器学习.md",
     "学习整理/java相关/Java并发.md",
     "学习整理/java相关/Java并发.assets/image-20220706214330151.png",
     "学习整理/基础&通用工具/obsidian.md",
     "学习整理/基础&通用工具/typora.md",
-    "学习整理/算法/数学基础.md",
-    "学习整理/算法/博弈论.md",
-    "start.md",
-    "consistant-report.md"
+    "学习整理/算法/数学基础.md"
   ]
 }
