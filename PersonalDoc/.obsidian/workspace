@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "生活类/菜谱.md",
+            "file": "学习整理/算法/深度学习.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "生活类/菜谱.md",
+                "file": "学习整理/算法/深度学习.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "生活类/菜谱.md"
+                "file": "学习整理/算法/深度学习.md"
               }
             }
           },
@@ -108,15 +108,15 @@
   },
   "active": "d39e67f899a21a4a",
   "lastOpenFiles": [
+    "学习整理/算法/深度学习.md",
+    "学习整理/算法/机器学习.md",
     "生活类/菜谱.md",
     "生活类/三国志11资料收集.md",
-    "学习整理/算法/深度学习.md",
     "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.svg",
     "Excalidraw/Drawing 2022-07-08 13.50.40.excalidraw.md",
     "Excalidraw/Drawing 2022-07-08 13.53.40.excalidraw.md",
     "Excalidraw/Drawing 2022-07-08 13.53.40.excalidraw.svg",
     "学习整理/算法/环境搭建.md",
-    "学习整理/算法/机器学习.md",
     "学习整理/java相关/Java并发.md"
   ]
 }
