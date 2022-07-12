@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "学习整理/算法/数学基础/高等数学.md",
+            "file": "学习整理/算法/深度学习.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/算法/数学基础/高等数学.md",
+                "file": "学习整理/算法/深度学习.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/算法/数学基础/高等数学.md"
+                "file": "学习整理/算法/深度学习.md"
               }
             }
           },
@@ -108,11 +108,11 @@
   },
   "active": "c7811531415d5298",
   "lastOpenFiles": [
+    "学习整理/算法/深度学习.md",
     "学习整理/算法/数学基础/高等数学.md",
     "学习整理/算法/数学基础/LateX.md",
     "学习整理/基础&通用工具/typora.md",
     "Excalidraw/Drawing 2022-07-09 22.12.42.excalidraw.md",
-    "学习整理/算法/深度学习.md",
     "学习整理/算法/博弈论.md",
     "学习整理/算法/数学基础/线性代数.md",
     "学习整理/算法/数学基础/数学基础.md",
