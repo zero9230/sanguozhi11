@@ -1,4 +1,4 @@
-# 概述
+# 1 概述
 
 >  [官网地址](http://poi.apache.org/index.html) 
 
@@ -8,9 +8,9 @@ java语言用于处理Microsoft Office的工具，已被Apache收录。
 
 
 
-# 基础使用
+# 2 基础使用
 
-## 依赖
+## 2.1 依赖
 
 ```xml
 <dependency>
@@ -22,7 +22,7 @@ java语言用于处理Microsoft Office的工具，已被Apache收录。
 
 
 
-## 例程
+## 2.2 例程
 
 
 
