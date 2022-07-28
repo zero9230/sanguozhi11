@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "杂记/小镇做题家.md",
+            "file": "生活类/菜谱.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "杂记/小镇做题家.md",
+                "file": "生活类/菜谱.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "杂记/小镇做题家.md"
+                "file": "生活类/菜谱.md"
               }
             }
           },
@@ -106,8 +106,9 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "dff8d1528a28c203",
+  "active": "c7811531415d5298",
   "lastOpenFiles": [
+    "杂记/小镇做题家.md",
     "杂记/“房住不炒”.md",
     "生活类/菜谱.md",
     "学习整理/java相关/Java并发.md",
@@ -116,7 +117,6 @@
     "学习整理/算法/数学基础/高等数学.md",
     "学习整理/算法/数学基础/LateX.md",
     "学习整理/基础&通用工具/obsidian.md",
-    "学习整理/算法/深度学习.md",
-    "学习整理/大数据相关/Hadoop.md"
+    "学习整理/算法/深度学习.md"
   ]
 }
