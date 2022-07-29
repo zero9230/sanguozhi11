@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "生活类/菜谱.md",
+            "file": "学习整理/数据库/oracle.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "oracle",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -50,7 +50,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -70,7 +71,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "生活类/菜谱.md",
+                "file": "学习整理/数据库/oracle.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +88,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "生活类/菜谱.md"
+                "file": "学习整理/数据库/oracle.md"
               }
             }
           },
@@ -108,9 +109,9 @@
   },
   "active": "c7811531415d5298",
   "lastOpenFiles": [
+    "生活类/菜谱.md",
     "杂记/小镇做题家.md",
     "杂记/“房住不炒”.md",
-    "生活类/菜谱.md",
     "学习整理/java相关/Java并发.md",
     "学习整理/java相关/poi.md",
     "学习整理/基础&通用工具/markdown.md",
