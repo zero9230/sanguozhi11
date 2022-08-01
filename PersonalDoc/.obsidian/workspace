@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "学习整理/算法/数学基础/线性代数.md",
+            "file": "学习整理/算法/数学基础/高等数学.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/算法/数学基础/线性代数.md",
+                "file": "学习整理/算法/数学基础/高等数学.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/算法/数学基础/线性代数.md"
+                "file": "学习整理/算法/数学基础/高等数学.md"
               }
             }
           },
@@ -108,8 +108,8 @@
   },
   "active": "c7811531415d5298",
   "lastOpenFiles": [
-    "学习整理/算法/数学基础/LateX.md",
     "学习整理/算法/数学基础/线性代数.md",
+    "学习整理/算法/数学基础/LateX.md",
     "学习整理/算法/数学基础/概率论.md",
     "杂记/税制、财政和居民生活.md",
     "杂记/小镇做题家.md",
