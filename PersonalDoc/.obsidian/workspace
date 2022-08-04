@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "学习整理/算法/PyTorch.md",
+            "file": "学习整理/大数据相关/spark.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -54,7 +54,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 228
+    "width": 228,
+    "collapsed": true
   },
   "right": {
     "id": "c860a8b579f550d1",
@@ -70,7 +71,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/算法/PyTorch.md",
+                "file": "学习整理/大数据相关/spark.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +88,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/算法/PyTorch.md"
+                "file": "学习整理/大数据相关/spark.md"
               }
             }
           },
@@ -104,19 +105,20 @@
       }
     ],
     "direction": "horizontal",
-    "width": 254
+    "width": 254,
+    "collapsed": true
   },
   "active": "c7811531415d5298",
   "lastOpenFiles": [
+    "学习整理/基础&通用工具/markdown.md",
+    "学习整理/基础&通用工具/shell.md",
+    "学习整理/基础&通用工具/typora.md",
+    "学习整理/基础&通用工具/obsidian.md",
+    "学习整理/数据库/oracle.md",
+    "学习整理/算法/PyTorch.md",
     "学习整理/算法/深度学习.md",
     "学习整理/算法/数学基础/高等数学.md",
     "学习整理/算法/数学基础/线性代数.md",
-    "学习整理/算法/数学基础/LateX.md",
-    "学习整理/算法/数学基础/概率论.md",
-    "杂记/税制、财政和居民生活.md",
-    "杂记/小镇做题家.md",
-    "生活类/三国志11资料收集.md",
-    "生活类/菜谱.md",
-    "学习整理/数据库/oracle.md"
+    "学习整理/算法/数学基础/LateX.md"
   ]
 }
