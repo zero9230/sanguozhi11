@@ -3,7 +3,7 @@
   "livePreview": true,
   "alwaysUpdateLinks": true,
   "showFrontmatter": true,
-  "attachmentFolderPath": "./spark.assets",
+  "attachmentFolderPath": "./PyTorch.assets",
   "useMarkdownLinks": true,
   "communityPluginSortOrder": "download",
   "promptDelete": false,

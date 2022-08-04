@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "学习整理/大数据相关/spark.md",
+            "file": "学习整理/算法/PyTorch.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -54,8 +54,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 228,
-    "collapsed": true
+    "width": 228
   },
   "right": {
     "id": "c860a8b579f550d1",
@@ -71,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/大数据相关/spark.md",
+                "file": "学习整理/算法/PyTorch.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/大数据相关/spark.md"
+                "file": "学习整理/算法/PyTorch.md"
               }
             }
           },
@@ -105,20 +104,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 254,
-    "collapsed": true
+    "width": 254
   },
   "active": "c7811531415d5298",
   "lastOpenFiles": [
-    "学习整理/基础&通用工具/markdown.md",
-    "学习整理/基础&通用工具/shell.md",
-    "学习整理/基础&通用工具/typora.md",
-    "学习整理/基础&通用工具/obsidian.md",
-    "学习整理/数据库/oracle.md",
-    "学习整理/算法/PyTorch.md",
-    "学习整理/算法/深度学习.md",
-    "学习整理/算法/数学基础/高等数学.md",
-    "学习整理/算法/数学基础/线性代数.md",
-    "学习整理/算法/数学基础/LateX.md"
+    "学习整理/基础知识/计算机/操作系统.md",
+    "学习整理/基础知识/计算机/Linux.md",
+    "学习整理/基础知识/计算机/编译原理.md",
+    "学习整理/基础知识/计算机/计算机组成原理.md",
+    "学习整理/基础知识/数学基础/高等数学.md",
+    "学习整理/通用工具/git.md",
+    "学习整理/电商知识整理/商品知识体系.md",
+    "学习整理/电商知识整理/spu.md",
+    "学习整理/电商知识整理/解析forest底层实现.md",
+    "学习整理/电商知识整理/类目高级手册-自整理.md"
   ]
 }

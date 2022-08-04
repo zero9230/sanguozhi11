@@ -1,10 +1,10 @@
-# git知识体系
+# 1 git知识体系
 
 多分支体系
 
-# git常见场景及操作
+# 2 git常见场景及操作
 
-## 本地配置多git账号
+## 2.1 本地配置多git账号
 
 如果你想在一台电脑上同时配置两个git账号，比如gitlab账号123@126.com和github的456@126.com
 那么应该如何做呢？
@@ -67,7 +67,7 @@ cat id_rsa_hub.pub # github公钥
 
 参考文章：https://www.cnblogs.com/popfisher/p/5731232.html
 
-## 本地和远程仓库分支关联
+## 2.2 本地和远程仓库分支关联
 
 ```bash
 git push --set-upstream origin branch_name
@@ -83,7 +83,7 @@ git branch -vv
 
 
 
-## 切换账号提交代码
+## 2.3 切换账号提交代码
 
 有的时候我们有两个甚至多个git账号（公司的git账号和自己的github），为了不混淆提交，我们需要在提交之前查看自己的git账号必要时进行切换。
 
@@ -98,7 +98,7 @@ git config --global user.email  "e-mail"	# 切换git邮箱
 
 
 
-### 重新提交
+### 2.3.1 重新提交
 
 ```bash
 然后执行下面的命令，重新修改最新的提交，改正作者和提交者的错误信息。
@@ -108,7 +108,7 @@ $ git commit --amend --allow-empty --reset-author
 
 
 
-## 推送本地分支到远程分支
+## 2.4 推送本地分支到远程分支
 
  **场景** 
 
@@ -129,7 +129,7 @@ $ git commit --amend --allow-empty --reset-author
   $  git push origin feature-branch:feature-branch    //推送本地的feature-branch(冒号前面的)分支到远程origin的feature-branch(冒号后面的)分支(没有会自动创建)
   ```
 
-## 取消commit
+## 2.5 取消commit
 
 ```bash
 git reset --soft HEAD^
@@ -138,7 +138,7 @@ git reset --soft HEAD^
 
 
 
-## 分支改名
+## 2.6 分支改名
 
 ```bash
 git checkout -m OLD_BRANCH NEW_BRANCH
@@ -146,7 +146,7 @@ git checkout -m OLD_BRANCH NEW_BRANCH
 
 
 
-## 【git 端口拒绝解决方案】
+## 2.7 【git 端口拒绝解决方案】
 
 ssh: connect to host github.com port 22: Connection refused
 
@@ -222,13 +222,13 @@ ssh: connect to host github.com port 22: Connection refused
 
 完事以上切换操作，其实问题就已经解决了。
 
-## git无法push到远程仓库
+## 2.8 git无法push到远程仓库
 
 经过排查，确认是端口22被封禁，应该是公司层面的做法
 
 目前采用gitee进行平替
 
-## git合并别的分支内容到自己的分支
+## 2.9 git合并别的分支内容到自己的分支
 
 ```bash
 $ git pull origin OTHER-BRANCH
