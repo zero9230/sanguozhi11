@@ -7,13 +7,8 @@
         "id": "c7811531415d5298",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "学习整理/算法/PyTorch.md",
-            "mode": "source",
-            "backlinks": false,
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -70,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/算法/PyTorch.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,9 +80,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "学习整理/算法/PyTorch.md"
-              }
+              "state": {}
             }
           },
           {
@@ -106,17 +98,17 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "c7811531415d5298",
+  "active": "dff8d1528a28c203",
   "lastOpenFiles": [
+    "学习整理/大数据相关/spark.md",
+    "学习整理/大数据相关/Hadoop.md",
+    "学习整理/算法/PyTorch.md",
     "学习整理/基础知识/计算机/操作系统.md",
     "学习整理/基础知识/计算机/Linux.md",
     "学习整理/基础知识/计算机/编译原理.md",
     "学习整理/基础知识/计算机/计算机组成原理.md",
     "学习整理/基础知识/数学基础/高等数学.md",
     "学习整理/通用工具/git.md",
-    "学习整理/电商知识整理/商品知识体系.md",
-    "学习整理/电商知识整理/spu.md",
-    "学习整理/电商知识整理/解析forest底层实现.md",
-    "学习整理/电商知识整理/类目高级手册-自整理.md"
+    "学习整理/电商知识整理/商品知识体系.md"
   ]
 }
