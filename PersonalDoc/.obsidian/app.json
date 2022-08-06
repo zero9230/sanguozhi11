@@ -3,7 +3,7 @@
   "livePreview": true,
   "alwaysUpdateLinks": true,
   "showFrontmatter": true,
-  "attachmentFolderPath": "./test.assets",
+  "attachmentFolderPath": "./Linux.assets",
   "useMarkdownLinks": true,
   "communityPluginSortOrder": "download",
   "promptDelete": false,

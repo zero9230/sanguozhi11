@@ -7,8 +7,13 @@
         "id": "c7811531415d5298",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "学习整理/基础知识/计算机/Linux.md",
+            "mode": "source",
+            "backlinks": false,
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "学习整理/基础知识/计算机/Linux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -80,7 +86,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "学习整理/基础知识/计算机/Linux.md"
+              }
             }
           },
           {
@@ -98,17 +106,17 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "dff8d1528a28c203",
+  "active": "c7811531415d5298",
   "lastOpenFiles": [
-    "学习整理/大数据相关/spark.md",
-    "学习整理/大数据相关/Hadoop.md",
-    "学习整理/算法/PyTorch.md",
+    "学习整理/基础知识/计算机/shell.md",
     "学习整理/基础知识/计算机/操作系统.md",
-    "学习整理/基础知识/计算机/Linux.md",
-    "学习整理/基础知识/计算机/编译原理.md",
-    "学习整理/基础知识/计算机/计算机组成原理.md",
-    "学习整理/基础知识/数学基础/高等数学.md",
-    "学习整理/通用工具/git.md",
-    "学习整理/电商知识整理/商品知识体系.md"
+    "学习整理/基础知识/数学基础/线性代数.md",
+    "学习整理/基础知识/数学基础/LateX.md",
+    "学习整理/java相关/Java测试.md",
+    "学习整理/未分类/DDD领域驱动.md",
+    "学习整理/未分类/python.md",
+    "学习整理/未分类/nodejs.md",
+    "学习整理/未分类/jenkins.md",
+    "学习整理/基础知识/计算机/Linux.md"
   ]
 }
