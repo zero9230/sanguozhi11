@@ -1,4 +1,4 @@
-# 概述
+# 1 概述
 
 一个重要的抽象模型是RDD（resilient distributed dataset，弹性分布式数据集）。
 
@@ -28,8 +28,31 @@ spark
 - 基于内存数据操作
 
 
+# 2 from share
+王尧share
+1. data process
+场景： word count，统计文件中每个单词出现的次数
 
-# 参考文献
+
+2. spark是什么
+![](spark.assets/image-20220804135713335.png)
+
+
+yarn集群
+
+3. spark趋势
+
+spark SQL 
+语法树（编译原理部分）
+![](spark.assets/image-20220804140650215.png)
+
+
+
+spark推荐学习spark3.0版本
+
+
+
+# 3 参考文献
 
 1.   [Spark学习笔记之入门篇一](http://lousama.com/2016/01/11/Spark%E5%85%A5%E9%97%A8%E7%AF%87/) ——该文完成度很低
 2.   [Spark 学习笔记](https://blog.einverne.info/post/2017/01/spark.html) 

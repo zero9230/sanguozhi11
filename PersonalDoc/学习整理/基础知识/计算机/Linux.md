@@ -1,6 +1,6 @@
-# 进程
+# 1 进程
 
-## Linux进程被信号杀死后退出状态码（exit code）解析
+## 1.1 Linux进程被信号杀死后退出状态码（exit code）解析
 
 linux系统下，进程对信号的默认响应方式有5种：
 
@@ -53,9 +53,9 @@ linux系统下，进程对信号的默认响应方式有5种：
 
 
 
-# 流程控制
+# 2 流程控制
 
-## if else
+## 2.1 if else
 
 实例
 
@@ -100,7 +100,7 @@ fi
 
 
 
-## for循环
+## 2.2 for循环
 
 实例
 
@@ -113,7 +113,7 @@ done
 
 
 
-## while循环
+## 2.3 while循环
 
 ```bash
 int=1
@@ -145,7 +145,7 @@ done
 
 
 
-## 无限循环
+## 2.4 无限循环
 
 ```bash
 while :
@@ -156,7 +156,7 @@ done
 
 
 
-## until循环
+## 2.5 until循环
 
 一般while循环优于until
 
@@ -170,7 +170,7 @@ do
 done
 ```
 
-## case…esac
+## 2.6 case…esac
 
 多选择语句，类似switch
 
@@ -192,7 +192,7 @@ case $aNum in
 esac
 ```
 
-## break
+## 2.7 break
 
 跳出循环
 
@@ -211,15 +211,15 @@ do
 done
 ```
 
-## continue
+## 2.8 continue
 
 类同continue
 
 
 
-# 文本操作命令
+# 3 文本操作命令
 
-## 文本文件比对——diff
+## 3.1 文本文件比对——diff
 
 命令基本格式
 
@@ -290,7 +290,7 @@ diff命令输出格式有三种
 
 
 
-## cat合并多个文件
+## 3.2 cat合并多个文件
 
 ```bash
 cat db1.sql db2.sql db3.sql > db_all.sql # 当然也可以指定合并哪几个文件 
@@ -301,7 +301,7 @@ cat a.txt >> b.txt # 将a.txt的内容输入到b.txt的末尾
 
 
 
-## 文本排序
+## 3.3 文本排序
 
 1. 字典序
 
@@ -324,9 +324,9 @@ sort test1.txt
 
 
 
-## awk
+## 3.4 awk
 
-### 形式
+### 3.4.1 形式
 
 ```bash
 awk 'BEGIN{}pattern{commands}END{}' file
@@ -334,7 +334,7 @@ awk 'BEGIN{}pattern{commands}END{}' file
 
 
 
-### 原理 ![image-20220225003647737](Linux.assets/image-20220225003647737.png) 
+### 3.4.2 原理 ![image-20220225003647737](Linux.assets/image-20220225003647737.png) 
 
 > 其中数字1，2，3…代表是文本中的数据行
 >
@@ -344,7 +344,7 @@ awk 'BEGIN{}pattern{commands}END{}' file
 >
 > END{}    表示在处理文本数据之后进行一些操作
 
-### 内建变量
+### 3.4.3 内建变量
 
 | 内置变量 | 含义                              |
 | -------- | --------------------------------- |
@@ -361,7 +361,7 @@ awk 'BEGIN{}pattern{commands}END{}' file
 
 
 
-### 常用选项
+### 3.4.4 常用选项
 
 | 选项 | 含义            |
 | ---- | --------------- |
@@ -372,7 +372,7 @@ awk 'BEGIN{}pattern{commands}END{}' file
 
 
 
-### 使用条件/循环语句
+### 3.4.5 使用条件/循环语句
 
 实例
 
@@ -388,7 +388,7 @@ awk -F: '{if($3>100 && $3<1000) print $0}' /etc/passwd
 
 1.  [awk命令使用详解](https://juejin.cn/post/6844903782359253005)
 
-# 查看文件命令
+# 4 查看文件命令
 
 1. `ls`——查看文件名列表
 
@@ -428,7 +428,7 @@ awk -F: '{if($3>100 && $3<1000) print $0}' /etc/passwd
 
 
 
-# OS命令
+# 5 OS命令
 
 1. df -h 	# 查看磁盘占用率
 2. top   # 实时查看进程，类似任务管理器 
@@ -436,7 +436,7 @@ awk -F: '{if($3>100 && $3<1000) print $0}' /etc/passwd
 
 
 
-# 网络命令
+# 6 网络命令
 
 1. nsloopup 【目标网址】		# 查看目标网址的dns
 

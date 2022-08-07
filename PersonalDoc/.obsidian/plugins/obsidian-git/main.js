@@ -1322,6 +1322,9 @@ var require_base = __commonJS({
         var newLen = newString.length, oldLen = oldString.length;
         var editLength = 1;
         var maxEditLength = newLen + oldLen;
+        if (options.maxEditLength) {
+          maxEditLength = Math.min(maxEditLength, options.maxEditLength);
+        }
         var bestPath = [{
           newPos: -1,
           components: []
@@ -2128,6 +2131,9 @@ var require_create = __commonJS({
         options.context = 4;
       }
       var diff = (0, _line.diffLines)(oldStr, newStr, options);
+      if (!diff) {
+        return;
+      }
       diff.push({
         value: "",
         lines: []
@@ -6945,7 +6951,7 @@ var ObsidianGitSettingsTab = class extends import_obsidian.PluginSettingTab {
       plugin.settings.refreshSourceControl = value;
       plugin.saveSettings();
     }));
-    new import_obsidian.Setting(containerEl).setName("Disable notifications").setDesc("Disable notifications for git operations to minimize distraction (refer to status bar for updates)").addToggle((toggle) => toggle.setValue(plugin.settings.disablePopups).onChange((value) => {
+    new import_obsidian.Setting(containerEl).setName("Disable notifications").setDesc("Disable notifications for git operations to minimize distraction (refer to status bar for updates). Errors are still shown as notifications even if you enable this setting").addToggle((toggle) => toggle.setValue(plugin.settings.disablePopups).onChange((value) => {
       plugin.settings.disablePopups = value;
       plugin.saveSettings();
     }));
@@ -7673,9 +7679,9 @@ var init_task_options = __esm({
 function callTaskParser(parser3, streams) {
   return parser3(streams.stdOut, streams.stdErr);
 }
-function parseStringResponse(result, parsers11, ...texts) {
-  texts.forEach((text2) => {
-    for (let lines = toLinesWithContent(text2), i = 0, max = lines.length; i < max; i++) {
+function parseStringResponse(result, parsers11, texts, trim = true) {
+  asArray(texts).forEach((text2) => {
+    for (let lines = toLinesWithContent(text2, trim), i = 0, max = lines.length; i < max; i++) {
       const line = (offset = 0) => {
         if (i + offset >= max) {
           return;
@@ -8799,6 +8805,24 @@ var init_init = __esm({
     bareCommand = "--bare";
   }
 });
+function logFormatFromCommand(customArgs) {
+  for (let i = 0; i < customArgs.length; i++) {
+    const format = logFormatRegex.exec(customArgs[i]);
+    if (format) {
+      return `--${format[1]}`;
+    }
+  }
+  return "";
+}
+function isLogFormat(customArg) {
+  return logFormatRegex.test(customArg);
+}
+var logFormatRegex;
+var init_log_format = __esm({
+  "src/lib/args/log-format.ts"() {
+    logFormatRegex = /^--(stat|numstat|name-only|name-status)(=|$)/;
+  }
+});
 var DiffSummary;
 var init_DiffSummary = __esm({
   "src/lib/responses/DiffSummary.ts"() {
@@ -8812,74 +8836,101 @@ var init_DiffSummary = __esm({
     };
   }
 });
-function parseDiffResult(stdOut) {
-  const lines = stdOut.trim().split("\n");
-  const status = new DiffSummary();
-  readSummaryLine(status, lines.pop());
-  for (let i = 0, max = lines.length; i < max; i++) {
-    const line = lines[i];
-    textFileChange(line, status) || binaryFileChange(line, status);
-  }
-  return status;
+function getDiffParser(format = "") {
+  const parser3 = diffSummaryParsers[format];
+  return (stdOut) => parseStringResponse(new DiffSummary(), parser3, stdOut, false);
 }
-function readSummaryLine(status, summary) {
-  (summary || "").trim().split(", ").forEach(function(text2) {
-    const summary2 = /(\d+)\s([a-z]+)/.exec(text2);
-    if (!summary2) {
-      return;
-    }
-    summaryType(status, summary2[2], parseInt(summary2[1], 10));
-  });
-}
-function summaryType(status, key2, value) {
-  const match = /([a-z]+?)s?\b/.exec(key2);
-  if (!match || !statusUpdate[match[1]]) {
-    return;
-  }
-  statusUpdate[match[1]](status, value);
-}
-function textFileChange(input, { files }) {
-  const line = input.trim().match(/^(.+)\s+\|\s+(\d+)(\s+[+\-]+)?$/);
-  if (line) {
-    var alterations = (line[3] || "").trim();
-    files.push({
-      file: line[1].trim(),
-      changes: parseInt(line[2], 10),
-      insertions: alterations.replace(/-/g, "").length,
-      deletions: alterations.replace(/\+/g, "").length,
-      binary: false
-    });
-    return true;
-  }
-  return false;
-}
-function binaryFileChange(input, { files }) {
-  const line = input.match(/^(.+) \|\s+Bin ([0-9.]+) -> ([0-9.]+) ([a-z]+)$/);
-  if (line) {
-    files.push({
-      file: line[1].trim(),
-      before: +line[2],
-      after: +line[3],
-      binary: true
-    });
-    return true;
-  }
-  return false;
-}
-var statusUpdate;
+var statParser;
+var numStatParser;
+var nameOnlyParser;
+var nameStatusParser;
+var diffSummaryParsers;
 var init_parse_diff_summary = __esm({
   "src/lib/parsers/parse-diff-summary.ts"() {
+    init_log_format();
     init_DiffSummary();
-    statusUpdate = {
-      file(status, value) {
-        status.changed = value;
-      },
-      deletion(status, value) {
-        status.deletions = value;
-      },
-      insertion(status, value) {
-        status.insertions = value;
-      }
+    init_utils();
+    statParser = [
+      new LineParser(/(.+)\s+\|\s+(\d+)(\s+[+\-]+)?$/, (result, [file, changes, alterations = ""]) => {
+        result.files.push({
+          file: file.trim(),
+          changes: asNumber(changes),
+          insertions: alterations.replace(/[^+]/g, "").length,
+          deletions: alterations.replace(/[^-]/g, "").length,
+          binary: false
+        });
+      }),
+      new LineParser(/(.+) \|\s+Bin ([0-9.]+) -> ([0-9.]+) ([a-z]+)/, (result, [file, before, after]) => {
+        result.files.push({
+          file: file.trim(),
+          before: asNumber(before),
+          after: asNumber(after),
+          binary: true
+        });
+      }),
+      new LineParser(/(\d+) files? changed\s*((?:, \d+ [^,]+){0,2})/, (result, [changed, summary]) => {
+        const inserted = /(\d+) i/.exec(summary);
+        const deleted = /(\d+) d/.exec(summary);
+        result.changed = asNumber(changed);
+        result.insertions = asNumber(inserted == null ? void 0 : inserted[1]);
+        result.deletions = asNumber(deleted == null ? void 0 : deleted[1]);
+      })
+    ];
+    numStatParser = [
+      new LineParser(/(\d+)\t(\d+)\t(.+)$/, (result, [changesInsert, changesDelete, file]) => {
+        const insertions = asNumber(changesInsert);
+        const deletions = asNumber(changesDelete);
+        result.changed++;
+        result.insertions += insertions;
+        result.deletions += deletions;
+        result.files.push({
+          file,
+          changes: insertions + deletions,
+          insertions,
+          deletions,
+          binary: false
+        });
+      }),
+      new LineParser(/-\t-\t(.+)$/, (result, [file]) => {
+        result.changed++;
+        result.files.push({
+          file,
+          after: 0,
+          before: 0,
+          binary: true
+        });
+      })
+    ];
+    nameOnlyParser = [
+      new LineParser(/(.+)$/, (result, [file]) => {
+        result.changed++;
+        result.files.push({
+          file,
+          changes: 0,
+          insertions: 0,
+          deletions: 0,
+          binary: false
+        });
+      })
+    ];
+    nameStatusParser = [
+      new LineParser(/([ACDMRTUXB])\s*(.+)$/, (result, [_status, file]) => {
+        result.changed++;
+        result.files.push({
+          file,
+          changes: 0,
+          insertions: 0,
+          deletions: 0,
+          binary: false
+        });
+      })
+    ];
+    diffSummaryParsers = {
+      [""]: statParser,
+      ["--stat"]: statParser,
+      ["--numstat"]: numStatParser,
+      ["--name-status"]: nameStatusParser,
+      ["--name-only"]: nameOnlyParser
     };
   }
 });
@@ -8889,7 +8940,8 @@ function lineBuilder(tokens, fields) {
     return line;
   }, /* @__PURE__ */ Object.create({ diff: null }));
 }
-function createListLogSummaryParser(splitter = SPLITTER, fields = defaultFieldNames) {
+function createListLogSummaryParser(splitter = SPLITTER, fields = defaultFieldNames, logFormat = "") {
+  const parseDiffResult = getDiffParser(logFormat);
   return function(stdOut) {
     const all = toLinesWithContent(stdOut, true, START_BOUNDARY).map(function(item) {
       const lineDetail = item.trim().split(COMMIT_BOUNDARY);
@@ -8914,10 +8966,46 @@ var init_parse_list_log_summary = __esm({
   "src/lib/parsers/parse-list-log-summary.ts"() {
     init_utils();
     init_parse_diff_summary();
+    init_log_format();
     START_BOUNDARY = "\xF2\xF2\xF2\xF2\xF2\xF2 ";
     COMMIT_BOUNDARY = " \xF2\xF2";
     SPLITTER = " \xF2 ";
     defaultFieldNames = ["hash", "date", "message", "refs", "author_name", "author_email"];
+  }
+});
+var diff_exports = {};
+__export2(diff_exports, {
+  diffSummaryTask: () => diffSummaryTask,
+  validateLogFormatConfig: () => validateLogFormatConfig
+});
+function diffSummaryTask(customArgs) {
+  let logFormat = logFormatFromCommand(customArgs);
+  const commands = ["diff"];
+  if (logFormat === "") {
+    logFormat = "--stat";
+    commands.push("--stat=4096");
+  }
+  commands.push(...customArgs);
+  return validateLogFormatConfig(commands) || {
+    commands,
+    format: "utf-8",
+    parser: getDiffParser(logFormat)
+  };
+}
+function validateLogFormatConfig(customArgs) {
+  const flags = customArgs.filter(isLogFormat);
+  if (flags.length > 1) {
+    return configurationErrorTask(`Summary flags are mutually exclusive - pick one of ${flags.join(",")}`);
+  }
+  if (flags.length && customArgs.includes("-z")) {
+    return configurationErrorTask(`Summary flag ${flags} parsing is not compatible with null termination option '-z'`);
+  }
+}
+var init_diff = __esm({
+  "src/lib/tasks/diff.ts"() {
+    init_log_format();
+    init_parse_diff_summary();
+    init_task();
   }
 });
 function prettyFormat(format, splitter) {
@@ -8979,17 +9067,19 @@ function parseLogOptions(opt = {}, customArgs = []) {
   };
 }
 function logTask(splitter, fields, customArgs) {
+  const parser3 = createListLogSummaryParser(splitter, fields, logFormatFromCommand(customArgs));
   return {
     commands: ["log", ...customArgs],
     format: "utf-8",
-    parser: createListLogSummaryParser(splitter, fields)
+    parser: parser3
   };
 }
 function log_default() {
   return {
     log(...rest) {
       const next = trailingFunctionArgument(arguments);
-      const task = rejectDeprecatedSignatures(...rest) || createLogTask(parseLogOptions(trailingOptionsArgument(arguments), filterType(arguments[0], filterArray)));
+      const options = parseLogOptions(trailingOptionsArgument(arguments), filterType(arguments[0], filterArray));
+      const task = rejectDeprecatedSignatures(...rest) || validateLogFormatConfig(options.commands) || createLogTask(options);
       return this._runTask(task, next);
     }
   };
@@ -9003,9 +9093,11 @@ function log_default() {
 var excludeOptions;
 var init_log = __esm({
   "src/lib/tasks/log.ts"() {
+    init_log_format();
     init_parse_list_log_summary();
     init_utils();
     init_task();
+    init_diff();
     excludeOptions = /* @__PURE__ */ ((excludeOptions2) => {
       excludeOptions2[excludeOptions2["--pretty"] = 0] = "--pretty";
       excludeOptions2[excludeOptions2["max-count"] = 1] = "max-count";
@@ -9175,7 +9267,7 @@ var init_parse_remote_messages = __esm({
   }
 });
 function parsePullErrorResult(stdOut, stdErr) {
-  const pullError = parseStringResponse(new PullFailedSummary(), errorParsers, stdOut, stdErr);
+  const pullError = parseStringResponse(new PullFailedSummary(), errorParsers, [stdOut, stdErr]);
   return pullError.message && pullError;
 }
 var FILE_UPDATE_REGEX;
@@ -9228,7 +9320,7 @@ var init_parse_pull = __esm({
       })
     ];
     parsePullDetail = (stdOut, stdErr) => {
-      return parseStringResponse(new PullSummary(), parsers3, stdOut, stdErr);
+      return parseStringResponse(new PullSummary(), parsers3, [stdOut, stdErr]);
     };
     parsePullResult = (stdOut, stdErr) => {
       return Object.assign(new PullSummary(), parsePullDetail(stdOut, stdErr), parseRemoteMessages(stdOut, stdErr));
@@ -9350,7 +9442,7 @@ var init_parse_push = __esm({
       return __spreadValues2(__spreadValues2({}, pushDetail), responseDetail);
     };
     parsePushDetail = (stdOut, stdErr) => {
-      return parseStringResponse({ pushed: [] }, parsers5, stdOut, stdErr);
+      return parseStringResponse({ pushed: [] }, parsers5, [stdOut, stdErr]);
     };
   }
 });
@@ -9757,7 +9849,7 @@ var init_parse_branch_delete = __esm({
       })
     ];
     parseBranchDeletions = (stdOut, stdErr) => {
-      return parseStringResponse(new BranchDeletionBatch(), parsers7, stdOut, stdErr);
+      return parseStringResponse(new BranchDeletionBatch(), parsers7, [stdOut, stdErr]);
     };
   }
 });
@@ -9771,14 +9863,15 @@ var init_BranchSummary = __esm({
         this.current = "";
         this.detached = false;
       }
-      push(current, detached, name, commit, label) {
-        if (current) {
+      push(status, detached, name, commit, label) {
+        if (status === "*") {
           this.detached = detached;
           this.current = name;
         }
         this.all.push(name);
         this.branches[name] = {
-          current,
+          current: status === "*",
+          linkedWorkTree: status === "+",
           name,
           commit,
           label
@@ -9787,6 +9880,9 @@ var init_BranchSummary = __esm({
     };
   }
 });
+function branchStatus(input) {
+  return input ? input.charAt(0) : "";
+}
 function parseBranchSummary(stdOut) {
   return parseStringResponse(new BranchSummaryResult(), parsers8, stdOut);
 }
@@ -9796,11 +9892,11 @@ var init_parse_branch = __esm({
     init_BranchSummary();
     init_utils();
     parsers8 = [
-      new LineParser(/^(\*\s)?\((?:HEAD )?detached (?:from|at) (\S+)\)\s+([a-z0-9]+)\s(.*)$/, (result, [current, name, commit, label]) => {
-        result.push(!!current, true, name, commit, label);
+      new LineParser(/^([*+]\s)?\((?:HEAD )?detached (?:from|at) (\S+)\)\s+([a-z0-9]+)\s(.*)$/, (result, [current, name, commit, label]) => {
+        result.push(branchStatus(current), true, name, commit, label);
       }),
-      new LineParser(/^(\*\s)?(\S+)\s+([a-z0-9]+)\s?(.*)$/s, (result, [current, name, commit, label]) => {
-        result.push(!!current, false, name, commit, label);
+      new LineParser(/^([*+]\s)?(\S+)\s+([a-z0-9]+)\s?(.*)$/s, (result, [current, name, commit, label]) => {
+        result.push(branchStatus(current), false, name, commit, label);
       })
     ];
   }
@@ -9936,24 +10032,6 @@ var init_clone = __esm({
     init_utils();
   }
 });
-var diff_exports = {};
-__export2(diff_exports, {
-  diffSummaryTask: () => diffSummaryTask
-});
-function diffSummaryTask(customArgs) {
-  return {
-    commands: ["diff", "--stat=4096", ...customArgs],
-    format: "utf-8",
-    parser(stdOut) {
-      return parseDiffResult(stdOut);
-    }
-  };
-}
-var init_diff = __esm({
-  "src/lib/tasks/diff.ts"() {
-    init_parse_diff_summary();
-  }
-});
 function parseFetchResult(stdOut, stdErr) {
   const result = {
     raw: stdOut,
@@ -9961,7 +10039,7 @@ function parseFetchResult(stdOut, stdErr) {
     branches: [],
     tags: []
   };
-  return parseStringResponse(result, parsers9, stdOut, stdErr);
+  return parseStringResponse(result, parsers9, [stdOut, stdErr]);
 }
 var parsers9;
 var init_parse_fetch = __esm({
@@ -10155,16 +10233,19 @@ __export2(stash_list_exports, {
 });
 function stashListTask(opt = {}, customArgs) {
   const options = parseLogOptions(opt);
-  const parser3 = createListLogSummaryParser(options.splitter, options.fields);
-  return {
-    commands: ["stash", "list", ...options.commands, ...customArgs],
+  const commands = ["stash", "list", ...options.commands, ...customArgs];
+  const parser3 = createListLogSummaryParser(options.splitter, options.fields, logFormatFromCommand(commands));
+  return validateLogFormatConfig(commands) || {
+    commands,
     format: "utf-8",
     parser: parser3
   };
 }
 var init_stash_list = __esm({
   "src/lib/tasks/stash-list.ts"() {
+    init_log_format();
     init_parse_list_log_summary();
+    init_diff();
     init_log();
   }
 });
@@ -11018,10 +11099,11 @@ var SimpleGit = class extends GitManager {
       return res;
     });
   }
-  stage(filepath) {
+  stage(path3, relativeToVault) {
     return __async(this, null, function* () {
       this.plugin.setState(PluginState.add);
-      yield this.git.add(["--", filepath], (err) => this.onError(err));
+      path3 = this.getPath(path3, relativeToVault);
+      yield this.git.add(["--", path3], (err) => this.onError(err));
       this.plugin.setState(PluginState.idle);
     });
   }
@@ -11039,10 +11121,11 @@ var SimpleGit = class extends GitManager {
       this.plugin.setState(PluginState.idle);
     });
   }
-  unstage(filepath) {
+  unstage(path3, relativeToVault) {
     return __async(this, null, function* () {
       this.plugin.setState(PluginState.add);
-      yield this.git.reset(["--", filepath], (err) => this.onError(err));
+      path3 = this.getPath(path3, relativeToVault);
+      yield this.git.reset(["--", path3], (err) => this.onError(err));
       this.plugin.setState(PluginState.idle);
     });
   }
@@ -11141,16 +11224,21 @@ var SimpleGit = class extends GitManager {
       };
     });
   }
-  log(file, relativeToRepo = false) {
+  getRemoteUrl(remote) {
     return __async(this, null, function* () {
-      const path3 = relativeToRepo && this.plugin.settings.basePath ? file : file == null ? void 0 : file.substring(this.plugin.settings.basePath.length + 1);
+      return (yield this.git.remote(["get-url", remote], (err, url) => this.onError(err))) || void 0;
+    });
+  }
+  log(file, relativeToVault = true) {
+    return __async(this, null, function* () {
+      const path3 = this.getPath(file, relativeToVault);
       const res = yield this.git.log({ file: path3 }, (err) => this.onError(err));
       return res.all;
     });
   }
-  show(commitHash, file, relativeToRepo = false) {
+  show(commitHash, file, relativeToVault = true) {
     return __async(this, null, function* () {
-      const path3 = relativeToRepo && this.plugin.settings.basePath ? file : file.substring(this.plugin.settings.basePath.length + 1);
+      const path3 = this.getPath(file, relativeToVault);
       return this.git.show([commitHash + ":" + path3], (err) => this.onError(err));
     });
   }
@@ -11197,6 +11285,8 @@ var SimpleGit = class extends GitManager {
   getRemoteBranches(remote) {
     return __async(this, null, function* () {
       const res = yield this.git.branch(["-r", "--list", `${remote}*`], (err) => this.onError(err));
+      console.log(remote);
+      console.log(res);
       const list = [];
       for (var item in res.branches) {
         list.push(res.branches[item].name);
@@ -11229,6 +11319,9 @@ var SimpleGit = class extends GitManager {
   }
   updateBasePath(basePath) {
     this.setGitInstance(true);
+  }
+  getPath(path3, relativeToVault) {
+    return relativeToVault && this.plugin.settings.basePath.length > 0 ? path3.substring(this.plugin.settings.basePath.length + 1) : path3;
   }
   getDiffString(filePath, stagedChanges = false) {
     return __async(this, null, function* () {
@@ -11694,6 +11787,8 @@ function transition_out(block, local, detach2, callback) {
       }
     });
     block.o(local);
+  } else if (callback) {
+    callback();
   }
 }
 var null_transition = { duration: 0 };
@@ -12301,16 +12396,16 @@ function instance($$self, $$props, $$invalidate) {
   }
   function open(event) {
     if (!(change.path.startsWith(view.app.vault.configDir) || change.path.startsWith(".") || change.working_dir === "D")) {
-      openOrSwitch(view.app, change.vault_path, event);
+      openOrSwitch(change.vault_path, event);
     }
   }
   function stage() {
-    manager.stage(change.path).finally(() => {
+    manager.stage(change.path, false).finally(() => {
       dispatchEvent(new CustomEvent("git-refresh"));
     });
   }
   function showDiff(event) {
-    const leaf = workspace.activeLeaf;
+    const leaf = workspace.getMostRecentLeaf(workspace.rootSplit);
     if (leaf && !leaf.getViewState().pinned && !(event.ctrlKey || event.getModifierState("Meta"))) {
       leaf.setViewState({
         type: DIFF_VIEW_CONFIG.type,
@@ -12573,18 +12668,20 @@ function instance2($$self, $$props, $$invalidate) {
   }
   function open(event) {
     if (!(change.path.startsWith(view.app.vault.configDir) || change.path.startsWith(".") || change.index === "D")) {
-      openOrSwitch(view.app, formattedPath, event);
+      openOrSwitch(formattedPath, event);
     }
   }
   function showDiff(event) {
-    const leaf = view.app.workspace.activeLeaf;
+    const workspace = view.app.workspace;
+    const leaf = workspace.getMostRecentLeaf(workspace.rootSplit);
     if (leaf && !leaf.getViewState().pinned && !(event.ctrlKey || event.getModifierState("Meta"))) {
       leaf.setViewState({
         type: DIFF_VIEW_CONFIG.type,
         state: { file: change.path, staged: true }
       });
+      workspace.setActiveLeaf(leaf, true, true);
     } else {
-      view.app.workspace.createLeafInParent(view.app.workspace.rootSplit, 0).setViewState({
+      workspace.createLeafInParent(workspace.rootSplit, 0).setViewState({
         type: DIFF_VIEW_CONFIG.type,
         active: true,
         state: { file: change.path, staged: true }
@@ -12592,7 +12689,7 @@ function instance2($$self, $$props, $$invalidate) {
     }
   }
   function unstage() {
-    manager.unstage(change.path).finally(() => {
+    manager.unstage(change.path, false).finally(() => {
       dispatchEvent(new CustomEvent("git-refresh"));
     });
   }
@@ -14091,12 +14188,18 @@ function instance4($$self, $$props, $$invalidate) {
     removeEventListener("git-view-refresh", refresh);
   });
   function commit() {
-    $$invalidate(4, loading = true);
-    plugin.gitManager.commit(commitMessage).then(() => {
-      if (commitMessage !== plugin.settings.commitMessage) {
-        $$invalidate(6, commitMessage = "");
+    return __awaiter(this, void 0, void 0, function* () {
+      $$invalidate(4, loading = true);
+      if (yield plugin.hasTooBigFiles(status.staged)) {
+        plugin.setState(PluginState.idle);
+        return false;
       }
-    }).finally(triggerRefresh);
+      plugin.gitManager.commit(commitMessage).then(() => {
+        if (commitMessage !== plugin.settings.commitMessage) {
+          $$invalidate(6, commitMessage = "");
+        }
+      }).finally(triggerRefresh);
+    });
   }
   function refresh() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -14317,22 +14420,6 @@ var ObsidianGit = class extends import_obsidian15.Plugin {
       console.log("loading " + this.manifest.name + " plugin");
       yield this.loadSettings();
       this.migrateSettings();
-      this.modifyEvent = this.app.vault.on("modify", () => {
-        this.debRefresh();
-      });
-      this.deleteEvent = this.app.vault.on("delete", () => {
-        this.debRefresh();
-      });
-      this.createEvent = this.app.vault.on("create", () => {
-        this.debRefresh();
-      });
-      this.renameEvent = this.app.vault.on("rename", () => {
-        this.debRefresh();
-      });
-      this.registerEvent(this.modifyEvent);
-      this.registerEvent(this.deleteEvent);
-      this.registerEvent(this.createEvent);
-      this.registerEvent(this.renameEvent);
       addEventListener("git-refresh", this.refresh.bind(this));
       this.registerView(GIT_VIEW_CONFIG.type, (leaf) => {
         return new GitView2(leaf, this);
@@ -14404,6 +14491,28 @@ var ObsidianGit = class extends import_obsidian15.Plugin {
         id: "push2",
         name: "Push",
         callback: () => this.promiseQueue.addTask(() => this.push())
+      });
+      this.addCommand({
+        id: "stage-current-file",
+        name: "Stage current file",
+        checkCallback: (checking) => {
+          if (checking) {
+            return this.app.workspace.getActiveFile() !== null;
+          } else {
+            this.promiseQueue.addTask(() => this.stageCurrentFile());
+          }
+        }
+      });
+      this.addCommand({
+        id: "unstage-current-file",
+        name: "Unstage current file",
+        checkCallback: (checking) => {
+          if (checking) {
+            return this.app.workspace.getActiveFile() !== null;
+          } else {
+            this.promiseQueue.addTask(() => this.unstageCurrentFile());
+          }
+        }
       });
       this.addCommand({
         id: "edit-remotes",
@@ -14525,6 +14634,22 @@ var ObsidianGit = class extends import_obsidian15.Plugin {
           case "valid":
             this.gitReady = true;
             this.setState(PluginState.idle);
+            this.modifyEvent = this.app.vault.on("modify", () => {
+              this.debRefresh();
+            });
+            this.deleteEvent = this.app.vault.on("delete", () => {
+              this.debRefresh();
+            });
+            this.createEvent = this.app.vault.on("create", () => {
+              this.debRefresh();
+            });
+            this.renameEvent = this.app.vault.on("rename", () => {
+              this.debRefresh();
+            });
+            this.registerEvent(this.modifyEvent);
+            this.registerEvent(this.deleteEvent);
+            this.registerEvent(this.createEvent);
+            this.registerEvent(this.renameEvent);
             dispatchEvent(new CustomEvent("git-refresh"));
             if (this.settings.autoPullOnBoot) {
               this.promiseQueue.addTask(() => this.pullChangesFromRemote());
@@ -14641,8 +14766,12 @@ var ObsidianGit = class extends import_obsidian15.Plugin {
       } else {
         status = yield this.gitManager.status();
       }
-      const changedFiles = status.changed;
-      if (changedFiles.length !== 0) {
+      if (yield this.hasTooBigFiles([...status.staged, ...status.changed])) {
+        this.setState(PluginState.idle);
+        return false;
+      }
+      const changedFiles = status.changed.length + status.staged.length;
+      if (changedFiles !== 0) {
         let commitMessage = fromAutoBackup ? this.settings.autoCommitMessage : this.settings.commitMessage;
         if (fromAutoBackup && this.settings.customMessageOnAutoBackup || requestCustomMessage) {
           if (!this.settings.disablePopups && fromAutoBackup) {
@@ -14664,6 +14793,30 @@ var ObsidianGit = class extends import_obsidian15.Plugin {
       dispatchEvent(new CustomEvent("git-refresh"));
       this.setState(PluginState.idle);
       return true;
+    });
+  }
+  hasTooBigFiles(files) {
+    return __async(this, null, function* () {
+      var _a2;
+      const branchInfo = yield this.gitManager.branchInfo();
+      const remote = (_a2 = branchInfo.tracking) == null ? void 0 : _a2.split("/")[0];
+      if (remote) {
+        const remoteUrl = yield this.gitManager.getRemoteUrl(remote);
+        if (remoteUrl.includes("github.com")) {
+          const tooBigFiles = files.filter((f) => {
+            const file = this.app.vault.getAbstractFileByPath(f.vault_path);
+            if (file instanceof import_obsidian15.TFile) {
+              return file.stat.size >= 1e8;
+            }
+            return false;
+          });
+          if (tooBigFiles.length > 0) {
+            this.displayError(`Did not commit, because following files are too big: ${tooBigFiles.map((e) => e.vault_path)}. Please remove them.`);
+            return true;
+          }
+        }
+      }
+      return false;
     });
   }
   push() {
@@ -14703,6 +14856,30 @@ var ObsidianGit = class extends import_obsidian15.Plugin {
         this.displayMessage(`Pulled ${pulledFilesLength} ${pulledFilesLength > 1 ? "files" : "file"} from remote`);
       }
       return pulledFilesLength != 0;
+    });
+  }
+  stageCurrentFile() {
+    return __async(this, null, function* () {
+      if (!(yield this.isAllInitialized()))
+        return false;
+      const file = this.app.workspace.getActiveFile();
+      yield this.gitManager.stage(file.path, true);
+      this.displayMessage(`Staged ${file.path}`);
+      dispatchEvent(new CustomEvent("git-refresh"));
+      this.setState(PluginState.idle);
+      return true;
+    });
+  }
+  unstageCurrentFile() {
+    return __async(this, null, function* () {
+      if (!(yield this.isAllInitialized()))
+        return false;
+      const file = this.app.workspace.getActiveFile();
+      yield this.gitManager.unstage(file.path, true);
+      this.displayMessage(`Unstaged ${file.path}`);
+      dispatchEvent(new CustomEvent("git-refresh"));
+      this.setState(PluginState.idle);
+      return true;
     });
   }
   remotesAreSet() {

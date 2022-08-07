@@ -7,13 +7,8 @@
         "id": "c7811531415d5298",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "生活类/菜谱.md",
-            "mode": "source",
-            "backlinks": false,
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -70,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "生活类/菜谱.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,9 +80,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "生活类/菜谱.md"
-              }
+              "state": {}
             }
           },
           {
@@ -106,8 +98,10 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "c7811531415d5298",
+  "active": "8a1513c9942fdb12",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
+    "生活类/菜谱.md",
     "个人设计/游戏攻略/三国志11/三军夺帅5.0.md",
     "学习整理/java相关/Java并发.md",
     "学习整理/java相关/poi.md",
@@ -115,8 +109,6 @@
     "学习整理/算法/数学基础/高等数学.md",
     "学习整理/算法/数学基础/LateX.md",
     "学习整理/基础&通用工具/obsidian.md",
-    "学习整理/算法/深度学习.md",
-    "生活类/“房住不炒”.md",
-    "学习整理/大数据相关/Hadoop.md"
+    "学习整理/算法/深度学习.md"
   ]
 }

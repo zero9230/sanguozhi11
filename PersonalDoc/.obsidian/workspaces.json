@@ -1,0 +1,115 @@
+{
+  "workspaces": {
+    "workbook1": {
+      "main": {
+        "id": "afd29666374da74f",
+        "type": "split",
+        "children": [
+          {
+            "id": "c7811531415d5298",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习整理/基础知识/计算机/Linux.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "aa464df0efcc1727",
+        "type": "split",
+        "children": [
+          {
+            "id": "38f2b8dc44ef92fb",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "dff8d1528a28c203",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {}
+                }
+              },
+              {
+                "id": "efa2a493d1afa784",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 228
+      },
+      "right": {
+        "id": "c860a8b579f550d1",
+        "type": "split",
+        "children": [
+          {
+            "id": "77d5660de3334852",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "a49969dc8d2854d3",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "学习整理/基础知识/计算机/Linux.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": false
+                  }
+                }
+              },
+              {
+                "id": "8a1513c9942fdb12",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "学习整理/基础知识/计算机/Linux.md"
+                  }
+                }
+              },
+              {
+                "id": "d5286f606b960161",
+                "type": "leaf",
+                "state": {
+                  "type": "advanced-tables-toolbar",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 254
+      },
+      "active": "c7811531415d5298"
+    }
+  },
+  "active": "workbook1"
+}
