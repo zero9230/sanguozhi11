@@ -7,8 +7,13 @@
         "id": "c7811531415d5298",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "个人设计/游戏攻略/三国志11/三军夺帅5.0.md",
+            "mode": "source",
+            "backlinks": false,
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "个人设计/游戏攻略/三国志11/三军夺帅5.0.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -80,7 +86,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "个人设计/游戏攻略/三国志11/三军夺帅5.0.md"
+              }
             }
           },
           {
@@ -98,17 +106,17 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "8a1513c9942fdb12",
+  "active": "c7811531415d5298",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
+    "个人设计/三国杀.md",
+    "生活类/三国志11资料收集.md",
     "生活类/菜谱.md",
+    "conflict-files-obsidian-git.md",
     "个人设计/游戏攻略/三国志11/三军夺帅5.0.md",
     "学习整理/java相关/Java并发.md",
     "学习整理/java相关/poi.md",
     "学习整理/基础&通用工具/markdown.md",
     "学习整理/算法/数学基础/高等数学.md",
-    "学习整理/算法/数学基础/LateX.md",
-    "学习整理/基础&通用工具/obsidian.md",
-    "学习整理/算法/深度学习.md"
+    "学习整理/算法/数学基础/LateX.md"
   ]
 }
