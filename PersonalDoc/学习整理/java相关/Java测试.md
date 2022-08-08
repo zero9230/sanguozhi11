@@ -625,11 +625,20 @@ PowerMockito.whenNew(Date.class).withNoArguments().thenReturn(mockDate);
 
 1.  [【Mockito】单元测试如何提升代码覆盖率](https://www.bilibili.com/video/BV1g94y1Z79d?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click) 
 
+# 4 jacoco
+jacoco是常用UT覆盖率的组建
+
+
+清理并重新生成jacoco的UT覆盖率报告步骤
+1. 运行命令
+```bash
+mvn clean -B -U -T 2 package org.jacoco:jacoco-maven-plugin:prepare-agent
+```
+2. jacoco:report
 
 
 
-
-# 4 参考文献
+# 5 参考文献
 
 1.  [Mockito 应用指南](https://hezhiqiang8909.gitbook.io/java/docs/javalib/mockito) 
 1.  [Mockito 教程](https://baeldung-cn.com/mockito-series) 
