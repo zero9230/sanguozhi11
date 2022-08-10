@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "个人设计/游戏攻略/三国志11/三军夺帅5.0.md",
+            "file": "生活类/菜谱.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "个人设计/游戏攻略/三国志11/三军夺帅5.0.md",
+                "file": "生活类/菜谱.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "个人设计/游戏攻略/三国志11/三军夺帅5.0.md"
+                "file": "生活类/菜谱.md"
               }
             }
           },
@@ -108,11 +108,11 @@
   },
   "active": "c7811531415d5298",
   "lastOpenFiles": [
-    "个人设计/三国杀.md",
     "生活类/三国志11资料收集.md",
+    "个人设计/游戏攻略/三国志11/三军夺帅5.0.md",
+    "个人设计/三国杀.md",
     "生活类/菜谱.md",
     "conflict-files-obsidian-git.md",
-    "个人设计/游戏攻略/三国志11/三军夺帅5.0.md",
     "学习整理/java相关/Java并发.md",
     "学习整理/java相关/poi.md",
     "学习整理/基础&通用工具/markdown.md",
