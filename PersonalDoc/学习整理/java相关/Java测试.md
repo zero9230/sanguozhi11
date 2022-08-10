@@ -625,11 +625,66 @@ PowerMockito.whenNew(Date.class).withNoArguments().thenReturn(mockDate);
 
 1.  [【Mockito】单元测试如何提升代码覆盖率](https://www.bilibili.com/video/BV1g94y1Z79d?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click) 
 
+# 4 jacoco
+## 4.1 概述
+jacoco是常用检测UT覆盖率的组件
 
 
+## 4.2 使用步骤
+报告步骤
+1. 运行命令
+```bash
+mvn clean -B -U -T 2 package org.jacoco:jacoco-maven-plugin:prepare-agent
+```
+2. jacoco:report
+3. 打开文件
+```text
+target->site->jacoco->index.html
+```
+
+## 4.3 排除不用写UT的包
+```xml
+<plugin>  
+    <groupId>org.jacoco</groupId>  
+    <artifactId>jacoco-maven-plugin</artifactId>  
+    <version>${jacoco.plugin.version}</version>  
+    <!-- 排除不需要写UT的包，此处写的是文件路径 -->
+    <configuration>  
+        <excludes>  
+            <exclude>**/*com/paypal/raptor/casesearch/models/**/*</exclude>  
+            <exclude>**/*com/paypal/raptor/casesearch/dao/entity</exclude>  
+        </excludes>  
+    </configuration>  
+    <executions>  
+        <execution>  
+            <id>default-instrument</id>  
+            <goals>  
+                <goal>instrument</goal>  
+            </goals>  
+        </execution>  
+        <execution>  
+            <id>default-restore-instrumented-classes</id>  
+            <goals>  
+                <goal>restore-instrumented-classes</goal>  
+            </goals>  
+        </execution>  
+        <execution>  
+            <id>report</id>  
+            <phase>prepare-package</phase>  
+            <goals>  
+                <goal>report</goal>  
+            </goals>  
+            <configuration>  
+                <dataFile>${project.build.directory}/coverage.exec</dataFile>  
+            </configuration>  
+        </execution>  
+    </executions>  
+  
+</plugin>
+```
 
 
-# 4 参考文献
+# 5 参考文献
 
 1.  [Mockito 应用指南](https://hezhiqiang8909.gitbook.io/java/docs/javalib/mockito) 
 1.  [Mockito 教程](https://baeldung-cn.com/mockito-series) 
