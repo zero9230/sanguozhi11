@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "c7811531415d5298",
+        "id": "4292e8d1e1230515",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -105,17 +105,17 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "c7811531415d5298",
+  "active": "4292e8d1e1230515",
   "lastOpenFiles": [
-    "Excalidraw/转职路线图.md",
+    "www.wyaq.com/youxi/gonglue/9507_11.html.md",
     "个人设计/游戏攻略/火焰纹章-圣魔之光石.md",
+    "Excalidraw/转职路线图.md",
     "学习整理/学习计划.md",
     "待阅读.md",
     "学习整理/大数据相关/数据湖.md",
     "学习整理/通用工具/markdown.md",
     "0-daixuexi.md",
     "consistant-report.md",
-    "学习整理/数据库/基础SQL语法.md",
-    "学习整理/数据库/oracle.md"
+    "学习整理/数据库/基础SQL语法.md"
   ]
 }
