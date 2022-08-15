@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "学习整理/学习计划.md",
+            "file": "个人设计/游戏攻略/火焰纹章-圣魔之光石.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/学习计划.md",
+                "file": "个人设计/游戏攻略/火焰纹章-圣魔之光石.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/学习计划.md"
+                "file": "个人设计/游戏攻略/火焰纹章-圣魔之光石.md"
               }
             }
           },
@@ -107,15 +107,15 @@
   },
   "active": "c7811531415d5298",
   "lastOpenFiles": [
+    "Excalidraw/转职路线图.md",
+    "个人设计/游戏攻略/火焰纹章-圣魔之光石.md",
+    "学习整理/学习计划.md",
     "待阅读.md",
     "学习整理/大数据相关/数据湖.md",
     "学习整理/通用工具/markdown.md",
     "0-daixuexi.md",
     "consistant-report.md",
     "学习整理/数据库/基础SQL语法.md",
-    "学习整理/数据库/oracle.md",
-    "学习整理/数据库/mysql.md",
-    "学习整理/数据库/sqlite.md",
-    "学习整理/中间件/elasticsearch.md"
+    "学习整理/数据库/oracle.md"
   ]
 }
