@@ -7,9 +7,12 @@
         "id": "4292e8d1e1230515",
         "type": "leaf",
         "state": {
-          "type": "excalidraw",
+          "type": "markdown",
           "state": {
-            "file": "Excalidraw/转职路线图.md"
+            "file": "学习整理/基础知识/计算机/编译原理.md",
+            "mode": "source",
+            "backlinks": false,
+            "source": false
           }
         }
       }
@@ -67,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Excalidraw/转职路线图.md",
+                "file": "学习整理/基础知识/计算机/编译原理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/转职路线图.md"
+                "file": "学习整理/基础知识/计算机/编译原理.md"
               }
             }
           },
@@ -106,13 +109,13 @@
   "lastOpenFiles": [
     "个人设计/游戏攻略/火焰纹章-圣魔之光石.md",
     "www.wyaq.com/youxi/gonglue/9507_11.html.md",
+    "学习整理/中间件/elasticsearch.md",
     "Excalidraw/转职路线图.md",
     "学习整理/学习计划.md",
     "待阅读.md",
     "学习整理/大数据相关/数据湖.md",
     "学习整理/通用工具/markdown.md",
     "0-daixuexi.md",
-    "consistant-report.md",
-    "学习整理/数据库/基础SQL语法.md"
+    "consistant-report.md"
   ]
 }
