@@ -226,10 +226,40 @@ GET /test3/_doc/search?q=name:aa
 ```
 
 
+### 4.6.2 查询命令
+1. 查询单条数据
+```http
+GET /uat-gss-casesearch/_search
+{
+  "query":{
+    "match":{
+      "_id": "GSS_SCM_CASE_117675279226282852_CUSTOMER_PAYPAL_1616697381535865706"
+    }
+  }
+}
+```
 
-### 4.6.2 复杂查询
+查询结果
+![](elasticsearch.assets/image-20220822144529252.png)
 
-#### 4.6.2.1 查询条件
+
+2. 查询结构中的指定字段
+
+
+3. 查询指定数量的数据
+```http
+GET /uat-gss-casesearch/_search
+{
+	"size":300
+}
+```
+查出该index中最多300条数据
+
+
+
+### 4.6.3 复杂查询
+
+#### 4.6.3.1 查询条件
 
 - match：匹配（会使用分词器解析，分析文档后进行查询）
 - \_source：过滤字段
@@ -262,21 +292,21 @@ GET /test3/_doc/search?q=name:aa
   }
 ```
 
-#### 4.6.2.2 多条件查询
+#### 4.6.3.2 多条件查询
 
 - must——and
 - should——or
 - must_not——not(…and…)
 - filter过滤
 
-#### 4.6.2.3 匹配数组
+#### 4.6.3.3 匹配数组
 
 - 貌似不能和其他字段一起使用
 - 可以多关键字查询（空格隔开）
 - match会使用分词器
 - 搜词
 
-#### 4.6.2.4 精确查询
+#### 4.6.3.4 精确查询
 
 - `term`直接通过倒排索引指定**词条**查询
 - 适合查询number、date、keyword，不适合text
@@ -296,7 +326,7 @@ GET /blog/user/_search
 
 
 
-#### 4.6.2.5 text和keyword
+#### 4.6.3.5 text和keyword
 
 - text：
   - **支持分词**，**全文检索**、支持模糊、精确查询,不支持聚合,排序操作;
@@ -307,7 +337,7 @@ GET /blog/user/_search
 
 
 
-#### 4.6.2.6 高亮查询
+#### 4.6.3.6 高亮查询
 
 ```text
 /// 高亮查询
@@ -345,7 +375,7 @@ GET blog/user/_search
 ```
 
 
-#### 4.6.2.7 聚合查询
+#### 4.6.3.7 聚合查询
 聚合操作包括count, max, min , avg等
 
 
