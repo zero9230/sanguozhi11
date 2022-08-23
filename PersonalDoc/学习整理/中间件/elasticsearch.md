@@ -217,16 +217,19 @@ DELETE /test1
 
 
 ## 4.6 查询
+### 4.6.1 参考
+1. [19 个很有用的 ElasticSearch 查询语句](https://n3xtchen.github.io/n3xtchen/elasticsearch/2017/07/05/elasticsearch-23-useful-query-example) 
 
-### 4.6.1 简单条件
+### 4.6.2 简单条件
 
+查询name字段包含aa的文档
 ```text
 # 实操发现，_doc不可写在查询语句中
 GET /test3/_doc/search?q=name:aa	
 ```
 
 
-### 4.6.2 查询命令
+### 4.6.3 查询命令
 1. 查询单条数据
 ```http
 GET /uat-gss-casesearch/_search
@@ -241,8 +244,6 @@ GET /uat-gss-casesearch/_search
 
 查询结果
 ![](elasticsearch.assets/image-20220822144529252.png)
-
-
 2. 查询结构中的指定字段
 
 
@@ -255,11 +256,31 @@ GET /uat-gss-casesearch/_search
 ```
 查出该index中最多300条数据
 
+4. 批量查询
+```http
+GET /uat-gss-casesearch/_mget
+{
+   "ids": ["GSS_SCM_CASE_118887769950860661","GSS_SCM_CASE_118888006174061944"]
+}
+```
+
+注意，此处的`_mget`为关键字，表示批量查询；批量查询中，只支持`ids,docs`等字段
+
+```http
+GET /uat-gss-casesearch/_msearch 
+{
+	"query" : {
+		"match_all" : {}
+	},
+	"from" : 0,
+	"size" : 10
+}
+```
 
 
-### 4.6.3 复杂查询
+### 4.6.4 复杂查询
 
-#### 4.6.3.1 查询条件
+#### 4.6.4.1 查询条件
 
 - match：匹配（会使用分词器解析，分析文档后进行查询）
 - \_source：过滤字段
@@ -292,21 +313,21 @@ GET /uat-gss-casesearch/_search
   }
 ```
 
-#### 4.6.3.2 多条件查询
+#### 4.6.4.2 多条件查询
 
 - must——and
 - should——or
 - must_not——not(…and…)
 - filter过滤
 
-#### 4.6.3.3 匹配数组
+#### 4.6.4.3 匹配数组
 
 - 貌似不能和其他字段一起使用
 - 可以多关键字查询（空格隔开）
 - match会使用分词器
 - 搜词
 
-#### 4.6.3.4 精确查询
+#### 4.6.4.4 精确查询
 
 - `term`直接通过倒排索引指定**词条**查询
 - 适合查询number、date、keyword，不适合text
@@ -326,7 +347,7 @@ GET /blog/user/_search
 
 
 
-#### 4.6.3.5 text和keyword
+#### 4.6.4.5 text和keyword
 
 - text：
   - **支持分词**，**全文检索**、支持模糊、精确查询,不支持聚合,排序操作;
@@ -337,7 +358,7 @@ GET /blog/user/_search
 
 
 
-#### 4.6.3.6 高亮查询
+#### 4.6.4.6 高亮查询
 
 ```text
 /// 高亮查询
@@ -375,7 +396,7 @@ GET blog/user/_search
 ```
 
 
-#### 4.6.3.7 聚合查询
+#### 4.6.4.7 聚合查询
 聚合操作包括count, max, min , avg等
 
 
