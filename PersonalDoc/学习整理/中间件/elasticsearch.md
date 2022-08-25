@@ -400,6 +400,15 @@ GET blog/user/_search
 聚合操作包括count, max, min , avg等
 
 
+#### 4.6.4.8 嵌套对象查询
+参考： [嵌套对象查询](https://www.elastic.co/guide/cn/elasticsearch/guide/current/nested-query.html)
+由于嵌套对象 被索引在独立隐藏的文档中，我们无法直接查询它们。 相应地，我们必须使用 [`nested` 查询](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-nested-query.html) 去获取它们：
+
+
+
+
+
+
 
 # 5 SpringBoot整合
 
