@@ -271,6 +271,8 @@ select * from table where trim(translate(column,'0123456789',' ')) is NULL
 select * from table where regexp_like(column,'^[0-9]+[0-9]$');
 ```
 
+## 5.7 正则匹配
+
 
 
 # 6 join
