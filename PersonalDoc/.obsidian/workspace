@@ -4,12 +4,41 @@
     "type": "split",
     "children": [
       {
-        "id": "c7811531415d5298",
+        "id": "788f84bdc4dd454e",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
             "file": "生活类/菜谱.md",
+            "mode": "source",
+            "backlinks": false,
+            "source": false
+          }
+        }
+      },
+      {
+        "id": "a7dab04d2cbe23c7",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      },
+      {
+        "id": "2d3613a98c9947ff",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      },
+      {
+        "id": "c639b02b81f6b6fb",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "conflict-files-obsidian-git.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -70,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "生活类/菜谱.md",
+                "file": "conflict-files-obsidian-git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "生活类/菜谱.md"
+                "file": "conflict-files-obsidian-git.md"
               }
             }
           },
@@ -106,7 +135,7 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "c7811531415d5298",
+  "active": "c639b02b81f6b6fb",
   "lastOpenFiles": [
     "conflict-files-obsidian-git.md",
     "生活类/菜谱.md",
