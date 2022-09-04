@@ -1,3 +1,11 @@
 {
-  "attachmentFolderPath": "./conflict-files-obsidian-git.assets"
+  "legacyEditor": false,
+  "livePreview": true,
+  "alwaysUpdateLinks": true,
+  "showFrontmatter": true,
+  "attachmentFolderPath": "./菜谱.assets",
+  "useMarkdownLinks": true,
+  "communityPluginSortOrder": "download",
+  "promptDelete": false,
+  "newLinkFormat": "relative"
 }

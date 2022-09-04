@@ -304,8 +304,10 @@ signal，即condition的等待队列中的节点离开等待队列，进入同�
 
 
 # 6 Semaphore
+一言以蔽之，令牌桶体系
 
 # 7 CountDownLatch
+
 
 # 8 unsafe
 
