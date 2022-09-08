@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "生活类/菜谱.md",
+            "file": "学习整理/基础知识/计算机/Linux.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "awk",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "生活类/菜谱.md",
+                "file": "学习整理/基础知识/计算机/Linux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "生活类/菜谱.md"
+                "file": "学习整理/基础知识/计算机/Linux.md"
               }
             }
           },
@@ -100,23 +100,23 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
     "width": 254
   },
-  "active": "c842f0074ef0297f",
+  "active": "dff8d1528a28c203",
   "lastOpenFiles": [
-    "学习整理/java相关/Java并发.md",
+    "学习整理/基础知识/计算机/shell.md",
     "生活类/菜谱.md",
+    "学习整理/java相关/Java并发.md",
     "学习整理/数据库/oracle.md",
     "学习整理/数据库/基础SQL语法.md",
     "学习整理/通用工具/git.md",
     "学习整理/中间件/elasticsearch.md",
     "学习整理/数据库/sqlite.md",
     "学习整理/基础知识/计算机/编译原理.md",
-    "学习整理/基础知识/计算机/编译原理.assets/编程语言实现模式.pdf",
-    "待阅读.md"
+    "学习整理/基础知识/计算机/编译原理.assets/编程语言实现模式.pdf"
   ]
 }
