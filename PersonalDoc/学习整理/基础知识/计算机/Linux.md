@@ -334,7 +334,8 @@ awk 'BEGIN{}pattern{commands}END{}' file
 
 
 
-### 3.4.2 原理 ![image-20220225003647737](Linux.assets/image-20220225003647737.png) 
+### 3.4.2 原理 
+![image-20220225003647737](Linux.assets/image-20220225003647737.png) 
 
 > 其中数字1，2，3…代表是文本中的数据行
 >
