@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "c842f0074ef0297f",
+        "id": "476de825207ac9d4",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "生活类/菜谱.md",
+            "file": "学习整理/基础知识/数学基础/高等数学.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "生活类/菜谱.md",
+                "file": "学习整理/基础知识/数学基础/高等数学.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "生活类/菜谱.md"
+                "file": "学习整理/基础知识/数学基础/高等数学.md"
               }
             }
           },
@@ -106,17 +106,17 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "c842f0074ef0297f",
+  "active": "476de825207ac9d4",
   "lastOpenFiles": [
-    "学习整理/通用工具/git.md",
-    "学习整理/通用工具/homebrew.md",
-    "生活类/菜谱.md",
-    "学习整理/电商知识整理/解析forest底层实现.md",
-    "学习整理/基础知识/计算机/shell.md",
-    "学习整理/基础知识/计算机/操作系统.md",
-    "学习整理/基础知识/计算机/编译原理.md",
-    "学习整理/基础知识/计算机/Linux.md",
-    "学习整理/java相关/Java并发.md",
-    "学习整理/数据库/oracle.md"
+    "学习整理/基础知识/数学基础/线性代数.md",
+    "学习整理/基础知识/数学基础/概率论.md",
+    "学习整理/基础知识/数学基础/LateX.md",
+    "学习整理/基础知识/计算机/计算机组成原理.md",
+    "学习整理/大数据相关/Hadoop.md",
+    "学习整理/大数据相关/scala.md",
+    "学习整理/大数据相关/数据湖.md",
+    "学习整理/大数据相关/spark.md",
+    "学习整理/大数据相关/TeraData.md",
+    "学习整理/基础知识/计算机/编译原理.assets/编译原理(龙书)中文第二版(1).pdf"
   ]
 }
