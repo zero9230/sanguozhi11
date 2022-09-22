@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "476de825207ac9d4",
+        "id": "e1a26e13645b0bae",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -106,17 +106,17 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "476de825207ac9d4",
+  "active": "e1a26e13645b0bae",
   "lastOpenFiles": [
     "学习整理/基础知识/计算机/Linux.assets/image-20220225003647737.png",
     "学习整理/基础知识/计算机/Linux.md",
+    "学习整理/基础知识/计算机/Linux.assets/Drawing 2022-09-22 11.14.39.excalidraw.md",
     "学习整理/基础知识/计算机/shell.md",
     "生活类/菜谱.md",
     "生活类/种植.md",
     "生活类/三国志11资料收集.md",
     "学习整理/基础知识/数学基础/高等数学.md",
     "学习整理/基础知识/数学基础/线性代数.md",
-    "学习整理/基础知识/数学基础/概率论.md",
-    "学习整理/基础知识/数学基础/LateX.md"
+    "学习整理/基础知识/数学基础/概率论.md"
   ]
 }
