@@ -1,4 +1,4 @@
-# E-R模型
+# 1 E-R模型
 
 ```mermaid
 erDiagram
@@ -55,7 +55,7 @@ spu||--|{spu_ext:"spu.spu_id=spu_ext_id"
 
 
 
-# 状态机
+# 2 状态机
 
 ```mermaid
 stateDiagram-v2

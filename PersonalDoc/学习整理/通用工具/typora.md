@@ -651,7 +651,7 @@ pandoc --print-default-data-file reference.docx > custom-reference.docx
 
 
 
-# 8 typora下载地址
+# 7 typora下载地址
 
 typora开始发行正式版并收费了，因此保存beta版下载地址以防意外
 
