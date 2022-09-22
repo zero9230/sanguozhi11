@@ -337,6 +337,10 @@ awk 'BEGIN{}pattern{commands}END{}' file
 ### 3.4.2 原理 
 ![image-20220225003647737](Linux.assets/image-20220225003647737.png) 
 
+
+<img src="Linux.assets/image-20220225003647737.png ">
+
+
 > 其中数字1，2，3…代表是文本中的数据行
 >
 > BEGIN{} 表示在处理文本数据之前进行一些操作
