@@ -337,8 +337,6 @@ awk 'BEGIN{}pattern{commands}END{}' file
 ### 3.4.2 原理 
 ![image-20220225003647737](Linux.assets/image-20220225003647737.png) 
 
-<img src="/Users/nmeng/projects/IdeaProjects/sanguozhi11/PersonalDoc/学习整理/基础知识/计算机/Linux.assets/image-20220225003647737.png">
-
 
 > 其中数字1，2，3…代表是文本中的数据行
 >
