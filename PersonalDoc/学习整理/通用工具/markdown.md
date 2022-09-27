@@ -58,8 +58,21 @@ _   下划线
 ```
 
 
+# 3 mermaid
+用于画流程图的
+[mermaid](mermaid.md)
 
-# 3 参考文献
+
+# 4 LaTeX
+用于编写数学公式的
+[LateX](LateX.md)
+
+
+# 5 callout
+[Callout呼出框使用指南](Callout呼出框使用指南.md)
+
+
+# 6 参考文献
 
 1.  [菜鸟教程](https://www.runoob.com/markdown/md-advance.html)
 

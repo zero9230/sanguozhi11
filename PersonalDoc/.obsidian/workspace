@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "学习整理/算法/环境搭建.md",
+            "file": "学习整理/通用工具/markdown.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -70,14 +70,14 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/算法/环境搭建.md",
+                "file": "学习整理/通用工具/markdown.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
+                "unlinkedCollapsed": true
               }
             }
           },
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/算法/环境搭建.md"
+                "file": "学习整理/通用工具/markdown.md"
               }
             }
           },
@@ -99,8 +99,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -108,15 +107,15 @@
   },
   "active": "e1a26e13645b0bae",
   "lastOpenFiles": [
-    "学习整理/算法/PyTorch.md",
-    "学习整理/算法/环境搭建.md",
-    "学习整理/电商知识整理/商品知识体系.md",
-    "学习整理/电商知识整理/类目高级手册-自整理.md",
-    "Excalidraw/转职路线图.md",
-    "学习整理/大数据相关/TeraData.md",
-    "学习整理/电商知识整理/spu.md",
-    "学习整理/电商知识整理/forest.md",
-    "学习整理/电商知识整理/离线任务体系.md",
-    "学习整理/中间件/elasticsearch.md"
+    "学习整理/java相关/Java并发.md",
+    "学习整理/通用工具/markdown.md",
+    "学习整理/通用工具/mermaid.md",
+    "学习整理/通用工具/LateX.md",
+    "学习整理/基础知识/数学基础/概率论.md",
+    "学习整理/通用工具/资源集.md",
+    "学习整理/通用工具/typora.md",
+    "学习整理/通用工具/obsidian.md",
+    "学习整理/通用工具/homebrew.md",
+    "学习整理/通用工具/git.md"
   ]
 }
