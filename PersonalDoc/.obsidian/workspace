@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "学习整理/通用工具/mermaid.md",
+            "file": "学习整理/通用工具/markdown.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -70,14 +70,14 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/通用工具/mermaid.md",
+                "file": "学习整理/通用工具/markdown.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/通用工具/mermaid.md"
+                "file": "学习整理/通用工具/markdown.md"
               }
             }
           },
@@ -107,11 +107,11 @@
   },
   "active": "e1a26e13645b0bae",
   "lastOpenFiles": [
+    "学习整理/通用工具/callout.md",
+    "学习整理/通用工具/mermaid.md",
     "学习整理/通用工具/obsidian.md",
-    "学习整理/通用工具/Callout呼出框使用指南.md",
     "学习整理/通用工具/markdown.md",
     "学习整理/java相关/Java并发.md",
-    "学习整理/通用工具/mermaid.md",
     "学习整理/通用工具/LateX.md",
     "学习整理/基础知识/数学基础/概率论.md",
     "学习整理/通用工具/资源集.md",
