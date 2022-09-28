@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "学习整理/通用工具/mermaid.md",
+            "file": "学习整理/通用工具/obsidian.md",
             "mode": "source",
             "backlinks": false,
             "source": false
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/通用工具/mermaid.md",
+                "file": "学习整理/通用工具/obsidian.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/通用工具/mermaid.md"
+                "file": "学习整理/通用工具/obsidian.md"
               }
             }
           },
@@ -100,23 +100,23 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
     "width": 254
   },
-  "active": "d5286f606b960161",
+  "active": "e1a26e13645b0bae",
   "lastOpenFiles": [
-    "学习整理/通用工具/markdown.md",
-    "学习整理/通用工具/mermaid.md",
-    "学习整理/通用工具/callout.md",
-    "学习整理/通用工具/obsidian.md",
-    "学习整理/java相关/Java并发.md",
-    "学习整理/通用工具/LateX.md",
-    "学习整理/基础知识/数学基础/概率论.md",
-    "学习整理/通用工具/资源集.md",
+    "生活类/菜谱.md",
+    "生活类/种植.md",
+    "生活类/三国志11资料收集.md",
     "学习整理/通用工具/typora.md",
-    "学习整理/通用工具/homebrew.md"
+    "学习整理/通用工具/markdown.md",
+    "学习整理/通用工具/LateX.md",
+    "学习整理/通用工具/git.md",
+    "学习整理/通用工具/mermaid.md",
+    "学习整理/基础知识/数学基础/高等数学.md",
+    "学习整理/通用工具/callout.md"
   ]
 }

@@ -60,16 +60,16 @@ _   下划线
 
 # 3 mermaid
 用于画流程图的
-[mermaid](mermaid.md)
+![mermaid](mermaid.md)
 
 
 # 4 LaTeX
 用于编写数学公式的
-[LateX](LateX.md)
+![LateX](LateX.md)
 
 
 # 5 callout
-[callout](callout.md)
+![callout](callout.md)
 
 
 # 6 参考文献
