@@ -264,7 +264,7 @@ relationship
 | Type  | Description   |
 | ----- | ------------- |
 | <\|-- | Inheritance   |
-| *--   | Composition   |
+| `*--`   | Composition   |
 | o--   | Aggregation   |
 | -->   | Association   |
 | --    | Link (Solid)  |

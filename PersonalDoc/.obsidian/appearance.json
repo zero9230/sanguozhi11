@@ -2,6 +2,7 @@
   "translucency": false,
   "theme": "moonstone",
   "enabledCssSnippets": [
-    "base.user"
+    "base.user",
+    "style"
   ]
 }

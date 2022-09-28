@@ -1,0 +1,54 @@
+svg[id^="m"][width][height][viewBox] {
+    font-family: cursive;
+    font-size: inherit !important;
+}
+
+/* Texts */
+svg[id^="m"][width][height][viewBox] .label {
+    font-family: cursive !important;
+    font-size: inherit !important;
+    text-align: left !important;
+}
+
+
+/* Forms */
+svg[id^="m"][width][height][viewBox] .node circle, 
+svg[id^="m"][width][height][viewBox] .node ellipse, 
+svg[id^="m"][width][height][viewBox] .node path, 
+svg[id^="m"][width][height][viewBox] .node polygon, 
+svg[id^="m"][width][height][viewBox] .node rect {
+    fill: transparent !important;
+    stroke: skyblue !important;
+    stroke-width: 1px !important;
+}
+
+
+/*subgraph text*/
+svg[id^="m"][width][height][viewBox] .cluster span {
+    font-size: larger !important;
+    color: deepskyblue !important;
+    font-weight: bold !important;
+}
+/*subgraph rectangle*/
+svg[id^="m"][width][height][viewBox] .cluster rect {
+    fill: transparent !important;
+    stroke: lightskyblue !important;
+    stroke-width: 2px !important;
+}
+
+/* arrows */
+svg[id^="m"][width][height][viewBox] .flowchart-link {
+    stroke: lightskyblue !important;
+    fill: none; 
+}
+
+/* internal links */
+.mermaid .internal-link {
+  font-family: cursive !important;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.markdown-preview-section .mermaid {
+    overflow-x: scroll;
+}
