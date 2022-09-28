@@ -3,6 +3,7 @@
   "theme": "moonstone",
   "enabledCssSnippets": [
     "base.user",
-    "style"
+    "style",
+    "mermaid-style"
   ]
 }
