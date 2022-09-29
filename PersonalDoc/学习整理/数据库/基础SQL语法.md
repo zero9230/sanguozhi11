@@ -12,3 +12,15 @@ listagg
 ```
 
 
+# 3 modern sql
+
+![](基础SQL语法.assets/image-20220929133311440.png)
+
+with recursive
+
+connect by 递归
+![](基础SQL语法.assets/image-20220929134103515.png)
+
+
+开窗函数
+OLAP partition by
