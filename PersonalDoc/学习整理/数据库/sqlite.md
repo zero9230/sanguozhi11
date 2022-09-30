@@ -1,6 +1,6 @@
-# 安装
+# 1 安装
 
-## 安装sqlite3
+## 1.1 安装sqlite3
 
 Mac预装SQLite
 
@@ -12,7 +12,7 @@ sqlite3
 
 
 
-## 配置dbeaver
+## 1.2 配置dbeaver
 
 
 
@@ -32,13 +32,13 @@ http://maven.aliyun.com/nexus/content/groups/public/
 
 
 
-## 导入数据
+## 1.3 导入数据
 
 将原始excel中的武将数据单独处理成一个excel并保存，字段名和db中的对应上，然后右键导入即可
 
 
 
-# 命令
+# 2 命令
 
 | 命令       | 说明                       |
 | ---------- | -------------------------- |
@@ -58,7 +58,7 @@ http://maven.aliyun.com/nexus/content/groups/public/
 
 
 
-# 常用函数
+# 3 常用函数
 
 
 
@@ -68,6 +68,6 @@ http://maven.aliyun.com/nexus/content/groups/public/
 
 
 
-# 参考资料
+# 4 参考资料
 
 1.  [菜鸟教程——SQLite 教程](https://www.runoob.com/sqlite/sqlite-tutorial.html) 
