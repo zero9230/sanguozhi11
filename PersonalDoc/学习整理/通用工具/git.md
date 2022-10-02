@@ -58,14 +58,14 @@ cat id_rsa_hub.pub # github公钥
 
    目前成功的标志都是
 
-   ```bash
-   ➜  .ssh ssh -T git@github.com
-   Hi zero9230! You've successfully authenticated, but GitHub does not provide shell access.
-   ```
-
-   
+```bash
+➜  .ssh ssh -T git@github.com
+Hi zero9230! You've successfully authenticated, but GitHub does not provide shell access.
+```
 
 参考文章：https://www.cnblogs.com/popfisher/p/5731232.html
+
+
 
 ## 2.2 本地和远程仓库分支关联
 
