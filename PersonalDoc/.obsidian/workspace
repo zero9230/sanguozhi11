@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#标签2",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -106,7 +106,7 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "e1a26e13645b0bae",
+  "active": "dff8d1528a28c203",
   "lastOpenFiles": [
     "学习整理/java相关/spring基础.md",
     "学习整理/java相关/SpringBoot.md",
