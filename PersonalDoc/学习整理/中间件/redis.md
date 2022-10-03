@@ -1,4 +1,4 @@
-# 概述
+# 1 概述
 
 >  redis官网
 >
@@ -46,7 +46,7 @@ redis-benchmark -h 127.0.0.1 -p 6379 -c 50 -n 10000
 
 ![img](https://images2017.cnblogs.com/blog/707331/201802/707331-20180201145503750-901697180.png)
 
-# redis基础知识
+# 2 redis基础知识
 
 默认16个数据库，默认使用第0个
 
@@ -76,7 +76,7 @@ redis很快，性能瓶颈不是CPU，而是机器内存和网络带宽
 
 
 
-## 数据类型
+## 2.1 数据类型
 
 redis-key
 
@@ -88,9 +88,9 @@ expire KEY N	# 在N秒后让KEY过期
 
 
 
-### 基本类型
+### 2.1.1 基本类型
 
-#### string	字符串
+#### 2.1.1.1 string	字符串
 
 ```bash
 setex key3 60	"hello"	# 设置key3的值为"hello"，60s后过期
@@ -105,7 +105,7 @@ getset db redis # 先获得db的值并返回，然后把db的值设为redis；�
 
 
 
-#### list
+#### 2.1.1.2 list
 
 列表list命令都是以l开头
 
@@ -141,7 +141,7 @@ Linsert list after hello new # 在list列表中hello前插入值new
 
 栈	lpush，lpop
 
-#### set
+#### 2.1.1.3 set
 
 集合set中内容无序不重复
 
@@ -161,7 +161,7 @@ sunion key1 key2				# 计算key1，key2的并集
 
 
 
-#### hash
+#### 2.1.1.4 hash
 
 Map集合
 
@@ -189,7 +189,7 @@ hsetnx myhash field4 hello # 向myhash中写入field4-hello的kv对；key占用�
 
 比string更适合对象的存储
 
-#### zset
+#### 2.1.1.5 zset
 
 有序集合，默认按照score升序
 
@@ -214,9 +214,9 @@ zcount myset 1 3					# 获取score在1～3的元素个数
 2. 排行榜
 3. 带权重排序，如普通消息，重要消息等
 
-### 特殊类型
+### 2.1.2 特殊类型
 
-#### geospatial 地理位置
+#### 2.1.2.1 geospatial 地理位置
 
 [地理位置官网](https://www.redis.net.cn/order/3685.html)
 
@@ -257,7 +257,7 @@ geohash china:city beijing shanghai # 返回集合China:city中元素beijing，s
 
 
 
-#### hyperloglog
+#### 2.1.2.2 hyperloglog
 
 > 什么是基数？
 >
@@ -285,7 +285,7 @@ pfmerge mykey3 mykey mykey2	  # 求mykey和mykey2的并集，作为mykey3
 
 
 
-#### bitmaps 位存储
+#### 2.1.2.3 bitmaps 位存储
 
 统计用户信息，活跃/不活跃，登录/未登录，打卡/未打卡
 
@@ -300,7 +300,7 @@ bitcount sign		# 查看sign的1的个数（本周打卡情况）
 
 ```
 
-# 事务
+# 3 事务
 
 redis事务本质：一组命令一起执行，没有隔离级别的概念
 
@@ -342,7 +342,7 @@ get k4
 
 运行时异常，如果队列中存在语法性错误，则其他命令可以正常执行
 
-# 监控
+# 4 监控
 
 watch
 
@@ -380,7 +380,7 @@ exec							# 3. 比对监视的值是否发生了变化，如果没有变化，�
 
 ```
 
-# jedis
+# 5 jedis
 
 使用java来操作redis的连接开发工具
 
@@ -388,7 +388,7 @@ exec							# 3. 比对监视的值是否发生了变化，如果没有变化，�
 
 > 事务
 
-# springboot整合
+# 6 springboot整合
 
 
 
@@ -423,7 +423,7 @@ redisTemplate默认jdk序列化，会使字符串转义
 
 关于对象的保存，需要进行序列化
 
-# Redis.conf详解
+# 7 Redis.conf详解
 
 1. 配置文件unit单位 ，对大小写不敏感
 
@@ -512,9 +512,9 @@ redisTemplate默认jdk序列化，会使字符串转义
       appendfsync no							# 不执行sync，操作系统自己同步数据
       ```
 
-# redis持久化
+# 8 redis持久化
 
-## rdb
+## 8.1 rdb
 
 > 触发机制
 
@@ -544,7 +544,7 @@ redisTemplate默认jdk序列化，会使字符串转义
 1. 需要一定时间间隔进行操作，间隔内的数据有丢失风险
 2. fork进程需要一定内存空间
 
-## aof（append only file）
+## 8.2 aof（append only file）
 
 将所有命令记录下来，恢复的时候将所有写命令重新执行一遍
 
@@ -577,7 +577,7 @@ redis-check-aof --fix appendonly.aof
 >
 > 如果aof文件大于64m，则redis会fork一个新进程将文件重写
 
-# redis发布订阅
+# 9 redis发布订阅
 
 观察者模式，生产者消费者模式
 
@@ -597,7 +597,7 @@ publish kuangshenshuo "hello"	# 发布消息，频道：kuangshenshuo。内容�
 
 稍微复杂的系统建议使用消息中间件
 
-# 主从复制
+# 10 主从复制
 
 主从复制 Master-Slave，一般是1主2从
 
@@ -610,7 +610,7 @@ publish kuangshenshuo "hello"	# 发布消息，频道：kuangshenshuo。内容�
 3. 负载均衡
 4. 高可用（集群）基石
 
-## 环境配置
+## 10.1 环境配置
 
 本地起多机需要多个配置文件redis.conf
 
@@ -659,7 +659,7 @@ slaveof no one		# 当前进程自己成为主机
 
 只要重连master，一次全量复制将会被自动执行
 
-# 哨兵模式
+# 11 哨兵模式
 
 自动选主的模式。
 
@@ -703,11 +703,11 @@ redis-sentinel config/sentinel.conf
 1. redis不好在线扩容，集群容量一旦达到上限，在线扩容很麻烦
 2. 哨兵模式配置很麻烦
 
-# 缓存穿透和雪崩
+# 12 缓存穿透和雪崩
 
 
 
 
 
-# 常见面试题
+# 13 常见面试题
 

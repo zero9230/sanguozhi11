@@ -1,6 +1,6 @@
-# 学习计划
+# 1 学习计划
 
-## md笔记，goodnotes笔记同步
+## 1.1 md笔记，goodnotes笔记同步
 
 typora将md导出文件，通过脚本将文件传输到goodnotes中，然后同步
 

@@ -1,14 +1,14 @@
-# 概述
+# 1 概述
 
 >  [中文官网](https://www.jenkins.io/zh/doc/) 
 
-## jenkins是什么
+## 1.1 jenkins是什么
 
 Jenkins是一个开源CI&CD软件，用于自动化任务，包括构建、测试、部署。支持各种运行方式，包括系统包、Docker或独立Java程序
 
 
 
-## CI/CD是什么
+## 1.2 CI/CD是什么
 
 - CI（Continuous Integration，持续集成）：一种软件开发实践，强调提交新代码后，立即进行构建、（单元）测试。根据测试结果来判断新旧分支是否可以正确集成在一起
 
