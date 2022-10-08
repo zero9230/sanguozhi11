@@ -5,5 +5,6 @@
     "base.user",
     "style",
     "mermaid-style"
-  ]
+  ],
+  "baseFontSize": 21
 }

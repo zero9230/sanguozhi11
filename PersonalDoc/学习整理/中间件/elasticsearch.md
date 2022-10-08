@@ -488,3 +488,4 @@ public class User implements Serializable {
     3.  kibana: https://mirrors.huaweicloud.com/kibana/?C=N&O=D
     4.  ik: https://github.com/medcl/elasticsearch-analysis-ik/releases
 
+     
