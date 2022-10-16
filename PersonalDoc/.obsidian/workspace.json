@@ -4,17 +4,36 @@
     "type": "split",
     "children": [
       {
-        "id": "e1a26e13645b0bae",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "生活类/菜谱.md",
-            "mode": "source",
-            "backlinks": false,
-            "source": false
+        "id": "e639a7c9074aa697",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a177dd456603fd5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习整理/java相关/JUnit.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ce48ecfcaf94b6c6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习整理/通用工具/LateX.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
-        }
+        ]
       }
     ],
     "direction": "vertical"
@@ -32,7 +51,9 @@
             "type": "leaf",
             "state": {
               "type": "file-explorer",
-              "state": {}
+              "state": {
+                "sortOrder": "alphabetical"
+              }
             }
           },
           {
@@ -70,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "生活类/菜谱.md",
+                "file": "学习整理/java相关/JUnit.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +108,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "生活类/菜谱.md"
+                "file": "学习整理/java相关/JUnit.md"
               }
             }
           },
@@ -98,6 +119,17 @@
               "type": "advanced-tables-toolbar",
               "state": {}
             }
+          },
+          {
+            "id": "fef3f2b62674e5b6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
           }
         ],
         "currentTab": 1
@@ -106,17 +138,20 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "e1a26e13645b0bae",
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "8a1513c9942fdb12",
   "lastOpenFiles": [
-    "学习整理/数据库/oracle.md",
-    "学习整理/数据库/基础SQL语法.md",
-    "生活类/菜谱.md",
-    "学习整理/中间件/elasticsearch.md",
-    "学习整理/java相关/java语言.md",
-    "学习整理/java相关/Java测试.md",
+    "学习整理/通用工具/LateX.md",
+    "未命名.md",
+    "学习整理/java相关/JUnit.md",
+    "学习整理/通用工具/资源集.md",
     "学习整理/java相关/Java并发.md",
-    "学习整理/通用工具/mermaid.md",
-    "生活类/三国志11资料收集.md",
-    "生活类/种植.md"
+    "学习整理/java相关/Java测试.md",
+    "学习整理/java相关/java语言.md",
+    "学习整理/java相关/MVEL.md",
+    "学习整理/通用工具/markdown.md",
+    "学习整理/通用工具/mermaid.md"
   ]
 }

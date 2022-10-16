@@ -1,10 +1,10 @@
-# 概述
+# 1 概述
 
 mac的软件下载安装工具
 
 
 
-# 配置镜像仓库
+# 2 配置镜像仓库
 
 查看配置
 
@@ -44,7 +44,7 @@ brew update
 
 
 
-# 参考
+# 3 参考
 
 1.  [mac下镜像飞速安装Homebrew教程](https://zhuanlan.zhihu.com/p/90508170) 
 2.  [homebrew官网](https://brew.sh/index_zh-cn) 
