@@ -3,7 +3,7 @@
   "livePreview": true,
   "alwaysUpdateLinks": true,
   "showFrontmatter": true,
-  "attachmentFolderPath": "./assets/三国杀",
+  "attachmentFolderPath": "./assets/oracle",
   "useMarkdownLinks": true,
   "communityPluginSortOrder": "download",
   "promptDelete": false,

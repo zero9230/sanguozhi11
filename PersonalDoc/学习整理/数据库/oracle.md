@@ -255,6 +255,7 @@ select sysdate,to_char(sysdate, 'yyyy-mm-dd') from dual;
 ### 5.5.3 按照gg_commit_timestamp分组
 
 ```sql
+
 ```
 
 
