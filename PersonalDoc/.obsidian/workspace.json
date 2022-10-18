@@ -13,7 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习整理/数据库/oracle.md",
+                "file": "个人设计/三国杀.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8399ad6774e0fc5d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "个人设计/游戏设计.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -30,7 +43,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -88,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/数据库/oracle.md",
+                "file": "个人设计/游戏设计.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +119,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/数据库/oracle.md"
+                "file": "个人设计/游戏设计.md"
               }
             }
           },
@@ -138,9 +152,10 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "1a177dd456603fd5",
+  "active": "8399ad6774e0fc5d",
   "lastOpenFiles": [
     "个人设计/三国杀.md",
+    "学习整理/数据库/oracle.md",
     "生活类/菜谱.md",
     "生活类/种植.md",
     "生活类/游戏攻略/火焰纹章-圣魔之光石.md",
@@ -148,7 +163,6 @@
     "学习整理/通用工具/LateX.md",
     "学习整理/java相关/java语言.md",
     "学习整理/java相关/JUnit.md",
-    "未命名.md",
-    "学习整理/通用工具/资源集.md"
+    "未命名.md"
   ]
 }
