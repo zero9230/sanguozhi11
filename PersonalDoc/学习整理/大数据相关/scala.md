@@ -49,9 +49,8 @@ val myVal : String = "Foo"
 
 
 
-
-
-
-
+# 3 参考资料
+1. [runoob-Scala 教程](https://www.runoob.com/scala/scala-tutorial.html)
+2. 
 
 
