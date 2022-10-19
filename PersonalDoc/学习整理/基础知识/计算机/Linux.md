@@ -55,7 +55,10 @@ linux系统下，进程对信号的默认响应方式有5种：
 
 # 2 流程控制
 
-## 2.1 if else
+## 2.1 定义变量
+
+
+## 2.2 if else
 
 实例
 
@@ -100,7 +103,7 @@ fi
 
 
 
-## 2.2 for循环
+## 2.3 for循环
 
 实例
 
@@ -113,7 +116,7 @@ done
 
 
 
-## 2.3 while循环
+## 2.4 while循环
 
 ```bash
 int=1
@@ -145,7 +148,7 @@ done
 
 
 
-## 2.4 无限循环
+## 2.5 无限循环
 
 ```bash
 while :
@@ -156,7 +159,7 @@ done
 
 
 
-## 2.5 until循环
+## 2.6 until循环
 
 一般while循环优于until
 
@@ -170,7 +173,7 @@ do
 done
 ```
 
-## 2.6 case…esac
+## 2.7 case…esac
 
 多选择语句，类似switch
 
@@ -192,7 +195,7 @@ case $aNum in
 esac
 ```
 
-## 2.7 break
+## 2.8 break
 
 跳出循环
 
@@ -211,7 +214,7 @@ do
 done
 ```
 
-## 2.8 continue
+## 2.9 continue
 
 类同continue
 
