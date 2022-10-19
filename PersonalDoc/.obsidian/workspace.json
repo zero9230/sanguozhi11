@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "个人设计/游戏设计.md",
+                "file": "学习整理/大数据相关/scala.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "个人设计/游戏设计.md",
+                "file": "学习整理/大数据相关/scala.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "个人设计/游戏设计.md"
+                "file": "学习整理/大数据相关/scala.md"
               }
             }
           },
@@ -154,6 +154,7 @@
   },
   "active": "8399ad6774e0fc5d",
   "lastOpenFiles": [
+    "个人设计/游戏设计.md",
     "个人设计/三国杀.md",
     "学习整理/数据库/oracle.md",
     "生活类/菜谱.md",
@@ -162,7 +163,6 @@
     "Excalidraw/转职路线图.md",
     "学习整理/通用工具/LateX.md",
     "学习整理/java相关/java语言.md",
-    "学习整理/java相关/JUnit.md",
-    "未命名.md"
+    "学习整理/java相关/JUnit.md"
   ]
 }
