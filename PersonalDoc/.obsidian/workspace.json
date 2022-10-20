@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习整理/算法/蒙特卡洛算法.md",
+                "file": "学习整理/算法/斗地主AI研学.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -37,17 +37,13 @@
             "id": "2b525053ac4c5eb8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "学习整理/算法/斗地主AI研学.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
+                "file": "学习整理/算法/斗地主AI研学.assets/2106.06135.pdf"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -105,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/算法/斗地主AI研学.md",
+                "file": "个人设计/三国杀.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +118,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/算法/斗地主AI研学.md"
+                "file": "个人设计/三国杀.md"
               }
             }
           },
@@ -155,17 +151,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "2b525053ac4c5eb8",
+  "active": "8399ad6774e0fc5d",
   "lastOpenFiles": [
+    "学习整理/算法/斗地主AI研学.md",
     "学习整理/算法/蒙特卡洛算法.md",
+    "学习整理/算法/斗地主AI研学.assets/2106.06135.pdf",
     "个人设计/三国杀.md",
     "生活类/三国志11资料收集.md",
     "生活类/种植.md",
     "生活类/菜谱.md",
     "学习整理/通用工具/mermaid.md",
     "学习整理/基础知识/计算机/Linux.md",
-    "学习整理/基础知识/计算机/shell.md",
-    "学习整理/基础知识/计算机/操作系统.md",
-    "学习整理/基础知识/计算机/计算机组成原理.md"
+    "学习整理/基础知识/计算机/shell.md"
   ]
 }
