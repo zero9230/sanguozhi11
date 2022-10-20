@@ -7,5 +7,6 @@
 
 # 2 参考资料
 1. github——[DouZero](https://github.com/kwai/DouZero) 
-2. 论文——[DouZero: Mastering DouDizhu with Self-Play Deep Reinforcement Learning](斗地主AI研学.assets/2106.06135.pdf) 
-3. 
+2. github——[rlcard](https://github.com/datamllab/rlcard) 
+3. 论文——[DouZero: Mastering DouDizhu with Self-Play Deep Reinforcement Learning](斗地主AI研学.assets/2106.06135.pdf) 
+4. 
