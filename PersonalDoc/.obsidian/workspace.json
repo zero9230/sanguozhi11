@@ -4,42 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "e639a7c9074aa697",
+        "id": "ab1c03af322f3023",
         "type": "tabs",
         "children": [
           {
-            "id": "8399ad6774e0fc5d",
+            "id": "d8efa479660c0685",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习整理/算法/斗地主AI研学.md",
+                "file": "学习整理/算法/论文翻译/RLCard：纸牌游戏中强化学习的工具包.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "86a192d9c98afb3c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "学习整理/算法/斗地主AI研学.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2b525053ac4c5eb8",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "学习整理/算法/斗地主AI研学.assets/2106.06135.pdf"
               }
             }
           }
@@ -85,7 +62,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 228
+    "width": 228,
+    "collapsed": true
   },
   "right": {
     "id": "c860a8b579f550d1",
@@ -101,7 +79,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/算法/斗地主AI研学.md",
+                "file": "学习整理/算法/论文翻译/RLCard：纸牌游戏中强化学习的工具包.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +96,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/算法/斗地主AI研学.md"
+                "file": "学习整理/算法/论文翻译/RLCard：纸牌游戏中强化学习的工具包.md"
               }
             }
           },
@@ -146,22 +124,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 254
+    "width": 254,
+    "collapsed": true
   },
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "8399ad6774e0fc5d",
+  "active": "d8efa479660c0685",
   "lastOpenFiles": [
+    "学习整理/算法/斗地主AI研学.md",
+    "学习整理/算法/论文翻译/RLCard：纸牌游戏中强化学习的工具包.md",
+    "学习整理/算法/论文翻译/DouZero：通过自玩深度强化学习掌握斗地主.md",
+    "学习整理/算法/斗地主AI研学.assets/2106.06135.pdf",
+    "学习整理/算法/斗地主AI研学.assets/1910.04376.pdf",
+    "学习整理/算法/未命名.md",
     "学习整理/通用工具/mermaid.md",
     "学习整理/通用工具/obsidian.md",
     "学习整理/通用工具/typora.md",
-    "学习整理/通用工具/资源集.md",
-    "个人设计/三国杀.md",
-    "学习整理/算法/斗地主AI研学.md",
-    "学习整理/算法/蒙特卡洛算法.md",
-    "学习整理/算法/斗地主AI研学.assets/2106.06135.pdf",
-    "生活类/三国志11资料收集.md",
-    "生活类/种植.md"
+    "学习整理/通用工具/资源集.md"
   ]
 }
