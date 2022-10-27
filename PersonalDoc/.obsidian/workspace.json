@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习整理/算法/论文翻译/DouZero：通过自玩深度强化学习掌握斗地主.md",
+                "file": "学习整理/大数据相关/spark.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -62,8 +62,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 228,
-    "collapsed": true
+    "width": 228
   },
   "right": {
     "id": "c860a8b579f550d1",
@@ -79,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/算法/论文翻译/DouZero：通过自玩深度强化学习掌握斗地主.md",
+                "file": "学习整理/大数据相关/spark.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,7 +95,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/算法/论文翻译/DouZero：通过自玩深度强化学习掌握斗地主.md"
+                "file": "学习整理/大数据相关/spark.md"
               }
             }
           },
@@ -124,23 +123,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 254,
-    "collapsed": true
+    "width": 254
   },
   "ribbon": {
     "mostRecentAction": ""
   },
   "active": "d8efa479660c0685",
   "lastOpenFiles": [
+    "学习整理/大数据相关/scala.md",
+    "学习整理/算法/论文翻译/DouZero：通过自玩深度强化学习掌握斗地主.md",
     "学习整理/算法/论文翻译/RLCard：纸牌游戏中强化学习的工具包.md",
     "学习整理/算法/斗地主AI研学.md",
-    "学习整理/算法/论文翻译/DouZero：通过自玩深度强化学习掌握斗地主.md",
     "学习整理/算法/斗地主AI研学.assets/2106.06135.pdf",
     "学习整理/算法/斗地主AI研学.assets/1910.04376.pdf",
     "学习整理/算法/未命名.md",
     "学习整理/通用工具/mermaid.md",
     "学习整理/通用工具/obsidian.md",
-    "学习整理/通用工具/typora.md",
-    "学习整理/通用工具/资源集.md"
+    "学习整理/通用工具/typora.md"
   ]
 }

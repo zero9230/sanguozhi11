@@ -8,6 +8,7 @@
 
 
 # 2 基础语法
+## 2.1 变量声明
 
 ```scala
 //声明变量实例如下：
@@ -30,7 +31,7 @@ val myVal : String = "Foo"
 ```
 
 
-
+## 2.2 数据类型
 ```scala
 //数据类型
 
@@ -47,10 +48,36 @@ val myVal : String = "Foo"
 //操作符 即 方法
 ```
 
+## 2.3 方法定义
 
+方法定义由一个 **def** 关键字开始，紧接着是可选的参数列表，一个冒号 : 和方法的返回类型，一个等于号 = ，最后是方法的主体。
+
+Scala 方法定义格式如下：
+```scala
+def functionName ([参数列表]) : [return type] = {
+   function body
+   return [expr]
+}
+```
+如
+```scala
+def sayHello( ) :Unit = {
+	println("Hello")
+}
+```
+
+```scala
+object add{  
+   def addInt( a:Int, b:Int ) : Int = {  
+      var sum:Int = 0  
+      sum = a + b  
+      return sum  
+   }  
+}
+```
 
 # 3 参考资料
-1. [runoob-Scala 教程](https://www.runoob.com/scala/scala-tutorial.html)
+1. [runoob-Scala 教程](https://www.runoob.com/scala/scala-tutorial.html) 
 2. 
 
 

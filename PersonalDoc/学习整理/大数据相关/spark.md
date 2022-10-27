@@ -57,6 +57,7 @@ spark推荐学习spark3.0版本
 1.   [Spark学习笔记之入门篇一](http://lousama.com/2016/01/11/Spark%E5%85%A5%E9%97%A8%E7%AF%87/) ——该文完成度很低
 2.   [Spark 学习笔记](https://blog.einverne.info/post/2017/01/spark.html) 
 3.   [Apache Spark 2.2.0 官方文档中文版](https://blog.csdn.net/u012185296/article/details/76855770) 
+4. 🌟 [Spark教程](https://www.hadoopdoc.com/spark/spark-sparkcontext)
 
 
 
