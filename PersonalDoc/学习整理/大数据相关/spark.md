@@ -50,14 +50,44 @@ spark SQL
 
 spark推荐学习spark3.0版本
 
+# 3 spark 基础
+## 3.1 SparkContext
+Spark应用程序执行的入口。可使Spark应用程序通过资源管理器访问Spark集群。
+其中资源管理器可以是：
+1. Spark Standalone
+2. Yarn
+3. Apache Mesos
+
+### 3.1.1 创建方式
+通过创建SparkConf，配置参数后，Spakr驱动程序（Driver）会将参数传递给SparkContext
+创建SparkContext后，可用过它调用spark函数，如textFile、sequenceFile、parallelize等。也可用其创建RDD、广播变量和作为累加器，进入Spark服务和运行作业
+
+### 3.1.2 关闭方式
+一个JVM只能运行一个SparkContext，
+调用SparkContext的`stop()`函数
+
+## 3.2 spark stage
+
+## 3.3 spark RDD
+RDD（Resilient Distributed Dataset），即弹性分布式数据集，是Spark的基础数据结构，具有以下特性
+-   **Resilient（弹性）**：RDD之间会形成有向无环图（DAG），如果RDD丢失了或者失效了，可以从父RDD重新计算得到。即容错性。
+-   **Distributed（分布式）**：RDD的数据是以逻辑分区的形式分布在集群的不同节点的。
+-   **Dataset（数据集）**：即RDD存储的数据记录，可以从外部数据生成RDD，例如Json文件，CSV文件，文本文件，数据库等。
 
 
-# 3 参考文献
+# 4 spark SQL
+架构图
+![](spark.assets/image-20221027163936591.png)
 
-1.   [Spark学习笔记之入门篇一](http://lousama.com/2016/01/11/Spark%E5%85%A5%E9%97%A8%E7%AF%87/) ——该文完成度很低
-2.   [Spark 学习笔记](https://blog.einverne.info/post/2017/01/spark.html) 
-3.   [Apache Spark 2.2.0 官方文档中文版](https://blog.csdn.net/u012185296/article/details/76855770) 
-4. 🌟 [Spark教程](https://www.hadoopdoc.com/spark/spark-sparkcontext)
+
+
+
+# 5 参考文献
+
+1.   [Spark 学习笔记](https://blog.einverne.info/post/2017/01/spark.html) 
+2.   [Apache Spark 2.2.0 官方文档中文版](https://blog.csdn.net/u012185296/article/details/76855770) 
+3. 🌟 大象教程—— [Spark教程](https://www.hadoopdoc.com/spark/spark-sparkcontext) 
+4.  [Spark学习笔记之入门篇一](http://lousama.com/2016/01/11/Spark%E5%85%A5%E9%97%A8%E7%AF%87/) ——该文完成度很低
 
 
 
