@@ -88,6 +88,10 @@ RDD（Resilient Distributed Dataset），即弹性分布式数据集，是Spark�
 2.   [Apache Spark 2.2.0 官方文档中文版](https://blog.csdn.net/u012185296/article/details/76855770) 
 3. 🌟 大象教程—— [Spark教程](https://www.hadoopdoc.com/spark/spark-sparkcontext) 
 4.  [Spark学习笔记之入门篇一](http://lousama.com/2016/01/11/Spark%E5%85%A5%E9%97%A8%E7%AF%87/) ——该文完成度很低
+5. 本地关联文档——[scala](scala.md)
+
+
+
 
 
 
