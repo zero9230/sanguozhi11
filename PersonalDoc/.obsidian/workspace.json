@@ -125,9 +125,6 @@
     "direction": "horizontal",
     "width": 254
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
   "active": "d8efa479660c0685",
   "lastOpenFiles": [
     "学习整理/大数据相关/scala.md",
