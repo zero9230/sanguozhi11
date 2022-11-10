@@ -12,6 +12,14 @@ Hadoop有1，2，3三个版本
 HDFS为主从架构，
 
 
+## 1.1 常见命令
+1. 查看所有文件
+```bash
+hdfs dfs -ls
+```
+
+
+
 # 2 Hive
 
 # 3 Hadoop
