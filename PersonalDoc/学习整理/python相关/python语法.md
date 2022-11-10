@@ -9,4 +9,6 @@ def 函数名（参数列表）:
 
 
 # 2 参考资料
-1. [菜鸟教程——Python 3 教程](https://www.runoob.com/python3/python3-tutorial.html)
+1.  [菜鸟教程——Python 3 教程](https://www.runoob.com/python3/python3-tutorial.html) 
+2.  [菜鸟教程——Python 基础教程](https://www.runoob.com/python/python-tutorial.html) 
+
