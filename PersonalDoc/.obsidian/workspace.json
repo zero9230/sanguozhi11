@@ -26,15 +26,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习整理/python相关/python语法.md",
+                "file": "学习整理/基础知识/数学基础/高等数学.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -92,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习整理/python相关/python语法.md",
+                "file": "学习整理/大数据相关/spark.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,7 +108,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习整理/python相关/python语法.md"
+                "file": "学习整理/大数据相关/spark.md"
               }
             }
           },
@@ -139,17 +138,17 @@
     "direction": "horizontal",
     "width": 254
   },
-  "active": "9864c36c02151ace",
+  "active": "d8efa479660c0685",
   "lastOpenFiles": [
-    "学习整理/未分类/量子计算.md",
+    "学习整理/基础知识/数学基础/高等数学.md",
+    "学习整理/通用工具/markdown.md",
     "学习整理/python相关/python语法.md",
+    "学习整理/未分类/量子计算.md",
     "学习整理/大数据相关/Hadoop.md",
     "学习整理/大数据相关/scala.md",
     "学习整理/大数据相关/spark.md",
     "生活类/游戏攻略/火焰纹章-圣魔之光石.md",
     "Excalidraw/转职路线图.md",
-    "学习整理/算法/PyTorch.md",
-    "学习整理/算法/论文翻译/DouZero：通过自玩深度强化学习掌握斗地主.md",
-    "学习整理/算法/论文翻译/RLCard：纸牌游戏中强化学习的工具包.md"
+    "学习整理/算法/PyTorch.md"
   ]
 }
